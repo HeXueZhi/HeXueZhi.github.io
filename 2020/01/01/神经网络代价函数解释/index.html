@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Hello World |  Hexo
+    神经网络的代价函数解释 |  Hexo
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -30,7 +30,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-hello-world" class="article article-type-post" itemscope
+  <article id="post-神经网络代价函数解释" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -38,7 +38,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World
+  神经网络的代价函数解释
 </h1>
   
 
@@ -47,8 +47,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/01/hello-world/" class="article-date">
-  <time datetime="2020-01-01T04:19:20.007Z" itemprop="datePublished">2020-01-01</time>
+      <a href="/2020/01/01/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0%E8%A7%A3%E9%87%8A/" class="article-date">
+  <time datetime="2020-01-01T07:17:01.931Z" itemprop="datePublished">2020-01-01</time>
 </a>
       
     </div>
@@ -71,26 +71,23 @@
       
 
       
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+      <h1 id="机器学习神经网络代价函数解释"><a href="#机器学习神经网络代价函数解释" class="headerlink" title="机器学习神经网络代价函数解释"></a>机器学习神经网络代价函数解释</h1><p><strong>首先回忆一下逻辑回归的代价函数</strong></p>
+<p>$$<br>J\left(\theta\right)=-\frac{1}{m}\sum_{i=1}^{m}\left[y^{\left(i\right)}\log{h_\theta\left(x^i\right)}+\left(1-y^{\left(i\right)}\right)\log{\left(1-h_\theta\left(x^{\left(i\right)}\right)\right)}\right]+\frac{\lambda}{2m}\sum_{j=1}^{m}\theta_j^2<br>$$</p>
+<p>根据之前的6-4小节（小节为吴恩达ML课程的章节号），定义的逻辑回归代价函数为：</p>
+<p>$$<br>J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_\theta\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)<br>$$</p>
+<p>其中：</p>
+<p>$$<br>Cost\left(h_\theta\left(x\right),y\right)={-\log{\left(h_\theta\left(x\right)\right)}\ \ \ \ \ \ \ \ \ \ \ if\ y=1\atop-\log{\left(1-h_\theta\left(x\right)\right)}\ \ \ if\ y=0}<br>$$</p>
+<p>将Cost函数简化为：</p>
+<p>$$<br>Cost\left(h_\theta\left(x\right),y\right)=-y\times\log{\left(h_\theta\left(x\right)\right)}-\left(1-y\right)\times\log{\left(1-h_\theta\left(x\right)\right)}<br>$$</p>
+<p>然后根据7-2小节，还需要将代价函数正则化。<br>正则获得主要方法是在代价函数之后加上，一个修正项，使θ减小。<br>最终就得到了逻辑回归的代价函数。</p>
+<p><strong>再来看神经网络的代价函数：</strong><br>$$<br>J\left(\Theta\right)=-\frac{1}{m}\sum_{i=1}^{m}\left{\sum_{k=1}^{K}\left[y_k^{\left(i\right)}\log{\left(h_\Theta\left(x^{\left(i\right)}\right)\right)<em>k}+\left(1-y_k^{\left(i\right)}\right)\log{\left(1-h_\Theta\left(x^{\left(i\right)}\right)\right)_k}\right]\right}+\frac{\lambda}{2m}\sum</em>{l=1}^{L}\sum_{i=1}^{s_l}\sum_{j=1}^{s_l+1}\left(\Theta_{ji}^{\left(l\right)}\right)^2<br>$$<br>换了大括号和中括号大家是不是一目了然。<br>大括号中就是一项代价函数，只不过这一项是由K阶向量组成，因此需要将K阶向量的每一阶的代价相加这样就得到一项。<br><strong>后面的正则化项</strong>大家可以看看8-4小节中公式的表达：<br>$$<br>g\left(\left[\begin{matrix}\theta_{10}^{\left(1\right)}&amp;\theta_{11}^{\left(1\right)}&amp;\theta_{12}^{\left(1\right)}\\theta_{20}^{\left(1\right)}&amp;\theta_{21}^{\left(1\right)}&amp;\theta_{22}^{\left(1\right)}\\theta_{30}^{\left(1\right)}&amp;\theta_{31}^{\left(1\right)}&amp;\theta_{32}^{\left(1\right)}\\end{matrix}\ \ \ \ \begin{matrix}\theta_{13}^{\left(1\right)}\\theta_{23}^{\left(1\right)}\\theta_{33}^{\left(1\right)}\\end{matrix}\right]\times\left[\begin{matrix}x_0\x_1\x_2\x_3\\end{matrix}\right]\right)<br>$$<br>代价函数中的正则项：其中第一个求和符号中得字母’<strong>L</strong>‘代表第几层的θ参数，第二个求和符号中得字母’<strong>i</strong>‘代表第几列，第二个求和符号中得字母’<strong>j</strong>‘代表第几行。公式中只不过是将字母”<strong>j</strong>“改为从1计数罢了。</p>
 
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/01/hello-world/" data-id="ck4uzsuhb0000jcuqfeqa73w7"
+      <a data-url="http://yoursite.com/2020/01/01/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0%E8%A7%A3%E9%87%8A/" data-id="ck4uzsuhr0001jcuq0drl5zt9"
         class="article-share-link">分享</a>
       
     </footer>
@@ -101,15 +98,11 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/01/01/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0%E8%A7%A3%E9%87%8A/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            神经网络的代价函数解释
-          
-        </div>
-      </a>
     
+      <a href="/2020/01/01/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
     
   </nav>
 
