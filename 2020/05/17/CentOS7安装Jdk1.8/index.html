@@ -53,17 +53,17 @@
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="前言 为公司服务器安JDK，记录一下过程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://q9kxhzys7.bkt.clouddn.com/img/QQ%E6%88%AA%E5%9B%BE20200517133840.png">
-<meta property="og:image" content="http://q9kxhzys7.bkt.clouddn.com/img/QQ%E6%88%AA%E5%9B%BE20200517135255.png">
-<meta property="og:image" content="http://q9kxhzys7.bkt.clouddn.com/img/image-20200517141720911.png">
-<meta property="og:image" content="http://q9kxhzys7.bkt.clouddn.com/img/image-20200517142140209.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/Ys5ilj7qRezJS31.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/vxmFlXpWOIwnS8q.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/1gUVSH2xoQmDleX.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/L2TdBOlJaFeIDGx.png">
 <meta property="article:published_time" content="2020-05-17T06:31:20.727Z">
-<meta property="article:modified_time" content="2020-05-17T06:32:08.357Z">
+<meta property="article:modified_time" content="2020-06-05T11:10:59.035Z">
 <meta property="article:author" content="RenKe XZ">
 <meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="JDK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q9kxhzys7.bkt.clouddn.com/img/QQ%E6%88%AA%E5%9B%BE20200517133840.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/06/05/Ys5ilj7qRezJS31.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/05/17/CentOS7%E5%AE%89%E8%A3%85Jdk1.8/">
 
@@ -217,10 +217,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-17 14:31:20 / 修改时间：14:32:08" itemprop="dateCreated datePublished" datetime="2020-05-17T14:31:20+08:00">2020-05-17</time>
+              <time title="创建时间：2020-05-17 14:31:20" itemprop="dateCreated datePublished" datetime="2020-05-17T14:31:20+08:00">2020-05-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-05 19:10:59" itemprop="dateModified" datetime="2020-06-05T19:10:59+08:00">2020-06-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -276,14 +282,14 @@
 <p>出现<code>未找到命令...</code>则表示删除成功。</p>
 <h3 id="第二步、下载JDK1-8"><a href="#第二步、下载JDK1-8" class="headerlink" title="第二步、下载JDK1.8"></a>第二步、下载JDK1.8</h3><h4 id="1、下载JDK"><a href="#1、下载JDK" class="headerlink" title="1、下载JDK"></a>1、下载JDK</h4><p>下载地址：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a></p>
 <p>这里下载对应的tar.gz文件即可CentOS7对应下载：</p>
-<p><img src="http://q9kxhzys7.bkt.clouddn.com/img/QQ%E6%88%AA%E5%9B%BE20200517133840.png" alt="QQ截图20200517133840"></p>
+<p><img src="https://i.loli.net/2020/06/05/Ys5ilj7qRezJS31.png" alt="QQ截图20200517133840"></p>
 <p><strong>注意：</strong>现在下载低于1.8版本的jdk需要登录，从网上找到了一个账号，亲测可用。</p>
 <p><strong>账号：</strong><a href="mailto:2696671285@qq.com">2696671285@qq.com</a></p>
 <p><strong>密码：</strong>Oracle123</p>
 <h4 id="2、上传JDK至服务器"><a href="#2、上传JDK至服务器" class="headerlink" title="2、上传JDK至服务器"></a>2、上传JDK至服务器</h4><p><strong>注意：</strong>如果上一步是直接在CentOS7中下载的这一步可以跳过。笔者是在win10系统中下载的JDK压缩包。</p>
 <p>简单说一下，连接你的服务器，通过sftp服务将压缩包上传至服务器。这里好用推荐一个软件：<strong>Bitvise SSH Client</strong></p>
 <p>登录服务器后，它会自动打开，shell窗口和Sftp窗口。</p>
-<p><img src="http://q9kxhzys7.bkt.clouddn.com/img/QQ%E6%88%AA%E5%9B%BE20200517135255.png" alt="QQ截图20200517135255"></p>
+<p><img src="https://i.loli.net/2020/06/05/vxmFlXpWOIwnS8q.png" alt="QQ截图20200517135255"></p>
 <p>直接上传你的压缩包即可。</p>
 <h3 id="第三步、安装JDK"><a href="#第三步、安装JDK" class="headerlink" title="第三步、安装JDK"></a>第三步、安装JDK</h3><h4 id="1、解压"><a href="#1、解压" class="headerlink" title="1、解压"></a>1、解压</h4><p>首先需要将压缩包移动到<code>/usr/java</code>文件夹下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp jdk-8u251-linux-x64.tar.gz /usr/java</span><br></pre></td></tr></table></figure>
@@ -302,14 +308,14 @@
 <p><strong>注意：</strong><code>JAVA_HOME=/usr/java/jdk1.8.0_251</code>就是你自己的目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\#java environment</span><br><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk1.8.0_251</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;jre&#x2F;lib&#x2F;rt.jar:$&#123;JAVA_HOME&#125;&#x2F;lib&#x2F;dt.jar:$&#123;JAVA_HOME&#125;&#x2F;lib&#x2F;tools.jar</span><br><span class="line">export PATH&#x3D;$PATH:$&#123;JAVA_HOME&#125;&#x2F;bin</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://q9kxhzys7.bkt.clouddn.com/img/image-20200517141720911.png" alt="image-20200517141720911"></p>
+<p><img src="https://i.loli.net/2020/06/05/1gUVSH2xoQmDleX.png" alt="image-20200517141720911"></p>
 <p>点击<code>esc</code>进入命令模式，输入<code>：wq!</code>保存修改信息</p>
 <p>然后键入以下命令使配置文件生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
 <h4 id="3、检查是否配置成功"><a href="#3、检查是否配置成功" class="headerlink" title="3、检查是否配置成功"></a>3、检查是否配置成功</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://q9kxhzys7.bkt.clouddn.com/img/image-20200517142140209.png" alt="image-20200517142140209"></p>
+<p><img src="https://i.loli.net/2020/06/05/L2TdBOlJaFeIDGx.png" alt="image-20200517142140209"></p>
 <p>至此JDK1.8就安装好了。</p>
 
     </div>
