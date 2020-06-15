@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>scrapy爬虫 | 何小智の博客 | 好记性不如烂笔头</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,scrapy">
+    <meta name="description" content="前言 学习了一下scrapy爬虫，记录一下过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy爬虫">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/scrapy%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:site_name" content="何小智の博客">
+<meta property="og:description" content="前言 学习了一下scrapy爬虫，记录一下过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/JXgyRfLoSO1V2EW.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/GzmRhMltLfBPE1w.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/GBnOXsPCAM9U1Wt.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/GyaXmnPUofhQADH.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/lu5rDegSPIMab7z.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/DTX7oHsF2xLNVR1.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/3LgwAxkH9WmCSqZ.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/TbJoWKl4Mye1PjI.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/16/z1SwWC2ctujKXY5.png">
+<meta property="article:published_time" content="2020-06-15T16:01:06.077Z">
+<meta property="article:modified_time" content="2020-06-15T16:26:20.829Z">
+<meta property="article:author" content="RenKe XZ">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="scrapy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/06/16/JXgyRfLoSO1V2EW.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RenKe XZ</h5>
+          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hexuezhi" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                about
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">scrapy爬虫</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">scrapy爬虫</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-15T16:01:06.077Z" itemprop="datePublished" class="page-time">
+  2020-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/scrapy/">scrapy</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scrapy爬虫"><span class="post-toc-text">scrapy爬虫</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、新建工程"><span class="post-toc-text">一、新建工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-创建项目"><span class="post-toc-text">1. 创建项目</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-创建爬虫程序"><span class="post-toc-text">2. 创建爬虫程序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-启动spider"><span class="post-toc-text">3. 启动spider</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、文件说明"><span class="post-toc-text">二、文件说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-items-py："><span class="post-toc-text">1. items.py：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-example-py"><span class="post-toc-text">2. example.py</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-main-py"><span class="post-toc-text">4. main.py</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、延迟获取"><span class="post-toc-text">三、延迟获取</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-DOWNLOAD-DELAY"><span class="post-toc-text">1. DOWNLOAD_DELAY</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-middleware"><span class="post-toc-text">2. middleware</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-安装selenium"><span class="post-toc-text">2.1 安装selenium</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-安装chromedriver"><span class="post-toc-text">2.2 安装chromedriver</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-3-配置"><span class="post-toc-text">2.3 配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-4-滚动加载配置（这部分好像有问题）"><span class="post-toc-text">2.4 滚动加载配置（这部分好像有问题）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、保存数据"><span class="post-toc-text">四、保存数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-保存至json"><span class="post-toc-text">1. 保存至json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-保存至es中"><span class="post-toc-text">2. 保存至es中</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-scrapy爬虫"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">scrapy爬虫</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-16 00:01:06" datetime="2020-06-15T16:01:06.077Z"  itemprop="datePublished">2020-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/scrapy/">scrapy</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr />
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>学习了一下scrapy爬虫，记录一下过程。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="scrapy爬虫"><a href="#scrapy爬虫" class="headerlink" title="scrapy爬虫"></a>scrapy爬虫</h2><h3 id="一、新建工程"><a href="#一、新建工程" class="headerlink" title="一、新建工程"></a>一、新建工程</h3><h4 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1. 创建项目"></a>1. 创建项目</h4><p>powershell下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject 工程名称</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-创建爬虫程序"><a href="#2-创建爬虫程序" class="headerlink" title="2. 创建爬虫程序"></a>2. 创建爬虫程序</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 工程名称</span><br><span class="line">scrapy genspider 程序名称 爬取的网站地址</span><br></pre></td></tr></table></figure>
+
+<p>注意：==网站地址前面不要有http://之类的==</p>
+<h4 id="3-启动spider"><a href="#3-启动spider" class="headerlink" title="3. 启动spider"></a>3. 启动spider</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawel 程序名称</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、文件说明"><a href="#二、文件说明" class="headerlink" title="二、文件说明"></a>二、文件说明</h3><ul>
+<li><strong>scrapy.cfg</strong>：项目的配置信息，主要为Scrapy命令行工具提供一个基础的配置信息。（真正爬虫相关的配置信息在settings.py文件中）</li>
+<li><strong>items.py</strong>：设置数据存储模板，用于结构化数据，如：Django的Model</li>
+<li><strong>pipelines</strong>：数据处理行为，如：一般结构化的数据持久化</li>
+<li><strong>settings.py</strong>：配置文件，如：递归的层数、并发数，延迟下载等</li>
+<li><strong>spiders</strong>：爬虫目录，如：创建文件，编写爬虫规则</li>
+</ul>
+<p>以上命名都是固定的</p>
+<hr>
+<h4 id="1-items-py："><a href="#1-items-py：" class="headerlink" title="1. items.py："></a>1. items.py：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThirdItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    name = scrapy.Field()</span><br><span class="line">    age = scrapy.Field()</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-example-py"><a href="#2-example-py" class="headerlink" title="2. example.py"></a>2. example.py</h4><p>example.py是scrapy genspider命令中spider名称</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">from</span> scrapy.http <span class="keyword">import</span> Request</span><br><span class="line"><span class="keyword">from</span> ..items <span class="keyword">import</span> Item<span class="comment">#导入自定义的item结构化数据类</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'example'</span></span><br><span class="line">    allowed_domains = [<span class="string">'example.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://example.com'</span>]<span class="comment">#要爬取的网页</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(response.body)<span class="comment">#打印获取到的网页源码</span></span><br><span class="line">        <span class="comment">#获取页面数据的两种方式</span></span><br><span class="line">        <span class="comment">#url = response.css(' ').extract()</span></span><br><span class="line">        url = response.xpath(<span class="string">' '</span>).extract()</span><br><span class="line">        <span class="keyword">for</span> next_url <span class="keyword">in</span> url:</span><br><span class="line">            <span class="keyword">yield</span> Request(url=parse.urljoin(response.url, next_url), callback=self.parse_detail)<span class="comment">#parse_detail为自定义函数</span></span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_detail</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">"================进入parse_detail================="</span>)</span><br><span class="line">        print(response.body)<span class="comment">#打印url的源码</span></span><br><span class="line">        items = Item()</span><br><span class="line">        items[<span class="string">'name'</span>] = response.xpath(<span class="string">' '</span>).extract_first(<span class="string">""</span>)</span><br><span class="line">        items[<span class="string">'name'</span>] = items[<span class="string">'name'</span>].replace(<span class="string">'\n'</span>, <span class="string">''</span>).replace(<span class="string">' '</span>, <span class="string">''</span>)</span><br><span class="line">        </span><br><span class="line">        items[<span class="string">'age'</span>] = response.xpath(<span class="string">' '</span>).extract_first(<span class="string">""</span>)</span><br><span class="line">        items[<span class="string">'age'</span>] = items[<span class="string">'age'</span>].replace(<span class="string">'\n'</span>, <span class="string">''</span>).replace(<span class="string">' '</span>, <span class="string">''</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">yield</span> items</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-main-py"><a href="#4-main-py" class="headerlink" title="4. main.py"></a>4. main.py</h4><p>在pycharm里，可以将指令写入main.py中，简化操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> cmdline</span><br><span class="line"></span><br><span class="line"><span class="comment">#cmdline.execute("scrapy","crawl","example")</span></span><br><span class="line">cmdline.execute(<span class="string">"scrapy crawl example"</span>.split())</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果没有出现运行标志，表示需要配置：</strong></p>
+<ol>
+<li><p>配置</p>
+<p><img src="https://i.loli.net/2020/06/16/JXgyRfLoSO1V2EW.png" alt="QQ截图20200323083706-1584923944607.png"></p>
+</li>
+<li><p>添加新配置</p>
+<p><img src="https://i.loli.net/2020/06/16/GzmRhMltLfBPE1w.png" alt="QQ截图20200323083807"></p>
+</li>
+<li><p>配置信息</p>
+<p><img src="https://i.loli.net/2020/06/16/GBnOXsPCAM9U1Wt.png" alt="QQ截图20200323084005"></p>
+</li>
+</ol>
+<p>==工作目录需要选择py文件的父文件夹==</p>
+<h3 id="三、延迟获取"><a href="#三、延迟获取" class="headerlink" title="三、延迟获取"></a>三、延迟获取</h3><p>对于浏览器看到的和实际打印的response.body不同的解决方法有两种，两种都可以进行尝试。</p>
+<h4 id="1-DOWNLOAD-DELAY"><a href="#1-DOWNLOAD-DELAY" class="headerlink" title="1. DOWNLOAD_DELAY"></a>1. DOWNLOAD_DELAY</h4><p>在setting.py中找到<code>DOWNLOAD_DELAY</code>取消注释设置值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOAD_DELAY = <span class="number">5</span> <span class="comment">#数值越大，延迟越大</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-middleware"><a href="#2-middleware" class="headerlink" title="2. middleware"></a>2. middleware</h4><h5 id="2-1-安装selenium"><a href="#2-1-安装selenium" class="headerlink" title="2.1 安装selenium"></a>2.1 安装selenium</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-安装chromedriver"><a href="#2-2-安装chromedriver" class="headerlink" title="2.2 安装chromedriver"></a>2.2 安装chromedriver</h5><p>注意：==chromedriver的版本一定要与Chrome的版本一致，不然就不起作用。==</p>
+<p>查看chrome版本方法：在浏览器地址栏输入chrome://version/</p>
+<p>两个下载地址：</p>
+<ol>
+<li><em><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a></em></li>
+<li><em><a href="https://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/chromedriver/</a></em></li>
+</ol>
+<p>解压压缩包，找到chromedriver.exe复制到chrome的安装目录（其实也可以随便放一个文件夹）。复制chromedriver.exe文件的路径并加入到电脑的环境变量中去（不添加也行，得记住路径）。具体的：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/06/16/GyaXmnPUofhQADH.png" alt="image-20200407175944138" title="">
+                </div>
+                <div class="image-caption">image-20200407175944138</div>
+            </figure>
+
+<p>进入环境变量编辑界面，添加到用户变量即可，双击PATH，将你的文件位置（C:\Program Files (x86)\Google\Chrome\Application）添加到后面。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/06/16/lu5rDegSPIMab7z.png" alt="image-20200407180622270" title="">
+                </div>
+                <div class="image-caption">image-20200407180622270</div>
+            </figure>
+
+<p>打开cmd，输入<code>chromedriver</code>监测是否安装成功。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/06/16/DTX7oHsF2xLNVR1.png" alt="image-20200407180356103" title="">
+                </div>
+                <div class="image-caption">image-20200407180356103</div>
+            </figure>
+
+<h5 id="2-3-配置"><a href="#2-3-配置" class="headerlink" title="2.3 配置"></a>2.3 配置</h5><ol>
+<li><p>将settings.py中的<code>DOWNLOADER_MIDDLEWARES</code>解除注释。</p>
+<p><img src="https://i.loli.net/2020/06/16/3LgwAxkH9WmCSqZ.png" alt="image-20200407233740811"></p>
+</li>
+<li><p>在middlewares.py导入将需要的包并且设置变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> scrapy.http <span class="keyword">import</span> HtmlResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(<span class="string">'--headless'</span>)</span><br><span class="line">driver = webdriver.Chrome(<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>,chrome_options=chrome_options)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在middlewares.py找到相应的middleware的类中的<code>process_request</code>函数，函数中添加以下代码，代码块如图。其中起关键作用的是<code>time.sleep(10)</code>，意思是延迟多长时间。延迟后再返回current.url和body。<em>本例中类名为<code>MyCrowlersDownloaderMiddleware</code>，具体类名会根据项目名变化。</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    driver.get(request.url)</span><br><span class="line"><span class="keyword">except</span> TimeoutException:</span><br><span class="line">    print(<span class="string">'超时，丢弃本页'</span>, request.url)</span><br><span class="line">    driver.execute_script(<span class="string">'window.stop()'</span>)</span><br><span class="line">time.sleep(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">return</span> HtmlResponse(url=driver.current_url, body=driver.page_source, encoding=<span class="string">"utf-8"</span>,request=request)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/06/16/TbJoWKl4Mye1PjI.png" alt="image-20200407235207035"></p>
+</li>
+</ol>
+<h5 id="2-4-滚动加载配置（这部分好像有问题）"><a href="#2-4-滚动加载配置（这部分好像有问题）" class="headerlink" title="2.4 滚动加载配置（这部分好像有问题）"></a>2.4 滚动加载配置（这部分好像有问题）</h5><ol>
+<li><p>在middlewares.py新导入一个包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>process_request</code>函数中添加以下代码，代码块如图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    spider.browser.get(request.url)</span><br><span class="line">    spider.browser.execute_script(<span class="string">'window.scrollTo(0, document.body.scrollHeight)'</span>)</span><br><span class="line"><span class="keyword">except</span> TimeoutException <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">'超时'</span>)</span><br><span class="line">    spider.browser.execute_script(<span class="string">'window.stop()'</span>)</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">return</span> HtmlResponse(url=spider.browser.current_url, body=spider.browser.page_source, encoding=<span class="string">"utf-8"</span>,request=request)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/06/16/z1SwWC2ctujKXY5.png" alt="image-20200407235904011.png"></p>
+</li>
+</ol>
+<h3 id="四、保存数据"><a href="#四、保存数据" class="headerlink" title="四、保存数据"></a>四、保存数据</h3><p>共使用三种保存方法，一种是保存为json文件，一种是直接保存到es中。</p>
+<h4 id="1-保存至json"><a href="#1-保存至json" class="headerlink" title="1. 保存至json"></a>1. 保存至json</h4><ol>
+<li><p>在piplines.py中添加如下代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapyCodePipeline</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        <span class="comment"># print('pipeline got item:',item)</span></span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy.exporters <span class="keyword">import</span> JsonItemExporter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JsonExporterPipleline</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># 调用scrapy提供的json export导出json文件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.file = open(<span class="string">'export.json'</span>, <span class="string">'wb'</span>)</span><br><span class="line">        self.exporter = JsonItemExporter(self.file, encoding=<span class="string">"utf-8"</span>, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">        self.exporter.start_exporting()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.exporter.finish_exporting()</span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.exporter.export_item(item)</span><br><span class="line">        <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在settings.py中找到<code>ITEM_PIPELINES</code>，改成如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ITEM_PIPELINES = &#123;<span class="comment"># item处理方式</span></span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.ScrapyCodePipeline': 300,</span></span><br><span class="line">   <span class="string">'scrapy_code.pipelines.JsonExporterPipleline'</span>: <span class="number">300</span>,</span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.MysqlTwistedPipline': 300,</span></span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.ElasticsearchPipeline': 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="2-保存至es中"><a href="#2-保存至es中" class="headerlink" title="2. 保存至es中"></a>2. 保存至es中</h4><ol>
+<li><p>在piplines.py的同级文件夹下建立Python Package，取名为models，在models下建立es_types.py。目录结构如下：</p>
+<ul>
+<li>models:<ul>
+<li>_<em>init_</em>.py</li>
+<li>es_types.py</li>
+</ul>
+</li>
+<li>piplines.py</li>
+</ul>
+</li>
+<li><p>在es_types.py中写入如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># elasticsearch_dsl：https://elasticsearch-dsl.readthedocs.io/en/latest/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> elasticsearch_dsl <span class="keyword">import</span> DocType, Date, Completion, Keyword, Text, Integer</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> elasticsearch_dsl.analysis <span class="keyword">import</span> CustomAnalyzer</span><br><span class="line"></span><br><span class="line"><span class="comment">#需要在es中安装ik分词器</span></span><br><span class="line">ik_analyzer = CustomAnalyzer(<span class="string">"ik_max_word"</span>, filter=[<span class="string">"lowercase"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> elasticsearch_dsl.connections <span class="keyword">import</span> connections</span><br><span class="line"></span><br><span class="line">es=connections.create_connection(host=<span class="string">"127.0.0.1"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">jobType</span><span class="params">(DocType)</span>:</span></span><br><span class="line">    <span class="comment"># 设置index名称和document名称</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Index</span>:</span></span><br><span class="line">        name = <span class="string">"51job"</span></span><br><span class="line">        doc_type = <span class="string">"_doc"</span></span><br><span class="line">        <span class="comment"># settings = &#123;</span></span><br><span class="line">        <span class="comment">#   "number_of_shards": 2,</span></span><br><span class="line">        <span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># <span class="doctag">TODO:</span>fileds定义</span></span><br><span class="line">    url = Keyword()  <span class="comment"># 不分词，默认保留256个字符</span></span><br><span class="line">    job_name = Text(</span><br><span class="line">        analyzer=<span class="string">"ik_max_word"</span>)  <span class="comment"># “中华人民共和国国歌”拆分为“中华人民共和国,中华人民,中华,华人,人民共和国,人民,人,民,共和国,共和,和,国国,国歌”，会穷尽各种可能的组合；</span></span><br><span class="line">    salary = Text(analyzer=<span class="string">"ik_smart"</span>)  <span class="comment"># 将“中华人民共和国国歌”拆分为“中华人民共和国,国歌”将“中华人民共和国国歌”拆分为“中华人民共和国,国歌”</span></span><br><span class="line">    company = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    job_position = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    experience = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    education = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    number_of_people = Integer()</span><br><span class="line">    published_time = Date()</span><br><span class="line">    position_detail = Text(analyzer=<span class="string">"ik_smart"</span>)</span><br><span class="line">    position_type = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    location = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line">    company_detail = Text(analyzer=<span class="string">"ik_max_word"</span>)</span><br><span class="line"></span><br><span class="line">    suggest = Completion(analyzer=ik_analyzer)  <span class="comment"># 搜索建议</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        super(jobType, self).__init__()<span class="comment">#调一下父类的init，避免init重写导致一些init操作没执行</span></span><br><span class="line">        self.assignment(item)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># <span class="doctag">TODO:</span>将item转换为es的数据</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">assignment</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="comment"># TODO：给没爬到的字段赋默认值：空串</span></span><br><span class="line">        keys = [<span class="string">'url'</span>, <span class="string">'job_name'</span>, <span class="string">'salary'</span>, <span class="string">'company'</span>, <span class="string">'job_position'</span>, <span class="string">'experience'</span>, <span class="string">'education'</span>, <span class="string">'number_of_people'</span>,</span><br><span class="line">                <span class="string">'published_time'</span>, <span class="string">'position_detail'</span>, <span class="string">'position_type'</span>, <span class="string">'location'</span>, <span class="string">'company_detail'</span>]</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> keys:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                item[key]</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                item[key] = <span class="string">''</span></span><br><span class="line">        <span class="comment"># TODO：将字段值转换为es的数据</span></span><br><span class="line">        <span class="comment"># 虽然只是将原来的item值赋给了成员变量，但这个过程中会执行数据格式转换操作，比如url本来在item是python的字符串类型，转换后变为es的keyword类型</span></span><br><span class="line">        self.url = item[<span class="string">'url'</span>]</span><br><span class="line">        self.job_name = item[<span class="string">'job_name'</span>]</span><br><span class="line">        self.salary = item[<span class="string">'salary'</span>]</span><br><span class="line">        self.company = item[<span class="string">'company'</span>]</span><br><span class="line">        self.job_position = item[<span class="string">'job_position'</span>]</span><br><span class="line">        self.experience = item[<span class="string">'experience'</span>]</span><br><span class="line">        self.education = item[<span class="string">'education'</span>]</span><br><span class="line">        self.number_of_people = item[<span class="string">'number_of_people'</span>]</span><br><span class="line">        self.published_time = item[<span class="string">'published_time'</span>]</span><br><span class="line">        self.position_detail = item[<span class="string">'position_detail'</span>]</span><br><span class="line">        self.position_type = item[<span class="string">'position_type'</span>]</span><br><span class="line">        self.location = item[<span class="string">'location'</span>]</span><br><span class="line">        self.company_detail = item[<span class="string">'company_detail'</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># # 或者简化代码为</span></span><br><span class="line">        <span class="comment"># for key in keys:</span></span><br><span class="line">        <span class="comment">#     vars(self)[key]=item[key]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># TODO：生成搜索建议词</span></span><br><span class="line">        self.suggest = self.gen_suggests(((self.job_name, <span class="number">10</span>), (self.company, <span class="number">3</span>), (self.position_type, <span class="number">7</span>)))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gen_suggests</span><span class="params">(self, info_tuple)</span>:</span></span><br><span class="line">        <span class="comment"># 根据字符串生成搜索建议数组</span></span><br><span class="line">        used_words = set()  <span class="comment"># set为去重功能</span></span><br><span class="line">        suggests = []</span><br><span class="line">        <span class="keyword">for</span> text, weight <span class="keyword">in</span> info_tuple:</span><br><span class="line">            <span class="keyword">if</span> text:</span><br><span class="line">                <span class="comment"># 字符串不为空时，调用elasticsearch的analyze接口分析字符串（分词、大小写转换）</span></span><br><span class="line">                words = es.indices.analyze(body=&#123;<span class="string">'text'</span>: text, <span class="string">'analyzer'</span>: <span class="string">"ik_max_word"</span>&#125;)</span><br><span class="line">                <span class="comment"># anylyzed_words = set([r["token"] for r in words["tokens"] if len(r["token"]) &gt; 1])</span></span><br><span class="line">                analyzed_words = []</span><br><span class="line">                <span class="keyword">for</span> r <span class="keyword">in</span> words[<span class="string">"tokens"</span>]:</span><br><span class="line">                    <span class="keyword">if</span> len(r[<span class="string">"tokens"</span>]) &gt; <span class="number">1</span>:</span><br><span class="line">                        analyzed_words.append(r[<span class="string">"tokens"</span>])</span><br><span class="line">                anylyzed_words = set(analyzed_words)</span><br><span class="line"></span><br><span class="line">                new_words = anylyzed_words - used_words</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                new_words = set()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> new_words:</span><br><span class="line">                suggests.append(&#123;<span class="string">'input'</span>: list(new_words), <span class="string">'weight'</span>: weight&#125;)</span><br><span class="line">        <span class="keyword">return</span> suggests</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在piplines.py中添加如下代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models.es_types <span class="keyword">import</span> jobType</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ElasticsearchPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        job = jobType(item)<span class="comment"># 将item转换为es所需格式</span></span><br><span class="line">        <span class="comment"># 将数据传入es</span></span><br><span class="line">        <span class="comment"># jobType继承自DocType，所以DocType有的函数，它都有。</span></span><br><span class="line">        <span class="comment"># save就是DocType定义的将类中的各成员变量打包成数据插入操作，进行数据插入的函数</span></span><br><span class="line">        job.save()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#仍返回item，使得运行窗口能看到爬到的数据</span></span><br><span class="line">        <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在settings.py中找到<code>ITEM_PIPELINES</code>，改成如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ITEM_PIPELINES = &#123;<span class="comment"># item处理方式</span></span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.ScrapyCodePipeline': 300,</span></span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.JsonExporterPipleline': 300,</span></span><br><span class="line">   <span class="comment"># 'scrapy_code.pipelines.MysqlTwistedPipline': 300,</span></span><br><span class="line">    <span class="string">'scrapy_code.pipelines.ElasticsearchPipeline'</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-15T16:26:20.829Z" itemprop="dateUpdated">2020-06-16 00:26:20</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
+            RenKe XZ
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scrapy/" rel="tag">scrapy</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jar包部署</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
