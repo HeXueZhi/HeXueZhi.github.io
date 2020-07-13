@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>python集合的一些基本操作 | 何小智の博客 | 好记性不如烂笔头</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,leetcode">
+    <meta name="description" content="前言 刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python集合的一些基本操作">
+<meta property="og:url" content="http://yoursite.com/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="何小智の博客">
+<meta property="og:description" content="前言 刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-12T13:03:11.494Z">
+<meta property="article:modified_time" content="2020-07-12T13:36:16.864Z">
+<meta property="article:author" content="RenKe XZ">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RenKe XZ</h5>
+          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hexuezhi" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                about
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python集合的一些基本操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python集合的一些基本操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-12T13:03:11.494Z" itemprop="datePublished" class="page-time">
+  2020-07-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python集合的一些基本操作"><span class="post-toc-text">python集合的一些基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、list"><span class="post-toc-text">一、list</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、列表的创建"><span class="post-toc-text">1、列表的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、列表的压入"><span class="post-toc-text">2、列表的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、列表的删除"><span class="post-toc-text">3、列表的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、列表排序"><span class="post-toc-text">4、列表排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、反转列表"><span class="post-toc-text">5、反转列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6、复制列表"><span class="post-toc-text">6、复制列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7、列表中某个元素出现的个数"><span class="post-toc-text">7、列表中某个元素出现的个数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8、某个值的第一个匹配项的index"><span class="post-toc-text">8、某个值的第一个匹配项的index</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、set"><span class="post-toc-text">二、set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、集合的创建"><span class="post-toc-text">1、集合的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、集合的压入"><span class="post-toc-text">2、集合的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、集合的删除"><span class="post-toc-text">3、集合的删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、dict"><span class="post-toc-text">三、dict</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、字典的创建"><span class="post-toc-text">1、字典的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、字典的压入"><span class="post-toc-text">2、字典的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、字典的删除"><span class="post-toc-text">3、字典的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、字典的遍历"><span class="post-toc-text">4、字典的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1、遍历键"><span class="post-toc-text">4.1、遍历键</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2、遍历值"><span class="post-toc-text">4.2、遍历值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-3、遍历键和值"><span class="post-toc-text">4.3、遍历键和值</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-python集合的一些基本操作"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python集合的一些基本操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-12 21:03:11" datetime="2020-07-12T13:03:11.494Z"  itemprop="datePublished">2020-07-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr />
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="python集合的一些基本操作"><a href="#python集合的一些基本操作" class="headerlink" title="python集合的一些基本操作"></a>python集合的一些基本操作</h2><h3 id="一、list"><a href="#一、list" class="headerlink" title="一、list"></a>一、list</h3><h4 id="1、列表的创建"><a href="#1、列表的创建" class="headerlink" title="1、列表的创建"></a>1、列表的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="comment">#快速创建队列并赋值</span></span><br><span class="line">nums = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line"><span class="comment">#快速创建二维数组，并赋值</span></span><br><span class="line">nums = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(m)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、列表的压入"><a href="#2、列表的压入" class="headerlink" title="2、列表的压入"></a>2、列表的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.append(x)</span><br><span class="line">nums.insert(index,x)<span class="comment">#在index插入x</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、列表的删除"><a href="#3、列表的删除" class="headerlink" title="3、列表的删除"></a>3、列表的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = nums.pop(<span class="number">1</span>)<span class="comment">#删除index为1的元素</span></span><br><span class="line">list.remove(<span class="number">2</span>)<span class="comment">#删除元素2的第一个匹配项</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、列表排序"><a href="#4、列表排序" class="headerlink" title="4、列表排序"></a>4、列表排序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line">nums.sort(key=<span class="literal">None</span>,reverse=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、反转列表"><a href="#5、反转列表" class="headerlink" title="5、反转列表"></a>5、反转列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.reverse()</span><br></pre></td></tr></table></figure>
+
+<h4 id="6、复制列表"><a href="#6、复制列表" class="headerlink" title="6、复制列表"></a>6、复制列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.copy()</span><br></pre></td></tr></table></figure>
+
+<h4 id="7、列表中某个元素出现的个数"><a href="#7、列表中某个元素出现的个数" class="headerlink" title="7、列表中某个元素出现的个数"></a>7、列表中某个元素出现的个数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.count(x)<span class="comment">#x出现的次数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8、某个值的第一个匹配项的index"><a href="#8、某个值的第一个匹配项的index" class="headerlink" title="8、某个值的第一个匹配项的index"></a>8、某个值的第一个匹配项的index</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.index(x)</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、set"><a href="#二、set" class="headerlink" title="二、set"></a>二、set</h3><h4 id="1、集合的创建"><a href="#1、集合的创建" class="headerlink" title="1、集合的创建"></a>1、集合的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums = &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、集合的压入"><a href="#2、集合的压入" class="headerlink" title="2、集合的压入"></a>2、集合的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums.add(x)</span><br><span class="line"><span class="comment">#高级方法</span></span><br><span class="line">nums.update(x)<span class="comment">#x可以是列表、元组、字典，且x可以又多个，用逗号隔开</span></span><br><span class="line">nums.update([<span class="number">1</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line"><span class="comment">#&#123;1, 3, 4, 5, 6&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、集合的删除"><a href="#3、集合的删除" class="headerlink" title="3、集合的删除"></a>3、集合的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.remove(x)<span class="comment">#如果元素不存在会发生错误</span></span><br><span class="line">nums.discard(x)<span class="comment">#如果元素不存在不会发生错误</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、dict"><a href="#三、dict" class="headerlink" title="三、dict"></a>三、dict</h3><h4 id="1、字典的创建"><a href="#1、字典的创建" class="headerlink" title="1、字典的创建"></a>1、字典的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums = &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、字典的压入"><a href="#2、字典的压入" class="headerlink" title="2、字典的压入"></a>2、字典的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums[x] = y</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、字典的删除"><a href="#3、字典的删除" class="headerlink" title="3、字典的删除"></a>3、字典的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> nums[x]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、字典的遍历"><a href="#4、字典的遍历" class="headerlink" title="4、字典的遍历"></a>4、字典的遍历</h4><h5 id="4-1、遍历键"><a href="#4-1、遍历键" class="headerlink" title="4.1、遍历键"></a>4.1、遍历键</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> nums:</span><br><span class="line">    print(nums[key])</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> nums.keys():</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-2、遍历值"><a href="#4-2、遍历值" class="headerlink" title="4.2、遍历值"></a>4.2、遍历值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> nums.values():</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3、遍历键和值"><a href="#4-3、遍历键和值" class="headerlink" title="4.3、遍历键和值"></a>4.3、遍历键和值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> nums.items():</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-12T13:36:16.864Z" itemprop="dateUpdated">2020-07-12 21:36:16</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
+            RenKe XZ
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/12/python%E5%88%B7%E9%A2%98%E7%9A%84%E6%A0%88%E9%98%9F%E5%88%97%E5%92%8C%E5%A0%86%E7%9A%84%E5%AE%9E%E7%8E%B0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python刷题过程中的栈、队列和堆的实现</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
