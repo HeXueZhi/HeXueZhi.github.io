@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-17T15:35:38.994Z</updated>
+  <updated>2020-07-19T02:55:18.116Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近期面试经验总结</title>
+    <link href="http://yoursite.com/2020/07/19/%E8%BF%91%E6%9C%9F%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2020/07/19/%E8%BF%91%E6%9C%9F%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</id>
+    <published>2020-07-19T02:22:17.131Z</published>
+    <updated>2020-07-19T02:55:18.116Z</updated>
+    
+    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>近期面试了几个后端岗位，记录一下面试得出的经验。</p></blockquote><a id="more"></a><h2 id="一、面试中的问题"><a href="#一、面试中的问题" class="headerlink" title="一、面试中的问题"></a>一、面试中的问题</h2><h4 id="1-问简历上的项目"><a href="#1-问简历上的项目" class="headerlink" title="1.问简历上的项目"></a>1.问简历上的项目</h4><p>大体来说就是会照着简历上写的项目来进行提问。<br>首先，就是项目的总体框架，涉及到的技术栈。会对涉及到的知识进行提问。</p><p>其次，在项目中的具体工作，就是你负责了哪一部分。项目中遇到的困难，以及如何解决的。</p><p>最后，面试官问这些一个是测试你的技术掌握的深度，再一个就是看看你对技术的热情程度。所以需要在这个过程中体现出来自己对技术的热枕。</p><h4 id="2-操作系统相关"><a href="#2-操作系统相关" class="headerlink" title="2.操作系统相关"></a>2.操作系统相关</h4><ul><li>进程管理</li><li>内存管理</li><li>死锁相关</li></ul><h4 id="3-计算机网络相关"><a href="#3-计算机网络相关" class="headerlink" title="3.计算机网络相关"></a>3.计算机网络相关</h4><ul><li>http<ul><li>https</li><li>http2.0</li></ul></li><li>osi和tcp/ip网络模型</li><li>Tcp三次握手，四次挥手。这里不仅要知道怎么握手，还要知道为什么是三次和四次</li><li>cookie和session</li><li>从输入网址到显示页面，发生了什么</li></ul><h4 id="4-mysql相关"><a href="#4-mysql相关" class="headerlink" title="4.mysql相关"></a>4.mysql相关</h4><ul><li>事务<ul><li>定义及四个特征</li><li>隔离级别</li></ul></li><li>innodb和myisam存储引擎</li><li>脏读，不可重复度和幻读</li><li>索引<ul><li>索引的类型</li><li>匹配原则</li><li>底层数据结构：B+树</li></ul></li></ul><h4 id="5-java"><a href="#5-java" class="headerlink" title="5.java"></a>5.java</h4><h5 id="5-1-java集合"><a href="#5-1-java集合" class="headerlink" title="5.1 java集合"></a>5.1 java集合</h5><ul><li>hashmap</li><li>arrayList</li></ul><h5 id="5-2-JVM"><a href="#5-2-JVM" class="headerlink" title="5.2  JVM"></a>5.2  JVM</h5><ul><li>内存机构</li><li>垃圾回收机制</li></ul><h5 id="5-3-多线程"><a href="#5-3-多线程" class="headerlink" title="5.3 多线程"></a>5.3 多线程</h5><ul><li>hashmap、hashtable、CurrentHashMap</li><li>锁</li></ul><h2 id="二、面试经验"><a href="#二、面试经验" class="headerlink" title="二、面试经验"></a>二、面试经验</h2><h4 id="1-算法方面"><a href="#1-算法方面" class="headerlink" title="1.算法方面"></a>1.算法方面</h4><p>首先，要弄清楚面试官的需求。以及一些题目的要求。所以第一步是<strong>一定不要马上写代码</strong>！！！拿到题目要问清楚面试官的具体要求，然后把自己的具体思路讲述给面试官。<strong>思路得到面试官肯定后，再写代码。</strong></p><p>其次，在写代码的过程中，一定要注意程序的<strong>鲁棒性</strong>。特别要考虑一些空值和边界值的情况</p><p>最后，面试官出的题目可能是连环题，在你写完代码之后，会问你写的程序的<strong>时间复杂度和空间复杂度</strong>。然后再问你<strong>优化方案</strong>。</p><h4 id="2-项目经历方面"><a href="#2-项目经历方面" class="headerlink" title="2.项目经历方面"></a>2.项目经历方面</h4><p>首先一个明确你在项目中的工作，然后是技术难点和解决方案，也有可能是技术亮点。</p><p>这类问题回答过程中一定要体现自己对于技术的热情。</p><h4 id="3-基础知识方面"><a href="#3-基础知识方面" class="headerlink" title="3.基础知识方面"></a>3.基础知识方面</h4><p>第一种就是单纯问你的基础知识，这方面理解的基础上记忆就好了。</p><p>第二种就比较复杂。面试官会结合具体的实际业务场景来对基础知识进行提问。这一块要求对知识的掌握程度更加深刻。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr /&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;近期面试了几个后端岗位，记录一下面试得出的经验。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="面经" scheme="http://yoursite.com/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>字节跳动懂车帝后端面经</title>
