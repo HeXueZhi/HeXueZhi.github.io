@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-26T14:34:08.070Z</updated>
+  <updated>2020-07-30T14:38:19.839Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode150、逆波兰表达式求值</title>
+    <link href="http://yoursite.com/2020/07/30/LeetCode150/"/>
+    <id>http://yoursite.com/2020/07/30/LeetCode150/</id>
+    <published>2020-07-30T14:13:46.790Z</published>
+    <updated>2020-07-30T14:38:19.839Z</updated>
+    
+    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>想把自己刷题过程中一些，使用经典方法、思想的题记录下来。</p></blockquote><a id="more"></a><h2 id="LeetCode150、逆波兰表达式求值"><a href="#LeetCode150、逆波兰表达式求值" class="headerlink" title="LeetCode150、逆波兰表达式求值"></a>LeetCode150、逆波兰表达式求值</h2><p><strong>题目地址：</strong></p><p><a href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/</a></p><h3 id="解法：栈、python除法"><a href="#解法：栈、python除法" class="headerlink" title="解法：栈、python除法"></a>解法：栈、python除法</h3><p>逆波兰表达式是一种后缀表达式，所谓后缀就是指算符写在后面。<br>适合用栈操作运算：<strong>遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中。</strong></p><p><strong>有坑：</strong>python除法<strong>向下取整</strong>。</p><p>主要是负数除法操作，-45//7算出来的结果是-7。</p><p>原因是负数除法第一个数到第二个数之间的距离是多少。</p><p>-45到７的距离为52，52//7=7，其结果在加上符号为-7。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">evalRPN</span><span class="params">(self, tokens: List[str])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> tokens:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        stack = []</span><br><span class="line">        tokensLen = len(tokens)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(tokensLen):</span><br><span class="line">            <span class="keyword">if</span> tokens[i] != <span class="string">"+"</span> <span class="keyword">and</span> tokens[i] != <span class="string">"-"</span> <span class="keyword">and</span> tokens[i] != <span class="string">"*"</span> <span class="keyword">and</span> tokens[i] != <span class="string">"/"</span>:</span><br><span class="line">                stack.append(int(tokens[i]))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                num2 = stack.pop()</span><br><span class="line">                num1 = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> tokens[i] == <span class="string">"+"</span>:</span><br><span class="line">                    stack.append(num1+num2)</span><br><span class="line">                <span class="keyword">elif</span> tokens[i] == <span class="string">"-"</span>:</span><br><span class="line">                    stack.append(num1-num2)</span><br><span class="line">                <span class="keyword">elif</span> tokens[i] == <span class="string">"*"</span>:</span><br><span class="line">                    stack.append(num1*num2)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="comment">#判断num1和num2是不是异号，用了异或操作符</span></span><br><span class="line">                    <span class="keyword">if</span> (num1&lt;<span class="number">0</span>) ^ (num2&lt;<span class="number">0</span>):</span><br><span class="line">                        stack.append((abs(num1)//abs(num2))*<span class="number">-1</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        stack.append(abs(num1)//abs(num2))</span><br><span class="line">        <span class="keyword">return</span> stack[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr /&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;想把自己刷题过程中一些，使用经典方法、思想的题记录下来。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode329、矩阵中的最长递增路径</title>
@@ -550,33 +577,6 @@
     
     
       <category term="图床应用" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>功能测试</title>
-    <link href="http://yoursite.com/2020/01/03/test/"/>
-    <id>http://yoursite.com/2020/01/03/test/</id>
-    <published>2020-01-03T03:41:23.267Z</published>
-    <updated>2020-06-05T11:24:17.377Z</updated>
-    
-    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>测试一些博客的功能<br><img src="https://i.loli.net/2020/06/05/gSDOawKukWfAlGj.jpg"></p></blockquote><a id="more"></a><img src="https://i.loli.net/2020/06/05/2ZsjRpGgaiuvtyQ.jpg"><p><a href="/download/test.py"">点击下载text.py</a></p><video width="100%" height="400" src="/video/movie.mp4" controls="controls">The `<video>` tag is not supported by your browser.</video>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr /&gt;
-
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;测试一些博客的功能&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2020/06/05/gSDOawKukWfAlGj.jpg&quot;&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
