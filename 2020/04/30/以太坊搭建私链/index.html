@@ -21,22 +21,18 @@
     
     
     <meta name="keywords" content="私链搭建">
-    <meta name="description" content="前言 主要涉及到搭建私链的操作。">
+    <meta name="description" content="前言 创建Dapp的第一步，搭建私链。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以太坊搭建私链">
-<meta property="og:url" content="http://yoursite.com/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 主要涉及到搭建私链的操作。">
+<meta property="og:description" content="前言 创建Dapp的第一步，搭建私链。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/06/05/7oD4xFIgHmJk5vU.png">
-<meta property="og:image" content="https://i.loli.net/2020/06/05/YuL4eqF8fUQpiVc.png">
-<meta property="og:image" content="https://i.loli.net/2020/06/05/KCXyd2otkePlsFA.png">
 <meta property="article:published_time" content="2020-04-30T04:00:47.472Z">
-<meta property="article:modified_time" content="2020-06-05T11:32:21.893Z">
+<meta property="article:modified_time" content="2020-08-18T07:25:30.237Z">
 <meta property="article:author" content="RenKe XZ">
 <meta property="article:tag" content="私链搭建">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/06/05/7oD4xFIgHmJk5vU.png">
     
         <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
     
@@ -167,12 +163,12 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、安装GO"><span class="post-toc-text">一、安装GO</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、安装geth"><span class="post-toc-text">二、安装geth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、geth操作"><span class="post-toc-text">三、geth操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、查看geth版本"><span class="post-toc-text">1、查看geth版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、启动节点同步"><span class="post-toc-text">2、启动节点同步</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、搭建私链"><span class="post-toc-text">3、搭建私链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、私链console"><span class="post-toc-text">4、私链console</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、环境准备"><span class="post-toc-text">一、环境准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-安装go"><span class="post-toc-text">1.1 安装go</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-安装cmake"><span class="post-toc-text">1.2 安装cmake</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、安装geth"><span class="post-toc-text">二、安装geth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、geth操作"><span class="post-toc-text">三、geth操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、启动节点同步，（搭建私链不需要）"><span class="post-toc-text">1、启动节点同步，（搭建私链不需要）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、开发者模式"><span class="post-toc-text">2、开发者模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、搭建私链"><span class="post-toc-text">3、搭建私链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、私链console"><span class="post-toc-text">4、私链console</span></a></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-以太坊操作"
+<article id="post-以太坊搭建私链"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -196,60 +192,114 @@
             <hr />
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>主要涉及到搭建私链的操作。</p>
+<p>创建Dapp的第一步，搭建私链。</p>
 </blockquote>
 <a id="more"></a>
 
-<h3 id="一、安装GO"><a href="#一、安装GO" class="headerlink" title="一、安装GO"></a>一、安装GO</h3><h3 id="二、安装geth"><a href="#二、安装geth" class="headerlink" title="二、安装geth"></a>二、安装geth</h3><h3 id="三、geth操作"><a href="#三、geth操作" class="headerlink" title="三、geth操作"></a>三、geth操作</h3><h4 id="1、查看geth版本"><a href="#1、查看geth版本" class="headerlink" title="1、查看geth版本"></a>1、查看geth版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> project/go-ethereum</span><br><span class="line">./build/bin/geth version</span><br></pre></td></tr></table></figure>
+<h3 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h3><h4 id="1-1-安装go"><a href="#1-1-安装go" class="headerlink" title="1.1 安装go"></a>1.1 安装go</h4><ol>
+<li><p>下载源码，上传至<code>opt/module</code>，解压。以下所有的文件解压后的文件夹，全部修改文件夹名为：<strong>包名+版本号</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf go1.14.6.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT&#x3D;&#x2F;opt&#x2F;module&#x2F;go1.14.6</span><br><span class="line">#GOPATH需要自己新建一个文件夹</span><br><span class="line">export GOPATH&#x3D;&#x2F;root&#x2F;Code&#x2F;go</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go1.14.6&#x2F;bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
+</li>
+<li><p>验证安装:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
 
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/06/05/7oD4xFIgHmJk5vU.png" alt="QQ截图20200304013644" title="">
-                </div>
-                <div class="image-caption">QQ截图20200304013644</div>
-            </figure>
+</li>
+</ol>
+<h4 id="1-2-安装cmake"><a href="#1-2-安装cmake" class="headerlink" title="1.2 安装cmake"></a>1.2 安装cmake</h4><ol>
+<li><p>下载源码，上传至<code>opt/module</code>，解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf cmake-3.15.2.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;cmake3.15.2&#x2F;bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
+</li>
+<li><p>安装gcc程序包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make automake</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入cmke目录执行以下下命令，完成编译。这几步时间有些长，耐心等待。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cmake3.15.2</span><br><span class="line">./bootstrap</span><br><span class="line">gmake</span><br><span class="line">gmake install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
 
-<p>也可以将路径添加到PATH环境变量中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">//先查看环境变量</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二、安装geth"><a href="#二、安装geth" class="headerlink" title="二、安装geth"></a>二、安装geth</h3><ol>
+<li><p><a href="https://github.com/ethereum/go-ethereum/releases" target="_blank" rel="noopener">下载源码</a>，上传至<code>opt/module</code>，解压。如果下载速度缓慢，可以到github的镜像站下载：<a href="https://hub.fastgit.org/ethereum/go-ethereum/releases" target="_blank" rel="noopener">https://hub.fastgit.org/ethereum/go-ethereum/releases</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf go-ethereum-1.9.19.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go-ethereum1.9.19&#x2F;build&#x2F;bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
+</li>
+<li><p>执行以下命令来编译源码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go env -w GOPROXY=https://goproxy.cn</span><br><span class="line"><span class="built_in">cd</span> go-ethereum1.9.19</span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth version</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、启动节点同步"><a href="#2、启动节点同步" class="headerlink" title="2、启动节点同步"></a>2、启动节点同步</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --syncmode fast</span><br><span class="line">//一快速模式同步区块，只会下载每个区块同和区块体，不会执行验证所有的交易。</span><br><span class="line"></span><br><span class="line">geth --testnet --datadit . --syncmode fast</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="三、geth操作"><a href="#三、geth操作" class="headerlink" title="三、geth操作"></a>三、geth操作</h3><h4 id="1、启动节点同步，（搭建私链不需要）"><a href="#1、启动节点同步，（搭建私链不需要）" class="headerlink" title="1、启动节点同步，（搭建私链不需要）"></a>1、启动节点同步，（搭建私链不需要）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --syncmode fast</span><br><span class="line">//一快速模式同步区块，只会下载每个区块同和区块体，不会执行验证所有的交易。</span><br><span class="line"></span><br><span class="line">geth --testnet --datadit . --syncmode fast</span><br></pre></td></tr></table></figure>
 
-<h4 id="3、搭建私链"><a href="#3、搭建私链" class="headerlink" title="3、搭建私链"></a>3、搭建私链</h4><p>创建genesis.json</p>
+<h4 id="2、开发者模式"><a href="#2、开发者模式" class="headerlink" title="2、开发者模式"></a>2、开发者模式</h4><p>开发者模式：是为方便以太坊开发者在以太坊平台上开发测试所建立的一种模式。开发者模式相比自己搭建私链有很多好处，不如不需要链码，会预留一个拥有巨额ETH的账户，账户之间转账不需要先解锁，采用POA证明方式，自动进行挖矿且有交易才挖矿（不会一直挖矿消耗资源）。总体是类似与ganache的模拟链。</p>
+<p><strong>开发者模式的开启方法：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir devChain</span><br><span class="line"><span class="built_in">cd</span> devChain</span><br><span class="line">geth --datadir . --dev --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>–datadir：以太坊私链的文件目录。</li>
+<li>–dev：开启开发者模式。</li>
+<li>–nodiscover：不发现同一个networkid其他节点。</li>
+<li>–networkid：以太坊的网路id，可以自己任意取值。</li>
+<li>–rpc：开启rpc接口，Dapp就是通过rpc方式来与以太坊进行交互。</li>
+<li>–rpcaddr：rpc的ip，默认是localhost，这里填写的是CentOS本机的IP。如在本地运行虚拟机，网络IP最好不要用DHCP模式获取，<a href="https://hexuezhi.github.io/2020/05/20/CentOS7设置网络/" target="_blank" rel="noopener">固定IP的设置方法</a>。如是远程服务器，填服务器的ip即可。</li>
+<li>–rpcport：rpc端口，需要将防火墙中的8545端口开放，开放方法：<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/" target="_blank" rel="noopener">防火墙设置</a></li>
+<li>console：开启console，能够和geth交互。</li>
+<li>–allow-insecure-unlock：没有这个参数,无法解锁账户。</li>
+<li>2&gt;output.log：将输出重定向到文件中。</li>
+</ul>
+<p>output.log中会包括私链开启以及挖矿的详细信息，执行以下命令可以查看私链运行状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f output.log</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、搭建私链"><a href="#3、搭建私链" class="headerlink" title="3、搭建私链"></a>3、搭建私链</h4><p>新建mychain文件夹，创建genesis.json</p>
+<p><strong>chainId：</strong>以太坊的链的id，可以自己随便取值，但是需要注意搭建私链时，这个值<strong>不能与以太坊主网或者是测试网的chainId相同</strong>。<a href="https://chainid.network/" target="_blank" rel="noopener">以太坊chainId查询</a></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">    <span class="attr">"chainId"</span>: <span class="number">666</span>,</span><br><span class="line">    <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip150Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip150Hash"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">    <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip158Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"byzantiumBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"constantinopleBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"petersburgBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"istanbulBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"ethash"</span>: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"nonce"</span>: <span class="string">"0x0"</span>,</span><br><span class="line">  <span class="attr">"timestamp"</span>: <span class="string">"0x5ddf8f3e"</span>,</span><br><span class="line">  <span class="attr">"extraData"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"gasLimit"</span>: <span class="string">"0x47b760"</span>,</span><br><span class="line">  <span class="attr">"difficulty"</span>: <span class="string">"0x00002"</span>,</span><br><span class="line">  <span class="attr">"mixHash"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"coinbase"</span>: <span class="string">"0x0000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"alloc"</span>: &#123; &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  "number": "0x0",</span><br><span class="line">  "gasUsed": "0x0",</span><br><span class="line">  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在go-ethereum文件夹下，初始化链json</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/bin/geth --datadir data init genesis.json</span><br></pre></td></tr></table></figure>
+<p>在mychain文件夹下，初始化链json</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . init genesis.json</span><br></pre></td></tr></table></figure>
 
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/06/05/YuL4eqF8fUQpiVc.png" alt="QQ截图20200304020234" title="">
-                </div>
-                <div class="image-caption">QQ截图20200304020234</div>
-            </figure>
+<p>启动私链，<code>networkid</code>和<code>rpcaddr</code>的设置方法同开发者模式。查看输出日志<code>output.log</code>同上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
 
-<p>在myChain文件夹下，启动私链</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir data --nodiscover --networkid 123456 --rpc --rpccorsdomain <span class="string">"*"</span> console --allow-insecure-unlock</span><br></pre></td></tr></table></figure>
-
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/06/05/KCXyd2otkePlsFA.png" alt="启动私链" title="">
-                </div>
-                <div class="image-caption">启动私链</div>
-            </figure>
-
-<h4 id="4、私链console"><a href="#4、私链console" class="headerlink" title="4、私链console"></a>4、私链console</h4><p>查看块数量</p>
+<p><strong>注意：</strong>搭建私链后一定要进行以下测试，看是否能够正常发起交易。</p>
+<h4 id="4、私链console"><a href="#4、私链console" class="headerlink" title="4、私链console"></a>4、私链console</h4><p>验证交易的步骤是：</p>
+<ol>
+<li>创建两个账户</li>
+<li>执行挖矿</li>
+<li>执行转账</li>
+<li>查看recipient余额</li>
+</ol>
+<p>查看块数量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
 
 <p>创建账户：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">personal.newAccount(<span class="string">"password"</span>)</span><br></pre></td></tr></table></figure>
 
-<p>获取账户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my=eth.accounts[0]</span><br><span class="line">another=eth.accounts[1]</span><br></pre></td></tr></table></figure>
+<p>执行挖矿：(这一步会生成DAG，花费时间会很长，需要耐心等待到100%)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.start(1)</span><br></pre></td></tr></table></figure>
 
-<p>解锁账户：</p>
+<p>获取账户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my=eth.accounts[0]</span><br><span class="line">other=eth.accounts[1]</span><br></pre></td></tr></table></figure>
+
+<p>解锁账户（发起交易前需要对sender解锁）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">personal.unlockAccount(my)</span><br><span class="line">//随后输入密码：1234</span><br></pre></td></tr></table></figure>
 
 <p>查看余额：</p>
@@ -275,7 +325,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-05T11:32:21.893Z" itemprop="dateUpdated">2020-06-05 19:32:21</time>
+    最后更新时间：<time datetime="2020-08-18T07:25:30.237Z" itemprop="dateUpdated">2020-08-18 15:25:30</time>
 </span><br>
 
 
