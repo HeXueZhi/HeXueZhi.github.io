@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/08/15/Z76IToRKD3gm5AP.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/15/mAJSqV3L5Gxe9ZO.png">
 <meta property="article:published_time" content="2020-08-15T09:58:10.027Z">
-<meta property="article:modified_time" content="2020-08-18T07:25:38.895Z">
+<meta property="article:modified_time" content="2020-08-18T07:58:44.950Z">
 <meta property="article:author" content="RenKe XZ">
 <meta property="article:tag" content="以太坊">
 <meta property="article:tag" content="Dapp">
@@ -170,7 +170,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基于以太坊私链的溯源Dapp"><span class="post-toc-text">基于以太坊私链的溯源Dapp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、私链的创建"><span class="post-toc-text">一、私链的创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、以太坊Dapp的创建"><span class="post-toc-text">二、以太坊Dapp的创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-编写合约"><span class="post-toc-text">2.1 编写合约</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-环境准备"><span class="post-toc-text">2.2 环境准备</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-truffle-webpack创建项目"><span class="post-toc-text">2.3 truffle+webpack创建项目</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、合约部署"><span class="post-toc-text">三、合约部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-本地ganache测试"><span class="post-toc-text">3.1 本地ganache测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-私链测试"><span class="post-toc-text">3.2 私链测试</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基于以太坊私链的溯源Dapp"><span class="post-toc-text">基于以太坊私链的溯源Dapp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、私链的创建"><span class="post-toc-text">一、私链的创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、以太坊Dapp的创建"><span class="post-toc-text">二、以太坊Dapp的创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-编写合约"><span class="post-toc-text">2.1 编写合约</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-环境准备"><span class="post-toc-text">2.2 环境准备</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-truffle-webpack创建项目"><span class="post-toc-text">2.3 truffle+webpack创建项目</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、合约部署"><span class="post-toc-text">三、合约部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-win10本地ganache测试"><span class="post-toc-text">3.1 win10本地ganache测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-CentOS私链测试"><span class="post-toc-text">3.2 CentOS私链测试</span></a></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -263,7 +263,7 @@
 <li><p>进入<code>http://localhost:8080</code>查看界面。注意：现在如果没有启动私链，页面由于没有获取到账户，会发出警告，启动私链，连接metamask刷新即可。</p>
 </li>
 </ol>
-<h3 id="三、合约部署"><a href="#三、合约部署" class="headerlink" title="三、合约部署"></a>三、合约部署</h3><h4 id="3-1-本地ganache测试"><a href="#3-1-本地ganache测试" class="headerlink" title="3.1 本地ganache测试"></a>3.1 本地ganache测试</h4><ol>
+<h3 id="三、合约部署"><a href="#三、合约部署" class="headerlink" title="三、合约部署"></a>三、合约部署</h3><h4 id="3-1-win10本地ganache测试"><a href="#3-1-win10本地ganache测试" class="headerlink" title="3.1 win10本地ganache测试"></a>3.1 win10本地ganache测试</h4><ol>
 <li><p>安装<code>ganache-cli</code></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> ganache<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -279,12 +279,14 @@
 <li><p>测试项目。</p>
 </li>
 </ol>
-<h4 id="3-2-私链测试"><a href="#3-2-私链测试" class="headerlink" title="3.2 私链测试"></a>3.2 私链测试</h4><ol>
+<h4 id="3-2-CentOS私链测试"><a href="#3-2-CentOS私链测试" class="headerlink" title="3.2 CentOS私链测试"></a>3.2 CentOS私链测试</h4><ol>
 <li><p>开启私链，如无账户，先创建账户<code>personal.newAccount()</code>，输入密码。</p>
 </li>
 <li><p>开始挖矿。<code>miner.start(1)</code></p>
 </li>
 <li><p>查看账户余额<code>eth.getBalance(eth.accounts[0])</code>，为了保证能够发起合约部署等交易，需要一些ETH。</p>
+</li>
+<li><p>设置虚拟机防火墙，打开8545端口。<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/" target="_blank" rel="noopener">CentOS设置防火墙</a></p>
 </li>
 <li><p>metamask连接CentOS的私链。需要新创建rpc网络。</p>
 <ul>
@@ -310,7 +312,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-08-18T07:25:38.895Z" itemprop="dateUpdated">2020-08-18 15:25:38</time>
+    最后更新时间：<time datetime="2020-08-18T07:58:44.950Z" itemprop="dateUpdated">2020-08-18 15:58:44</time>
 </span><br>
 
 
