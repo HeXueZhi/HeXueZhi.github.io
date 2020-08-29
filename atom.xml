@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-20T04:22:55.356Z</updated>
+  <updated>2020-08-27T03:02:03.806Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode332、重新安排行程</title>
+    <link href="http://yoursite.com/2020/08/27/LeetCode332/"/>
+    <id>http://yoursite.com/2020/08/27/LeetCode332/</id>
+    <published>2020-08-27T02:13:22.157Z</published>
+    <updated>2020-08-27T03:02:03.806Z</updated>
+    
+    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>想把自己刷题过程中一些，使用经典方法、思想的题记录下来。</p></blockquote><a id="more"></a><h2 id="LeetCode332、重新安排行程"><a href="#LeetCode332、重新安排行程" class="headerlink" title="LeetCode332、重新安排行程"></a>LeetCode332、重新安排行程</h2><p><strong>题目地址：</strong></p><p><a href="https://leetcode-cn.com/problems/reconstruct-itinerary/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reconstruct-itinerary/</a></p><p><strong>错误思想：</strong></p><p>首先将列表转换为字典，在插入过程中将字典中的value排序。（这一步思想是对的）</p><p>然后从”JFK”开始遍历，每次取<code>dict[&quot;x&quot;][0]</code>保证字典序。</p><p><strong>错误原因：</strong></p><p><code>[[&quot;JFK&quot;,&quot;KUL&quot;],[&quot;JFK&quot;,&quot;NRT&quot;],[&quot;NRT&quot;,&quot;JFK&quot;]]</code></p><p>NRT节点会访问不到</p><h3 id="错误解法："><a href="#错误解法：" class="headerlink" title="错误解法："></a>错误解法：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findItinerary</span><span class="params">(self, tickets: List[List[str]])</span> -&gt; List[str]:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> tickets:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#构建location字典</span></span><br><span class="line">        location = collections.defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> ticket <span class="keyword">in</span> tickets:</span><br><span class="line">            <span class="keyword">if</span> len(location[ticket[<span class="number">0</span>]])!=<span class="number">0</span>:</span><br><span class="line">                i = <span class="number">0</span></span><br><span class="line">                <span class="keyword">while</span> i&lt;len(location[ticket[<span class="number">0</span>]]):</span><br><span class="line">                    <span class="keyword">if</span> location[ticket[<span class="number">0</span>]][i] &gt; ticket[<span class="number">1</span>]:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                location[ticket[<span class="number">0</span>]].insert(i,ticket[<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                location[ticket[<span class="number">0</span>]].append(ticket[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment">#遍历</span></span><br><span class="line">        res = [<span class="string">"JFK"</span>]</span><br><span class="line">        res.append(location[<span class="string">"JFK"</span>][<span class="number">0</span>])</span><br><span class="line">        location[<span class="string">"JFK"</span>].pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(tickets)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> len(location[res[<span class="number">-1</span>]]) !=<span class="number">0</span>:</span><br><span class="line">                res.append(location[res[<span class="number">-1</span>]][<span class="number">0</span>])</span><br><span class="line">                location[res[<span class="number">-2</span>]].pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure><p><strong>正确思想：</strong></p><ul><li>欧拉通路：通过图中所有边恰好一次且行遍所有顶点的通路称为欧拉通路。</li><li>欧拉回路：通过图中所有边恰好一次且行遍所有顶点的回路称为欧拉回路。</li><li>欧拉图：具有欧拉回路的无向图称为欧拉图。</li><li>半欧拉图：具有欧拉通路但不具有欧拉回路的无向图称为半欧拉图。</li></ul><p><strong>当我们贪心地选择字典序最小的节点前进时，我们可能先走入「死胡同」，从而导致无法遍历到其他还未访问的边。于是我们希望能够遍历完当前节点所连接的其他节点后再进入「死胡同」。</strong></p><h3 id="正确解法："><a href="#正确解法：" class="headerlink" title="正确解法："></a>正确解法：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findItinerary</span><span class="params">(self, tickets: List[List[str]])</span> -&gt; List[str]:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> tickets:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment">#利用小根堆排序</span></span><br><span class="line">        vec = collections.defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> fr,to <span class="keyword">in</span> tickets:</span><br><span class="line">            vec[fr].append(to)</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> vec.keys():</span><br><span class="line">            heapq.heapify(vec[key])</span><br><span class="line">        print(vec)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#节点会倒序入栈</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(curr)</span>:</span></span><br><span class="line">            <span class="keyword">while</span> vec[curr]:</span><br><span class="line">                tem = heapq.heappop(vec[curr])</span><br><span class="line">                dfs(tem)</span><br><span class="line">            stack.append(curr)</span><br><span class="line">        </span><br><span class="line">        stack = []</span><br><span class="line">        dfs(<span class="string">"JFK"</span>)</span><br><span class="line">        <span class="keyword">return</span> stack[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr /&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;想把自己刷题过程中一些，使用经典方法、思想的题记录下来。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="欧拉回路" scheme="http://yoursite.com/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
+    
+      <category term="欧拉通路" scheme="http://yoursite.com/tags/%E6%AC%A7%E6%8B%89%E9%80%9A%E8%B7%AF/"/>
+    
+      <category term="Hierholzer算法" scheme="http://yoursite.com/tags/Hierholzer%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode459、重复的字符串</title>
+    <link href="http://yoursite.com/2020/08/24/LeetCode459/"/>
+    <id>http://yoursite.com/2020/08/24/LeetCode459/</id>
+    <published>2020-08-24T07:46:26.333Z</published>
+    <updated>2020-08-24T07:51:48.596Z</updated>
+    
+    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>想把自己刷题过程中一些，使用经典方法、思想的题记录下来。</p></blockquote><a id="more"></a><h2 id="LeetCode459、重复的字符串"><a href="#LeetCode459、重复的字符串" class="headerlink" title="LeetCode459、重复的字符串"></a>LeetCode459、重复的字符串</h2><p><strong>题目地址：</strong></p><p><a href="https://leetcode-cn.com/problems/repeated-substring-pattern/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/repeated-substring-pattern/</a></p><p>重复的字符串需要满足四个条件：</p><ul><li>总串长度是子串长度的n倍，即总串长度能够整除子串长度</li><li>子串是总串的前缀</li><li>s[子串长度]=s[0],s[子串长度+1]=s[1]……</li><li>子串长度小于等于总串长度的一半</li></ul><h3 id="解法："><a href="#解法：" class="headerlink" title="解法："></a>解法：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">repeatedSubstringPattern</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        sLen = len(s) </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,sLen//<span class="number">2</span>+<span class="number">1</span>):</span><br><span class="line">            match = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">if</span> sLen % i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(i,sLen):</span><br><span class="line">                    <span class="keyword">if</span> s[j]!=s[j-i]:</span><br><span class="line">                        match = <span class="literal">False</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> match:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr /&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;想把自己刷题过程中一些，使用经典方法、思想的题记录下来。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="字符串" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode529、扫雷游戏</title>
@@ -541,60 +603,6 @@
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jar包部署</title>
-    <link href="http://yoursite.com/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/"/>
-    <id>http://yoursite.com/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/</id>
-    <published>2020-06-15T15:56:51.079Z</published>
-    <updated>2020-06-15T16:00:37.693Z</updated>
-    
-    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>将项目部署到CentOS上，简单记忆一下部署的方法。</p></blockquote><a id="more"></a><h3 id="前台运行项目（不能关掉shell）"><a href="#前台运行项目（不能关掉shell）" class="headerlink" title="前台运行项目（不能关掉shell）"></a>前台运行项目（不能关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -jar xxxxx.jar</span><br></pre></td></tr></table></figure><h3 id="后台运行项目（可以关掉shell）"><a href="#后台运行项目（可以关掉shell）" class="headerlink" title="后台运行项目（可以关掉shell）"></a>后台运行项目（可以关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &amp;</span><br></pre></td></tr></table></figure><h3 id="后台运行项目不输出-out文件"><a href="#后台运行项目不输出-out文件" class="headerlink" title="后台运行项目不输出.out文件"></a>后台运行项目不输出.out文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure><h3 id="后台运行项目只输出错误信息到文件"><a href="#后台运行项目只输出错误信息到文件" class="headerlink" title="后台运行项目只输出错误信息到文件"></a>后台运行项目只输出错误信息到文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;error &amp;</span><br></pre></td></tr></table></figure><h3 id="停止项目"><a href="#停止项目" class="headerlink" title="停止项目"></a>停止项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br><span class="line">kill sid xxxx</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr /&gt;
-
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;将项目部署到CentOS上，简单记忆一下部署的方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="http://yoursite.com/categories/CentOS/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7设置网络</title>
-    <link href="http://yoursite.com/2020/05/20/CentOS7%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C/"/>
-    <id>http://yoursite.com/2020/05/20/CentOS7%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C/</id>
-    <published>2020-05-20T12:50:09.968Z</published>
-    <updated>2020-08-18T10:02:35.197Z</updated>
-    
-    <content type="html"><![CDATA[<hr /><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>CentOS7设置固定IP，记录一下过程</p></blockquote><a id="more"></a><h2 id="CentOS7设置网络"><a href="#CentOS7设置网络" class="headerlink" title="CentOS7设置网络"></a>CentOS7设置网络</h2><p>本文设置的网络是<strong>NAT模式+固定IP</strong>。</p><h3 id="一、VM设置"><a href="#一、VM设置" class="headerlink" title="一、VM设置"></a>一、VM设置</h3><p>本文使用的虚拟机时VMware Workstation Pro。</p><h4 id="1、设置虚拟机的连接方式"><a href="#1、设置虚拟机的连接方式" class="headerlink" title="1、设置虚拟机的连接方式"></a>1、设置虚拟机的连接方式</h4><p>选择自己要设置的虚拟机，选择虚拟机(M)-&gt;设置，选择网咯适配器，选择为NAT模式。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/06/05/eUwPrtSz9C8gX5d.png" alt="image-20200520194124851" title="">                </div>                <div class="image-caption">image-20200520194124851</div>            </figure><h4 id="2、配置虚拟机的NAT模式具体地址参数"><a href="#2、配置虚拟机的NAT模式具体地址参数" class="headerlink" title="2、配置虚拟机的NAT模式具体地址参数"></a>2、配置虚拟机的NAT模式具体地址参数</h4><p>选择编辑(E)-&gt;虚拟机网络编辑器，点击更改设置。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/08/18/q5Co3VW1O6D9bBU.png" alt="image-20200818165231769" title="">                </div>                <div class="image-caption">image-20200818165231769</div>            </figure><p>选择VMnet8-&gt;取消勾选使用本地DHCP-&gt;设置自己的子网ip（最好设置和自己的主机在同一个域内）-&gt;选择NAT设置。记住NAT设置中的三个地址。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/08/18/dbp8e2uzNgZvcnJ.png" alt="image-20200818174649942" title="">                </div>                <div class="image-caption">image-20200818174649942</div>            </figure><p>找到计算机控制面板-&gt;网络和Internet-&gt;网络和共享中心-&gt;左侧的更改适配器设置。</p><p>先择VMnet8右键属性-&gt;选择IPv4属性-&gt;设置自定ip地址。<strong>这里ip地址设置为子网内的ip就可，注意不要和想设置的虚拟机固定IP相同。</strong></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="upload\image-20200818175557387.png" alt="image-20200818175557387" title="">                </div>                <div class="image-caption">image-20200818175557387</div>            </figure><h3 id="二、CentOS7设置"><a href="#二、CentOS7设置" class="headerlink" title="二、CentOS7设置"></a>二、CentOS7设置</h3><p>本文使用的虚拟机时VMware Workstation Pro。</p><h4 id="1、查看网络名和ip"><a href="#1、查看网络名和ip" class="headerlink" title="1、查看网络名和ip"></a>1、查看网络名和ip</h4><p>首先查看自己需要配置的<strong>网络名称</strong>和<strong>目前的ip地址</strong>。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/06/05/f9mvPKqQbAGILgy.png" alt="image-20200520202702641" title="">                </div>                <div class="image-caption">image-20200520202702641</div>            </figure><h4 id="2、修改ip地址文件-需要root权限"><a href="#2、修改ip地址文件-需要root权限" class="headerlink" title="2、修改ip地址文件(需要root权限)"></a>2、修改ip地址文件(需要root权限)</h4><p>查看文件夹下文件，找到和自己网络名相同的。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/06/05/mvdpBJWC5MePY4O.png" alt="image-20200520203141320" title="">                </div>                <div class="image-caption">image-20200520203141320</div>            </figure><p>编辑：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ifcfg-ens33</span><br></pre></td></tr></table></figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/08/18/ZvXwiNpkzrY3lM2.png" alt="image-20200818180048862" title="">                </div>                <div class="image-caption">image-20200818180048862</div>            </figure><ul><li>BOOTPROTO：设置为静态ip</li><li>ONBOOT：开机启动</li><li>DNS1：这里直接设置为114.114.114.114</li><li>IPADDR：想设置的虚拟机的固定IP地址</li><li>NETMASK：掩码</li><li>GATEWAY：网关地址</li></ul><p>重启网络服务：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network.service</span><br></pre></td></tr></table></figure><p>验证：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip addr#查看自己的ip地址</span><br><span class="line">ping 主机地址#windows通过ipconfig获得</span><br><span class="line">ping www.baidu.com#查看自己是否能连接到网络</span><br></pre></td></tr></table></figure><p>再从主机<code>ping 虚拟机固定ip</code>。</p><h4 id="3、添加hosts"><a href="#3、添加hosts" class="headerlink" title="3、添加hosts"></a>3、添加hosts</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure><p>在文件中添加映射即可。例如我是要配置hadoop集群，分别有<code>192.168.2.132</code>、<code>192.168.2.133</code>、<code>192.168.2.134</code>三台机子。可以在hosts中添加如下配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.2.132 hadoop132</span><br><span class="line">192.168.2.133 hadoop133</span><br><span class="line">192.168.2.134 hadoop134</span><br></pre></td></tr></table></figure><p>这时候就可以尝试ping各个主机了：</p><ul><li>从本机ping虚拟机：<code>ping 192.168.2.132</code></li><li>从虚拟机ping主机：<code>ping 主机ip</code></li><li>从虚拟机ping虚拟机：<code>ping hadoop133</code></li></ul><h4 id="4、修改hostname"><a href="#4、修改hostname" class="headerlink" title="4、修改hostname"></a>4、修改hostname</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname xxx</span><br></pre></td></tr></table></figure><p>如本机是<code>192.168.40.132</code>，则</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname hadoop132</span><br></pre></td></tr></table></figure><p>然后可以输入如下命令检查hostname：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr /&gt;
-
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;CentOS7设置固定IP，记录一下过程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="http://yoursite.com/categories/CentOS/"/>
-    
-    
-      <category term="CentOS" scheme="http://yoursite.com/tags/CentOS/"/>
     
   </entry>
   
