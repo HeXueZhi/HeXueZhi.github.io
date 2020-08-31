@@ -29,7 +29,7 @@
 <meta property="og:description" content="前言 创建Dapp的第一步，搭建私链。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-30T04:00:47.472Z">
-<meta property="article:modified_time" content="2020-08-29T08:00:06.775Z">
+<meta property="article:modified_time" content="2020-08-29T08:11:24.988Z">
 <meta property="article:author" content="RenKe XZ">
 <meta property="article:tag" content="私链搭建">
 <meta name="twitter:card" content="summary">
@@ -250,7 +250,7 @@
 </ol>
 <h3 id="三、geth操作"><a href="#三、geth操作" class="headerlink" title="三、geth操作"></a>三、geth操作</h3><h4 id="1、启动节点同步，（搭建私链不需要）"><a href="#1、启动节点同步，（搭建私链不需要）" class="headerlink" title="1、启动节点同步，（搭建私链不需要）"></a>1、启动节点同步，（搭建私链不需要）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --syncmode fast</span><br><span class="line">//一快速模式同步区块，只会下载每个区块同和区块体，不会执行验证所有的交易。</span><br><span class="line"></span><br><span class="line">geth --testnet --datadit . --syncmode fast</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、开发者模式"><a href="#2、开发者模式" class="headerlink" title="2、开发者模式"></a>2、开发者模式</h4><p>开发者模式：是为方便以太坊开发者在以太坊平台上开发测试所建立的一种模式。开发者模式相比自己搭建私链有很多好处，不如不需要链码，会预留一个拥有巨额ETH的账户，账户之间转账不需要先解锁，采用POA证明方式，自动进行挖矿且有交易才挖矿（不会一直挖矿消耗资源）。总体是类似与ganache的模拟链。</p>
+<h4 id="2、开发者模式"><a href="#2、开发者模式" class="headerlink" title="2、开发者模式"></a>2、开发者模式</h4><p>开发者模式：是为方便以太坊开发者在以太坊平台上开发测试所建立的一种模式。开发者模式相比自己搭建私链有很多好处，比如不需要链码，会预留一个拥有巨额ETH的账户，账户之间转账不需要先解锁，采用POA证明方式，自动进行挖矿且有交易才挖矿（不会一直挖矿消耗资源）。总体是类似与ganache的模拟链。</p>
 <p><strong>开发者模式的开启方法：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir devChain</span><br><span class="line"><span class="built_in">cd</span> devChain</span><br><span class="line">geth --datadir . --dev --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
 
@@ -327,7 +327,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-08-29T08:00:06.775Z" itemprop="dateUpdated">2020-08-29 16:00:06</time>
+    最后更新时间：<time datetime="2020-08-29T08:11:24.988Z" itemprop="dateUpdated">2020-08-29 16:11:24</time>
 </span><br>
 
 
