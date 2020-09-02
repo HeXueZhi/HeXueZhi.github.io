@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/09/01/wJPvbiOChzE9VGx.png">
 <meta property="og:image" content="https://i.loli.net/2020/09/01/t9w182CRcK7DGpI.png">
 <meta property="article:published_time" content="2020-09-01T12:27:08.059Z">
-<meta property="article:modified_time" content="2020-09-01T13:11:27.740Z">
+<meta property="article:modified_time" content="2020-09-02T07:00:38.995Z">
 <meta property="article:author" content="RenKe XZ">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -229,13 +229,14 @@
 
 <h3 id="三、拉取image"><a href="#三、拉取image" class="headerlink" title="三、拉取image"></a>三、拉取image</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ethereum/client-go</span><br></pre></td></tr></table></figure>
 
-<h3 id="四、创建容器"><a href="#四、创建容器" class="headerlink" title="四、创建容器"></a>四、创建容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network=host --name mychain -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go</span><br></pre></td></tr></table></figure>
+<h3 id="四、创建容器"><a href="#四、创建容器" class="headerlink" title="四、创建容器"></a>四、创建容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network=host --name mychain -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">docker run -it --name mychain -p 8545:8545 -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go</span><br></pre></td></tr></table></figure>
 
 <p><strong>参数说明：</strong></p>
 <ul>
 <li><code>-i</code>：打开STDIN，用于控制台交互，常与-t一起使用</li>
 <li><code>-t</code>：分配tty设备，支持终端登陆，默认为false，常与-i一起使用</li>
 <li><code>--network=host</code>：将容器的网络模式设置为host模式，即用宿主机的ip和端口进行外部通信</li>
+<li><code>-p 8545:8545</code>：将宿主机的8545端口映射到dockers容器的8545端口上</li>
 <li><code>--rm</code>：指定容器停止后自动删除容器（不支持以docker run -d启动的容器 ）</li>
 <li><code>-v</code>：给容器挂载存储卷，挂载到容器的某个目录，这里讲本地的/workspace挂载到了容器的/workspace目录，用来在容器和宿主机之间共享文件</li>
 <li><code>--entrypoint</code>：覆盖image的入口点，ubuntu环境下docker默认入口点其实是/bin/bash，修改默认入口点是为了不让节点自动运行，稍后会对节点进行自定义配置使其成为私有链节点</li>
@@ -258,7 +259,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-09-01T13:11:27.740Z" itemprop="dateUpdated">2020-09-01 21:11:27</time>
+    最后更新时间：<time datetime="2020-09-02T07:00:38.995Z" itemprop="dateUpdated">2020-09-02 15:00:38</time>
 </span><br>
 
 
