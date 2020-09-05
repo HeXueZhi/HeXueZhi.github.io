@@ -14,23 +14,23 @@
     
     
     
-    <title>CentOS7设置防火墙 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>CentOS7设置防火墙 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="CentOS">
-    <meta name="description" content="前言 CentOS7设置防火墙，记录一下过程">
+    <meta name="description" content="CentOS7设置防火墙，记录一下过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7设置防火墙">
 <meta property="og:url" content="http://yoursite.com/2020/06/26/CentOS7%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 CentOS7设置防火墙，记录一下过程">
+<meta property="og:description" content="CentOS7设置防火墙，记录一下过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-26T04:22:20.489Z">
-<meta property="article:modified_time" content="2020-07-18T10:35:27.636Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:37:32.670Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="CentOS">
 <meta name="twitter:card" content="summary">
     
@@ -56,11 +56,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -99,13 +99,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -163,7 +156,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CentOS7设置防火墙"><span class="post-toc-text">CentOS7设置防火墙</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、防火墙设置"><span class="post-toc-text">1、防火墙设置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、防火墙配置"><span class="post-toc-text">2、防火墙配置</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、防火墙设置"><span class="post-toc-text">1、防火墙设置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、防火墙配置"><span class="post-toc-text">2、防火墙配置</span></a></li></ol>
         </nav>
     </aside>
 
@@ -191,12 +184,12 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <hr />
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<blockquote>
 <p>CentOS7设置防火墙，记录一下过程</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="CentOS7设置防火墙"><a href="#CentOS7设置防火墙" class="headerlink" title="CentOS7设置防火墙"></a>CentOS7设置防火墙</h2><h4 id="1、防火墙设置"><a href="#1、防火墙设置" class="headerlink" title="1、防火墙设置"></a>1、防火墙设置</h4><ul>
+<h4 id="1、防火墙设置"><a href="#1、防火墙设置" class="headerlink" title="1、防火墙设置"></a>1、防火墙设置</h4><ul>
 <li><strong>启动防火墙</strong>：<code>systemctl start firewalld.service</code></li>
 <li><strong>关闭防火墙</strong>：<code>systemctl stop firewalld.service</code></li>
 <li><strong>重启防火墙</strong>：<code>systemctl restart firewalld.service</code></li>
@@ -230,7 +223,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-18T10:35:27.636Z" itemprop="dateUpdated">2020-07-18 18:35:27</time>
+    最后更新时间：<time datetime="2020-09-05T12:37:32.670Z" itemprop="dateUpdated">2020-09-05 20:37:32</time>
 </span><br>
 
 
@@ -239,8 +232,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -294,6 +287,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -330,7 +347,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

@@ -14,19 +14,19 @@
     
     
     
-    <title>CentOS7设置网络 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>CentOS7设置网络 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="CentOS">
-    <meta name="description" content="前言 CentOS7设置固定IP，记录一下过程">
+    <meta name="description" content="CentOS7设置固定IP，记录一下过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7设置网络">
 <meta property="og:url" content="http://yoursite.com/2020/05/20/CentOS7%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 CentOS7设置固定IP，记录一下过程">
+<meta property="og:description" content="CentOS7设置固定IP，记录一下过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/eUwPrtSz9C8gX5d.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/18/q5Co3VW1O6D9bBU.png">
@@ -36,8 +36,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/06/05/mvdpBJWC5MePY4O.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/18/ZvXwiNpkzrY3lM2.png">
 <meta property="article:published_time" content="2020-05-20T12:50:09.968Z">
-<meta property="article:modified_time" content="2020-08-29T08:15:21.737Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:37:21.992Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="CentOS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/06/05/eUwPrtSz9C8gX5d.png">
@@ -64,11 +64,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -107,13 +107,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -171,7 +164,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CentOS7设置网络"><span class="post-toc-text">CentOS7设置网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、VM设置"><span class="post-toc-text">一、VM设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、设置虚拟机的连接方式"><span class="post-toc-text">1、设置虚拟机的连接方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、配置虚拟机的NAT模式具体地址参数"><span class="post-toc-text">2、配置虚拟机的NAT模式具体地址参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、CentOS7设置"><span class="post-toc-text">二、CentOS7设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、查看网络名和ip"><span class="post-toc-text">1、查看网络名和ip</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、修改ip地址文件-需要root权限"><span class="post-toc-text">2、修改ip地址文件(需要root权限)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、添加hosts"><span class="post-toc-text">3、添加hosts</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、修改hostname"><span class="post-toc-text">4、修改hostname</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、VM设置"><span class="post-toc-text">一、VM设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、设置虚拟机的连接方式"><span class="post-toc-text">1、设置虚拟机的连接方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、配置虚拟机的NAT模式具体地址参数"><span class="post-toc-text">2、配置虚拟机的NAT模式具体地址参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、CentOS7设置"><span class="post-toc-text">二、CentOS7设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、查看网络名和ip"><span class="post-toc-text">1、查看网络名和ip</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、修改ip地址文件-需要root权限"><span class="post-toc-text">2、修改ip地址文件(需要root权限)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、添加hosts"><span class="post-toc-text">3、添加hosts</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、修改hostname"><span class="post-toc-text">4、修改hostname</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -199,12 +192,12 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <hr />
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<blockquote>
 <p>CentOS7设置固定IP，记录一下过程</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="CentOS7设置网络"><a href="#CentOS7设置网络" class="headerlink" title="CentOS7设置网络"></a>CentOS7设置网络</h2><p>本文设置的网络是<strong>NAT模式+固定IP</strong>。</p>
+<p>本文设置的网络是<strong>NAT模式+固定IP</strong>。</p>
 <h3 id="一、VM设置"><a href="#一、VM设置" class="headerlink" title="一、VM设置"></a>一、VM设置</h3><p>本文使用的虚拟机时VMware Workstation Pro。</p>
 <h4 id="1、设置虚拟机的连接方式"><a href="#1、设置虚拟机的连接方式" class="headerlink" title="1、设置虚拟机的连接方式"></a>1、设置虚拟机的连接方式</h4><p>选择自己要设置的虚拟机，选择虚拟机(M)-&gt;设置，选择网咯适配器，选择为NAT模式。</p>
 <figure class="image-bubble">
@@ -319,7 +312,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-08-29T08:15:21.737Z" itemprop="dateUpdated">2020-08-29 16:15:21</time>
+    最后更新时间：<time datetime="2020-09-05T12:37:21.992Z" itemprop="dateUpdated">2020-09-05 20:37:21</time>
 </span><br>
 
 
@@ -328,8 +321,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -383,6 +376,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -419,7 +436,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

@@ -14,23 +14,23 @@
     
     
     
-    <title>python集合的一些基本操作 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>python集合的一些基本操作 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="python,leetcode">
-    <meta name="description" content="前言 刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
+    <meta name="description" content="刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python集合的一些基本操作">
 <meta property="og:url" content="http://yoursite.com/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
+<meta property="og:description" content="刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-12T13:03:11.494Z">
-<meta property="article:modified_time" content="2020-07-12T13:36:16.864Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:38:24.191Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -57,11 +57,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -100,13 +100,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -164,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python集合的一些基本操作"><span class="post-toc-text">python集合的一些基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、list"><span class="post-toc-text">一、list</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、列表的创建"><span class="post-toc-text">1、列表的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、列表的压入"><span class="post-toc-text">2、列表的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、列表的删除"><span class="post-toc-text">3、列表的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、列表排序"><span class="post-toc-text">4、列表排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、反转列表"><span class="post-toc-text">5、反转列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6、复制列表"><span class="post-toc-text">6、复制列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7、列表中某个元素出现的个数"><span class="post-toc-text">7、列表中某个元素出现的个数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8、某个值的第一个匹配项的index"><span class="post-toc-text">8、某个值的第一个匹配项的index</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、set"><span class="post-toc-text">二、set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、集合的创建"><span class="post-toc-text">1、集合的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、集合的压入"><span class="post-toc-text">2、集合的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、集合的删除"><span class="post-toc-text">3、集合的删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、dict"><span class="post-toc-text">三、dict</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、字典的创建"><span class="post-toc-text">1、字典的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、字典的压入"><span class="post-toc-text">2、字典的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、字典的删除"><span class="post-toc-text">3、字典的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、字典的遍历"><span class="post-toc-text">4、字典的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1、遍历键"><span class="post-toc-text">4.1、遍历键</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2、遍历值"><span class="post-toc-text">4.2、遍历值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-3、遍历键和值"><span class="post-toc-text">4.3、遍历键和值</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、list"><span class="post-toc-text">一、list</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、列表的创建"><span class="post-toc-text">1、列表的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、列表的压入"><span class="post-toc-text">2、列表的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、列表的删除"><span class="post-toc-text">3、列表的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、列表排序"><span class="post-toc-text">4、列表排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、反转列表"><span class="post-toc-text">5、反转列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6、复制列表"><span class="post-toc-text">6、复制列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7、列表中某个元素出现的个数"><span class="post-toc-text">7、列表中某个元素出现的个数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8、某个值的第一个匹配项的index"><span class="post-toc-text">8、某个值的第一个匹配项的index</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、set"><span class="post-toc-text">二、set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、集合的创建"><span class="post-toc-text">1、集合的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、集合的压入"><span class="post-toc-text">2、集合的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、集合的删除"><span class="post-toc-text">3、集合的删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、dict"><span class="post-toc-text">三、dict</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、字典的创建"><span class="post-toc-text">1、字典的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、字典的压入"><span class="post-toc-text">2、字典的压入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、字典的删除"><span class="post-toc-text">3、字典的删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、字典的遍历"><span class="post-toc-text">4、字典的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1、遍历键"><span class="post-toc-text">4.1、遍历键</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2、遍历值"><span class="post-toc-text">4.2、遍历值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-3、遍历键和值"><span class="post-toc-text">4.3、遍历键和值</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -192,12 +185,12 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <hr />
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<blockquote>
 <p>刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="python集合的一些基本操作"><a href="#python集合的一些基本操作" class="headerlink" title="python集合的一些基本操作"></a>python集合的一些基本操作</h2><h3 id="一、list"><a href="#一、list" class="headerlink" title="一、list"></a>一、list</h3><h4 id="1、列表的创建"><a href="#1、列表的创建" class="headerlink" title="1、列表的创建"></a>1、列表的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="comment">#快速创建队列并赋值</span></span><br><span class="line">nums = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line"><span class="comment">#快速创建二维数组，并赋值</span></span><br><span class="line">nums = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(m)]</span><br></pre></td></tr></table></figure>
+<h3 id="一、list"><a href="#一、list" class="headerlink" title="一、list"></a>一、list</h3><h4 id="1、列表的创建"><a href="#1、列表的创建" class="headerlink" title="1、列表的创建"></a>1、列表的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="comment">#快速创建队列并赋值</span></span><br><span class="line">nums = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line"><span class="comment">#快速创建二维数组，并赋值</span></span><br><span class="line">nums = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(m)]</span><br></pre></td></tr></table></figure>
 
 <h4 id="2、列表的压入"><a href="#2、列表的压入" class="headerlink" title="2、列表的压入"></a>2、列表的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.append(x)</span><br><span class="line">nums.insert(index,x)<span class="comment">#在index插入x</span></span><br></pre></td></tr></table></figure>
 
@@ -241,7 +234,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-12T13:36:16.864Z" itemprop="dateUpdated">2020-07-12 21:36:16</time>
+    最后更新时间：<time datetime="2020-09-05T12:38:24.191Z" itemprop="dateUpdated">2020-09-05 20:38:24</time>
 </span><br>
 
 
@@ -250,8 +243,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -305,6 +298,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -341,7 +358,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

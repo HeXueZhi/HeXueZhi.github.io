@@ -14,23 +14,23 @@
     
     
     
-    <title>LeetCode187、重复的DNA序列 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>LeetCode187、重复的DNA序列 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="滑动窗口">
-    <meta name="description" content="前言 想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
+    <meta name="description" content="想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode187、重复的DNA序列">
 <meta property="og:url" content="http://yoursite.com/2020/07/31/LeetCode187/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
+<meta property="og:description" content="想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-31T02:15:38.282Z">
-<meta property="article:modified_time" content="2020-09-02T14:20:17.843Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:34:49.365Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="滑动窗口">
 <meta name="twitter:card" content="summary">
     
@@ -56,11 +56,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -99,13 +99,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -163,7 +156,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LeetCode187、重复的DNA序列"><span class="post-toc-text">LeetCode187、重复的DNA序列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法一：滑动窗口暴力法"><span class="post-toc-text">解法一：滑动窗口暴力法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法二：滑动窗口-hash"><span class="post-toc-text">解法二：滑动窗口+hash</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法三：滑动窗口-位运算"><span class="post-toc-text">解法三：滑动窗口+位运算</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法一：滑动窗口暴力法"><span class="post-toc-text">解法一：滑动窗口暴力法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法二：滑动窗口-hash"><span class="post-toc-text">解法二：滑动窗口+hash</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解法三：滑动窗口-位运算"><span class="post-toc-text">解法三：滑动窗口+位运算</span></a></li></ol>
         </nav>
     </aside>
 
@@ -191,12 +184,12 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <hr />
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<blockquote>
 <p>想把自己刷题过程中一些，使用经典方法、思想的题记录下来。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="LeetCode187、重复的DNA序列"><a href="#LeetCode187、重复的DNA序列" class="headerlink" title="LeetCode187、重复的DNA序列"></a>LeetCode187、重复的DNA序列</h2><p><strong>题目地址：</strong></p>
+<p><strong>题目地址：</strong></p>
 <p><a href="https://leetcode-cn.com/problems/repeated-dna-sequences/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/repeated-dna-sequences/</a></p>
 <h3 id="解法一：滑动窗口暴力法"><a href="#解法一：滑动窗口暴力法" class="headerlink" title="解法一：滑动窗口暴力法"></a>解法一：滑动窗口暴力法</h3><h3 id="解法二：滑动窗口-hash"><a href="#解法二：滑动窗口-hash" class="headerlink" title="解法二：滑动窗口+hash"></a>解法二：滑动窗口+hash</h3><p>将string映射为nums数组，每10位数计算为4进制数作为hash值存入set（）中，如果在hash在set中，则表示子串重复，将子串存入set（）中。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatedDnaSequences</span><span class="params">(self, s: str)</span> -&gt; List[str]:</span></span><br><span class="line">        L,n = <span class="number">10</span>,len(s)</span><br><span class="line">        <span class="keyword">if</span> n&lt;=L:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment">#a的值不能改小，如果把a改成2，"CA"和"AG"相等，a的值由字典d决定</span></span><br><span class="line">        a = <span class="number">4</span></span><br><span class="line">        aL = a ** L</span><br><span class="line">        d = &#123;<span class="string">"A"</span>:<span class="number">0</span>,<span class="string">"C"</span>:<span class="number">1</span>,<span class="string">"G"</span>:<span class="number">2</span>,<span class="string">"T"</span>:<span class="number">3</span>&#125;</span><br><span class="line">        nums = [d[c] <span class="keyword">for</span> c <span class="keyword">in</span> s]</span><br><span class="line">        seen = set()</span><br><span class="line">        output = set()</span><br><span class="line">        h = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n-L+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(L):</span><br><span class="line">                    h = h * a + nums[j]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                h = h * a - nums[i<span class="number">-1</span>]*aL + nums[i+L<span class="number">-1</span>]</span><br><span class="line">            <span class="keyword">if</span> h <span class="keyword">in</span> seen:</span><br><span class="line">                output.add(s[i:i+L])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                seen.add(h)</span><br><span class="line">        <span class="keyword">return</span> list(output)</span><br></pre></td></tr></table></figure>
@@ -217,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-09-02T14:20:17.843Z" itemprop="dateUpdated">2020-09-02 22:20:17</time>
+    最后更新时间：<time datetime="2020-09-05T12:34:49.365Z" itemprop="dateUpdated">2020-09-05 20:34:49</time>
 </span><br>
 
 
@@ -226,8 +219,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -281,6 +274,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -317,7 +334,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

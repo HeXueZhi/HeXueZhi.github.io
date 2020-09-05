@@ -14,23 +14,23 @@
     
     
     
-    <title>Numpy学习笔记 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>Numpy学习笔记 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="python,Nunpy">
-    <meta name="description" content="前言 学习Numpy的基本应用">
+    <meta name="description" content="学习Numpy的基本应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Numpy学习笔记">
 <meta property="og:url" content="http://yoursite.com/2020/01/01/Numpy/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 学习Numpy的基本应用">
+<meta property="og:description" content="学习Numpy的基本应用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-01T07:49:09.931Z">
-<meta property="article:modified_time" content="2020-01-02T12:06:39.294Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:39:39.090Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Nunpy">
 <meta name="twitter:card" content="summary">
@@ -57,11 +57,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -100,13 +100,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -164,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Numpy学习笔记"><span class="post-toc-text">Numpy学习笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、ndarray数组"><span class="post-toc-text">一、ndarray数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、数组的生成"><span class="post-toc-text">1、数组的生成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、数组的类型"><span class="post-toc-text">2、数组的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、数组的属性"><span class="post-toc-text">3、数组的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、数组索引切片"><span class="post-toc-text">4、数组索引切片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、数组的方法"><span class="post-toc-text">5、数组的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、数组排序"><span class="post-toc-text">6、数组排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、数组形状"><span class="post-toc-text">7、数组形状</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、数组对角线"><span class="post-toc-text">8、数组对角线</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、ndarray数组"><span class="post-toc-text">一、ndarray数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、数组的生成"><span class="post-toc-text">1、数组的生成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、数组的类型"><span class="post-toc-text">2、数组的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、数组的属性"><span class="post-toc-text">3、数组的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、数组索引切片"><span class="post-toc-text">4、数组索引切片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、数组的方法"><span class="post-toc-text">5、数组的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、数组排序"><span class="post-toc-text">6、数组排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、数组形状"><span class="post-toc-text">7、数组形状</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、数组对角线"><span class="post-toc-text">8、数组对角线</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -190,12 +183,12 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+            <blockquote>
 <p>学习Numpy的基本应用</p>
 </blockquote>
 <a id="more"></a>
 
-<h1 id="Numpy学习笔记"><a href="#Numpy学习笔记" class="headerlink" title="Numpy学习笔记"></a>Numpy学习笔记</h1><p>首先需要导入Numpy包</p>
+<p>首先需要导入Numpy包</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <h2 id="一、ndarray数组"><a href="#一、ndarray数组" class="headerlink" title="一、ndarray数组"></a>一、ndarray数组</h2><h3 id="1、数组的生成"><a href="#1、数组的生成" class="headerlink" title="1、数组的生成"></a>1、数组的生成</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 <p>可以与C语言一样用索引来定位数组元素，如：</p>
@@ -258,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-01-02T12:06:39.294Z" itemprop="dateUpdated">2020-01-02 20:06:39</time>
+    最后更新时间：<time datetime="2020-09-05T12:39:39.090Z" itemprop="dateUpdated">2020-09-05 20:39:39</time>
 </span><br>
 
 
@@ -267,8 +260,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -322,6 +315,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -358,7 +375,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

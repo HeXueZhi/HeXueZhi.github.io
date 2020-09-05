@@ -14,19 +14,19 @@
     
     
     
-    <title>MongoDB学习笔记 | 何小智の博客 | 好记性不如烂笔头</title>
+    <title>MongoDB学习笔记 | 何小智の博客 | 时间是人类发展的空间。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="MongoDB">
-    <meta name="description" content="前言 在菜鸟教程中学了MongoDB，做此笔记以记录。">
+    <meta name="description" content="在菜鸟教程中学了MongoDB，做此笔记以记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB学习笔记">
 <meta property="og:url" content="http://yoursite.com/2020/04/30/mongdb/index.html">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="前言 在菜鸟教程中学了MongoDB，做此笔记以记录。">
+<meta property="og:description" content="在菜鸟教程中学了MongoDB，做此笔记以记录。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/qIG2APUuL4HBJkm.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/eQxNYgwCMbKB2uJ.png">
@@ -36,8 +36,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/06/05/MvmSsP2EQZG3huK.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/j5spKWLImNF6ic9.png">
 <meta property="article:published_time" content="2020-04-30T03:48:16.857Z">
-<meta property="article:modified_time" content="2020-06-08T07:12:11.876Z">
-<meta property="article:author" content="RenKe XZ">
+<meta property="article:modified_time" content="2020-09-05T12:38:05.313Z">
+<meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/06/05/qIG2APUuL4HBJkm.png">
@@ -64,11 +64,11 @@
     <div class="brand-wrap" style="background-image:url(https://i.loli.net/2020/06/05/ShBXmtAVao1JbjR.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg">
+          <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">RenKe XZ</h5>
-          <a href="mailto:471938906@qq.com" title="471938906@qq.com" class="mail">471938906@qq.com</a>
+          <h5 class="nickname">RenKeXZ</h5>
+          <a href="mailto:renkexz@163.com" title="renkexz@163.com" class="mail">renkexz@163.com</a>
         </hgroup>
       </div>
     </div>
@@ -107,13 +107,6 @@
               <a href="https://github.com/hexuezhi" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                about
               </a>
             </li>
         
@@ -171,7 +164,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、MongoDB安装"><span class="post-toc-text">一、MongoDB安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载"><span class="post-toc-text">1.下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装"><span class="post-toc-text">2.安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-配置"><span class="post-toc-text">3.配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Robo-3T安装"><span class="post-toc-text">二、Robo 3T安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载-1"><span class="post-toc-text">1.下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-建立连接"><span class="post-toc-text">2.建立连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、基本概念"><span class="post-toc-text">三、基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-概念"><span class="post-toc-text">1.概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-id生成规则"><span class="post-toc-text">2._id生成规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、语法格式"><span class="post-toc-text">四、语法格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-创建数据库"><span class="post-toc-text">1.创建数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-查看所有数据库（无数据则不显示）"><span class="post-toc-text">2.查看所有数据库（无数据则不显示）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-删库（先use，再drop）"><span class="post-toc-text">3.删库（先use，再drop）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-创建集合（表）"><span class="post-toc-text">4.创建集合（表）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-查看集合"><span class="post-toc-text">5.查看集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-删除集合"><span class="post-toc-text">6.删除集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-插入文档（一条记录）"><span class="post-toc-text">7.插入文档（一条记录）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-查看已插入文档"><span class="post-toc-text">8.查看已插入文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-更新文档"><span class="post-toc-text">9.更新文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-删除文档"><span class="post-toc-text">10.删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-查询文档"><span class="post-toc-text">11.查询文档</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-1-比较操作符"><span class="post-toc-text">11.1 &#x3D;&#x3D;比较操作符&#x3D;&#x3D;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-2-AND比较条件"><span class="post-toc-text">11.2 AND比较条件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-3-OR比较条件"><span class="post-toc-text">11.3 OR比较条件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-4-AND-和-OR-联合使用"><span class="post-toc-text">11.4 AND 和 OR 联合使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-5-使用-lt-和-gt-查询"><span class="post-toc-text">11.5 使用 (&lt;) 和 (&gt;) 查询</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-6-type操作符"><span class="post-toc-text">11.6 $type操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-Limit与Skip方法"><span class="post-toc-text">12.Limit与Skip方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-排序"><span class="post-toc-text">13.排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#14-创建索引"><span class="post-toc-text">14.创建索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#15-聚合"><span class="post-toc-text">15.聚合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16-管道"><span class="post-toc-text">16.管道</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、维护"><span class="post-toc-text">五、维护</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-副本集？"><span class="post-toc-text">1.副本集？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-分片集？"><span class="post-toc-text">2.分片集？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-备份-mongodump-与恢复-mongorestore"><span class="post-toc-text">3.备份(mongodump)与恢复(mongorestore)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-监控"><span class="post-toc-text">4.监控</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Mongodb-to-Json"><span class="post-toc-text">5.Mongodb to Json</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、MongoDB安装"><span class="post-toc-text">一、MongoDB安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载"><span class="post-toc-text">1.下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装"><span class="post-toc-text">2.安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-配置"><span class="post-toc-text">3.配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Robo-3T安装"><span class="post-toc-text">二、Robo 3T安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载-1"><span class="post-toc-text">1.下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-建立连接"><span class="post-toc-text">2.建立连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、基本概念"><span class="post-toc-text">三、基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-概念"><span class="post-toc-text">1.概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-id生成规则"><span class="post-toc-text">2._id生成规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、语法格式"><span class="post-toc-text">四、语法格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-创建数据库"><span class="post-toc-text">1.创建数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-查看所有数据库（无数据则不显示）"><span class="post-toc-text">2.查看所有数据库（无数据则不显示）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-删库（先use，再drop）"><span class="post-toc-text">3.删库（先use，再drop）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-创建集合（表）"><span class="post-toc-text">4.创建集合（表）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-查看集合"><span class="post-toc-text">5.查看集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-删除集合"><span class="post-toc-text">6.删除集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-插入文档（一条记录）"><span class="post-toc-text">7.插入文档（一条记录）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-查看已插入文档"><span class="post-toc-text">8.查看已插入文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-更新文档"><span class="post-toc-text">9.更新文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-删除文档"><span class="post-toc-text">10.删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-查询文档"><span class="post-toc-text">11.查询文档</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-1-比较操作符"><span class="post-toc-text">11.1 &#x3D;&#x3D;比较操作符&#x3D;&#x3D;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-2-AND比较条件"><span class="post-toc-text">11.2 AND比较条件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-3-OR比较条件"><span class="post-toc-text">11.3 OR比较条件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-4-AND-和-OR-联合使用"><span class="post-toc-text">11.4 AND 和 OR 联合使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-5-使用-lt-和-gt-查询"><span class="post-toc-text">11.5 使用 (&lt;) 和 (&gt;) 查询</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-6-type操作符"><span class="post-toc-text">11.6 $type操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-Limit与Skip方法"><span class="post-toc-text">12.Limit与Skip方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-排序"><span class="post-toc-text">13.排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#14-创建索引"><span class="post-toc-text">14.创建索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#15-聚合"><span class="post-toc-text">15.聚合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16-管道"><span class="post-toc-text">16.管道</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、维护"><span class="post-toc-text">五、维护</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-副本集？"><span class="post-toc-text">1.副本集？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-分片集？"><span class="post-toc-text">2.分片集？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-备份-mongodump-与恢复-mongorestore"><span class="post-toc-text">3.备份(mongodump)与恢复(mongorestore)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-监控"><span class="post-toc-text">4.监控</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Mongodb-to-Json"><span class="post-toc-text">5.Mongodb to Json</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -199,7 +192,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <hr />
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<blockquote>
 <p>在菜鸟教程中学了MongoDB，做此笔记以记录。</p>
 </blockquote>
 <a id="more"></a>
@@ -634,7 +627,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-08T07:12:11.876Z" itemprop="dateUpdated">2020-06-08 15:12:11</time>
+    最后更新时间：<time datetime="2020-09-05T12:38:05.313Z" itemprop="dateUpdated">2020-09-05 20:38:05</time>
 </span><br>
 
 
@@ -643,8 +636,8 @@
     
     <footer>
         <a href="http://yoursite.com">
-            <img src="https://i.loli.net/2020/06/05/YFfNtieLm4Icrh8.jpg" alt="RenKe XZ">
-            RenKe XZ
+            <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
+            RenKeXZ
         </a>
     </footer>
 </blockquote>
@@ -698,6 +691,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "fOX54xgoMEMrqjDBsJmOvsdJ-gzGzoHsz",
+            appKey: "6PKxP42RH6d3oTMcTB9GHRhm",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -734,7 +751,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>RenKe XZ &copy; 2015 - 2020</span>
+        <p><span>RenKeXZ &copy; 2015 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
