@@ -240,7 +240,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">oh-my-zsh安装及主题更换</h4>
+      </a>
+    </div>
   
 
   
@@ -274,7 +281,7 @@
     <!-- Valine Comments script -->
     <script>
         var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
           return GUEST_INFO.indexOf(item) > -1
         });
         new Valine({
