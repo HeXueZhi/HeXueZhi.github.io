@@ -28,11 +28,13 @@
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/09/21/KSrv5D4ZpIk8Y1c.png">
 <meta property="article:published_time" content="2020-09-14T13:48:47.277Z">
-<meta property="article:modified_time" content="2020-09-21T02:58:47.617Z">
+<meta property="article:modified_time" content="2020-09-21T04:20:20.477Z">
 <meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="oh-my-zsh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/21/KSrv5D4ZpIk8Y1c.png">
     
         <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
     
@@ -187,6 +189,15 @@
 </blockquote>
 <a id="more"></a>
 
+<p><strong>最终效果</strong>：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/21/KSrv5D4ZpIk8Y1c.png" alt="new UI" title="">
+                </div>
+                <div class="image-caption">new UI</div>
+            </figure>
+
 <h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install zsh</span><br><span class="line">yum install git</span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget httpy://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --no-check-certificate -O -)</span>"</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2 更换主题"></a>2 更换主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/themes &amp;&amp; ls</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment">#ZSH_THEME="agnoster"</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
@@ -201,7 +212,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-09-21T02:58:47.617Z" itemprop="dateUpdated">2020-09-21 10:58:47</time>
+    最后更新时间：<time datetime="2020-09-21T04:20:20.477Z" itemprop="dateUpdated">2020-09-21 12:20:20</time>
 </span><br>
 
 
@@ -236,9 +247,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/09/05/LeetCode148/" id="post-next" class="post-nav-link">
+      <a href="/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">LeetCode148、排序链表</h4>
+        <h4 class="title">获取用户任务列表报500BUG</h4>
       </a>
     </div>
   
