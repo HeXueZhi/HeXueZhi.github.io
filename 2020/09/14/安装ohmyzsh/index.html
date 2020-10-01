@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/09/21/KSrv5D4ZpIk8Y1c.png">
 <meta property="article:published_time" content="2020-09-14T13:48:47.277Z">
-<meta property="article:modified_time" content="2020-09-21T04:20:20.477Z">
+<meta property="article:modified_time" content="2020-09-27T11:35:34.977Z">
 <meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="oh-my-zsh">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
                 <div class="image-caption">new UI</div>
             </figure>
 
-<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install zsh</span><br><span class="line">yum install git</span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget httpy://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --no-check-certificate -O -)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br><span class="line">yum install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment">#方案一：</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --no-check-certificate -O -)</span>"</span></span><br><span class="line"><span class="comment">#方案二：（官方方案）</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2 更换主题"></a>2 更换主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/themes &amp;&amp; ls</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment">#ZSH_THEME="agnoster"</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
@@ -212,7 +212,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-09-21T04:20:20.477Z" itemprop="dateUpdated">2020-09-21 12:20:20</time>
+    最后更新时间：<time datetime="2020-09-27T11:35:34.977Z" itemprop="dateUpdated">2020-09-27 19:35:34</time>
 </span><br>
 
 
