@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,11 +35,10 @@
     <meta name="description" content="帮助老师撰写以太坊课程的实验指导书，因此需要设计一个基于以太坊私链的溯源Dapp项目。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于以太坊私链的溯源Dapp">
-<meta property="og:url" content="http://yoursite.com/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="帮助老师撰写以太坊课程的实验指导书，因此需要设计一个基于以太坊私链的溯源Dapp项目。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/08/15/9PmGtVHWqx5iZhc.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/15/YLxKbDhaNI4SeC5.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/15/Z76IToRKD3gm5AP.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/15/mAJSqV3L5Gxe9ZO.png">
@@ -40,7 +50,7 @@
 <meta property="article:tag" content="Dapp">
 <meta property="article:tag" content="truffle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/08/15/9PmGtVHWqx5iZhc.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/08/15/YLxKbDhaNI4SeC5.png">
     
         <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
     
@@ -134,6 +144,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -202,62 +216,56 @@
 <li>CentOS7：用于搭建私链</li>
 </ul>
 <h3 id="一、私链的创建"><a href="#一、私链的创建" class="headerlink" title="一、私链的创建"></a>一、私链的创建</h3><p>前面的文章有写如何搭建私链。</p>
-<p><a href="https://hexuezhi.github.io/2020/04/30/以太坊搭建私链/" target="_blank" rel="noopener">以太坊搭建私链</a></p>
+<p><a href="https://hexuezhi.github.io/2020/04/30/以太坊搭建私链/">以太坊搭建私链</a></p>
 <h3 id="二、以太坊Dapp的创建"><a href="#二、以太坊Dapp的创建" class="headerlink" title="二、以太坊Dapp的创建"></a>二、以太坊Dapp的创建</h3><p>Dapp整体基于truffle，前端采用webpack打包。</p>
-<h4 id="2-1-编写合约"><a href="#2-1-编写合约" class="headerlink" title="2.1 编写合约"></a>2.1 编写合约</h4><p>合约编写以及编译采用<a href="http://remix.ethereum.org/" target="_blank" rel="noopener">remix</a>（需要较好的网络环境），推荐使用老版本界面。<a href="https://hexuezhi.github.io/2020/04/30/水龙头合约/" target="_blank" rel="noopener">remix入门</a></p>
+<h4 id="2-1-编写合约"><a href="#2-1-编写合约" class="headerlink" title="2.1 编写合约"></a>2.1 编写合约</h4><p>合约编写以及编译采用<a href="http://remix.ethereum.org/" target="_blank" rel="noopener">remix</a>（需要较好的网络环境），推荐使用老版本界面。<a href="https://hexuezhi.github.io/2020/04/30/水龙头合约/">remix入门</a></p>
 <p>合约代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;</span><br><span class="line"></span><br><span class="line">contract FoodTransportation&#123;</span><br><span class="line">    struct Location&#123;</span><br><span class="line">        string locationName;</span><br><span class="line">        string transPerson;</span><br><span class="line">        uint timeStamp;</span><br><span class="line">    &#125;</span><br><span class="line">    string foodName;</span><br><span class="line"></span><br><span class="line">    mapping (uint &#x3D;&gt; Location) trail;</span><br><span class="line">    uint8 locationNum;</span><br><span class="line"></span><br><span class="line">    function addNewLocation(string memory food,string memory locationName,string memory transPerson)public&#123;</span><br><span class="line">        if(bytes(foodName).length &#x3D;&#x3D; 0)&#123;</span><br><span class="line">            foodName &#x3D; food;</span><br><span class="line">        &#125;</span><br><span class="line">        Location memory newLocation;</span><br><span class="line">        newLocation.locationName &#x3D; locationName;</span><br><span class="line">        newLocation.transPerson &#x3D; transPerson;</span><br><span class="line">        newLocation.timeStamp &#x3D; now;</span><br><span class="line">        trail[locationNum] &#x3D; newLocation;</span><br><span class="line">        locationNum++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getLocationNum() public view returns(uint8)&#123;</span><br><span class="line">        return locationNum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getFoodName() public view returns(string memory)&#123;</span><br><span class="line">        return foodName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getLocation(uint8 locationNo) public view returns(string memory,string memory,uint)&#123;</span><br><span class="line">        return (trail[locationNo].locationName,trail[locationNo].transPerson,trail[locationNo].timeStamp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs plain">pragma solidity &gt;&#x3D;0.4.22 &lt;0.7.0;<br><br>contract FoodTransportation&#123;<br>    struct Location&#123;<br>        string locationName;<br>        string transPerson;<br>        uint timeStamp;<br>    &#125;<br>    string foodName;<br><br>    mapping (uint &#x3D;&gt; Location) trail;<br>    uint8 locationNum;<br><br>    function addNewLocation(string memory food,string memory locationName,string memory transPerson)public&#123;<br>        if(bytes(foodName).length &#x3D;&#x3D; 0)&#123;<br>            foodName &#x3D; food;<br>        &#125;<br>        Location memory newLocation;<br>        newLocation.locationName &#x3D; locationName;<br>        newLocation.transPerson &#x3D; transPerson;<br>        newLocation.timeStamp &#x3D; now;<br>        trail[locationNum] &#x3D; newLocation;<br>        locationNum++;<br>    &#125;<br><br>    function getLocationNum() public view returns(uint8)&#123;<br>        return locationNum;<br>    &#125;<br><br>    function getFoodName() public view returns(string memory)&#123;<br>        return foodName;<br>    &#125;<br><br>    function getLocation(uint8 locationNo) public view returns(string memory,string memory,uint)&#123;<br>        return (trail[locationNo].locationName,trail[locationNo].transPerson,trail[locationNo].timeStamp);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>这一步需要完成合约的编译和测试。</p>
 <h4 id="2-2-环境准备"><a href="#2-2-环境准备" class="headerlink" title="2.2 环境准备"></a>2.2 环境准备</h4><p>win10系统中，安装node、truffle、ganache-cli。</p>
 <p>执行<code>truffle version</code>查看版本。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/08/15/9PmGtVHWqx5iZhc.png" alt="truffle version" title="">
-                </div>
-                <div class="image-caption">truffle version</div>
-            </figure>
+{% image https://i.loli.net/2020/08/15/9PmGtVHWqx5iZhc.png 'truffle version' '' %}
 
 <p>尤其需要注意solidity和web3的版本。版本不同语法支持也不同，所以安装时，尽量选择于上图中相差不多的版本。</p>
 <h4 id="2-3-truffle-webpack创建项目"><a href="#2-3-truffle-webpack创建项目" class="headerlink" title="2.3 truffle+webpack创建项目"></a>2.3 truffle+webpack创建项目</h4><ol>
 <li><p>新建Dapp/FoodTransportation文件夹</p>
 </li>
 <li><p>文件夹下执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truffle unbox webpack</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">truffle unbox webpack<br></code></pre></td></tr></table></figure>
 
 <p>此命令会下载truffle提供的官方示例，下载时间可能会有点长，耐心等待。下载完成后的提示以及目录结构如下图所示。</p>
 <p><img src="https://i.loli.net/2020/08/15/YLxKbDhaNI4SeC5.png" alt="download truffle-webpack"></p>
 <p>此示例项目的运行启动：留个坑。</p>
 </li>
 <li><p>修改<code>truffle-config.js</code>为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'babel-register'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  networks: &#123;</span><br><span class="line">    development: &#123;</span><br><span class="line">      host: <span class="string">'localhost'</span>,</span><br><span class="line">      port: <span class="number">8545</span>,</span><br><span class="line">      network_id: <span class="string">'*'</span> <span class="comment">// Match any network id</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">require</span>(<span class="hljs-string">'babel-register'</span>)<br><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-attr">networks</span>: &#123;<br>    <span class="hljs-attr">development</span>: &#123;<br>      <span class="hljs-attr">host</span>: <span class="hljs-string">'localhost'</span>,<br>      <span class="hljs-attr">port</span>: <span class="hljs-number">8545</span>,<br>      <span class="hljs-attr">network_id</span>: <span class="hljs-string">'*'</span> <span class="hljs-comment">// Match any network id</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>本文件夹下的powershell中执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel<span class="literal">-register</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install babel<span class="hljs-literal">-register</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>删除contracts文件夹中的<code>ConvertLib.sol</code>和<code>MetaCoin.sol</code>文件，创建<code>FoodTransportation.sol</code>合约文件，复制刚才编写的合约代码。</p>
 </li>
 <li><p>修改migrations文件夹中的<code>2_deploy_contracts.js</code>文件。</p>
 <p><strong>注意：</strong>这里直接删除这个文件也无妨，因为本项目使用web3来部署合约，不需要使用<code>truffle migrate</code>命令帮助部署合约。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FoodTransportation = artifacts.require(<span class="string">"./FoodTransportation"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">deployer</span>) </span>&#123;</span><br><span class="line">  deployer.deploy(FoodTransportation);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> FoodTransportation = artifacts.require(<span class="hljs-string">"./FoodTransportation"</span>);<br><br><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>&#123;<br>  deployer.deploy(FoodTransportation);<br>&#125;;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>powershell中执行<code>truffle compile</code>命令。truffle中自带的solc-js会对合约进行编译。在Dapp文件夹下会出现build文件夹，存放编译形成的json文件。</p>
 </li>
 <li><p>在Dapp的app文件夹下粘贴写好的html文件，src目录下粘贴需要的js文件和css文件。</p>
 </li>
 <li><p>修改webpack-config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> CopyWebpackPlugin = <span class="built_in">require</span>(<span class="string">'copy-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/app.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'build'</span>),</span><br><span class="line">    filename: <span class="string">'app.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mode : <span class="string">'development'</span>,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// Copy our app's index.html to the build folder.</span></span><br><span class="line">    <span class="keyword">new</span> CopyWebpackPlugin([</span><br><span class="line">      &#123; <span class="attr">from</span>: <span class="string">'./index.html'</span>, <span class="attr">to</span>: <span class="string">"index.html"</span> &#125;</span><br><span class="line">    ])</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [ <span class="string">'style-loader'</span>, <span class="string">'css-loader'</span> ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">exclude</span>: <span class="regexp">/(node_modules|bower_components)/</span>, <span class="attr">use</span>: <span class="string">'json-loader'</span> &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">        query: &#123;</span><br><span class="line">          presets: [<span class="string">'es2015'</span>],</span><br><span class="line">          plugins: [<span class="string">'transform-runtime'</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);<br><span class="hljs-keyword">const</span> CopyWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'copy-webpack-plugin'</span>);<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">'./src/app.js'</span>,<br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">path</span>: path.resolve(__dirname, <span class="hljs-string">'build'</span>),<br>    <span class="hljs-attr">filename</span>: <span class="hljs-string">'app.js'</span><br>  &#125;,<br>  <span class="hljs-attr">mode</span> : <span class="hljs-string">'development'</span>,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-comment">// Copy our app's index.html to the build folder.</span><br>    <span class="hljs-keyword">new</span> CopyWebpackPlugin([<br>      &#123; <span class="hljs-attr">from</span>: <span class="hljs-string">'./index.html'</span>, <span class="hljs-attr">to</span>: <span class="hljs-string">"index.html"</span> &#125;<br>    ])<br>  ],<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>,<br>        <span class="hljs-attr">use</span>: [ <span class="hljs-string">'style-loader'</span>, <span class="hljs-string">'css-loader'</span> ]<br>      &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.json$/</span>, <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/(node_modules|bower_components)/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">'json-loader'</span> &#125;,<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.js$/</span>,<br>        <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/(node_modules|bower_components)/</span>,<br>        <span class="hljs-attr">loader</span>: <span class="hljs-string">'babel-loader'</span>,<br>        <span class="hljs-attr">query</span>: &#123;<br>          <span class="hljs-attr">presets</span>: [<span class="hljs-string">'es2015'</span>],<br>          <span class="hljs-attr">plugins</span>: [<span class="hljs-string">'transform-runtime'</span>]<br>        &#125;<br>      &#125;<br>    ]<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在app目录下执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install web3@<span class="number">0.18</span>.<span class="number">4</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install webpack -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install style<span class="literal">-loader</span> css<span class="literal">-loader</span> json<span class="literal">-loader</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install <span class="literal">-D</span> babel<span class="literal">-loader</span>@<span class="number">7</span> babel<span class="literal">-core</span> babel<span class="literal">-preset</span><span class="literal">-env</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install babel<span class="literal">-preset</span><span class="literal">-es2015</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install babel<span class="literal">-plugin</span><span class="literal">-transform</span><span class="literal">-runtime</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm run build</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install web3@<span class="hljs-number">0.18</span>.<span class="hljs-number">4</span> -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm install webpack -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm install style<span class="hljs-literal">-loader</span> css<span class="hljs-literal">-loader</span> json<span class="hljs-literal">-loader</span> -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm install <span class="hljs-literal">-D</span> babel<span class="hljs-literal">-loader</span>@<span class="hljs-number">7</span> babel<span class="hljs-literal">-core</span> babel<span class="hljs-literal">-preset</span><span class="hljs-literal">-env</span> -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm install babel<span class="hljs-literal">-preset</span><span class="hljs-literal">-es2015</span> -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm install babel<span class="hljs-literal">-plugin</span><span class="hljs-literal">-transform</span><span class="hljs-literal">-runtime</span> -<span class="hljs-literal">-save</span><span class="hljs-literal">-dev</span><br>npm run build<br>npm run dev<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>进入<code>http://localhost:8080</code>查看界面。注意：现在如果没有启动私链，页面由于没有获取到账户，会发出警告，启动私链，连接metamask刷新即可。</p>
 </li>
 </ol>
 <h3 id="三、合约部署"><a href="#三、合约部署" class="headerlink" title="三、合约部署"></a>三、合约部署</h3><h4 id="3-1-win10本地ganache测试"><a href="#3-1-win10本地ganache测试" class="headerlink" title="3.1 win10本地ganache测试"></a>3.1 win10本地ganache测试</h4><ol>
 <li><p>安装<code>ganache-cli</code></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> ganache<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">-g</span> ganache<span class="hljs-literal">-cli</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>执行<code>ganache-cli</code></p>
 <p><img src="https://i.loli.net/2020/08/15/Z76IToRKD3gm5AP.png" alt="ganache-cli"></p>
@@ -278,7 +286,7 @@
 </li>
 <li><p>查看账户余额<code>eth.getBalance(eth.accounts[0])</code>，为了保证能够发起合约部署等交易，需要一些ETH。</p>
 </li>
-<li><p>设置虚拟机防火墙，打开8545端口。<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/" target="_blank" rel="noopener">CentOS设置防火墙</a></p>
+<li><p>设置虚拟机防火墙，打开8545端口。<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/">CentOS设置防火墙</a></p>
 </li>
 <li><p>metamask连接CentOS的私链。需要新创建rpc网络。</p>
 <ul>
@@ -319,7 +327,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -335,6 +343,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&title=《基于以太坊私链的溯源Dapp》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&title=《基于以太坊私链的溯源Dapp》 — 何小智の博客&source=
+帮助老师撰写以太坊课程的实验指导书，因此需要设计一个基于以太坊私链的溯源Dapp项目。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于以太坊私链的溯源Dapp》 — 何小智の博客&url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -449,9 +504,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&title=《基于以太坊私链的溯源Dapp》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&title=《基于以太坊私链的溯源Dapp》 — 何小智の博客&source=
+帮助老师撰写以太坊课程的实验指导书，因此需要设计一个基于以太坊私链的溯源Dapp项目。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于以太坊私链的溯源Dapp》 — 何小智の博客&url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/08/15/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%BA%AF%E6%BA%90Dapp/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

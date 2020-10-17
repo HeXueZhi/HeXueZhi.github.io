@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oh-my-zsh安装及主题更换">
-<meta property="og:url" content="http://yoursite.com/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。">
 <meta property="og:locale" content="zh_CN">
@@ -128,6 +139,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -198,11 +213,11 @@
                 <div class="image-caption">new UI</div>
             </figure>
 
-<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br><span class="line">yum install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment">#方案一：</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --no-check-certificate -O -)</span>"</span></span><br><span class="line"><span class="comment">#方案二：（官方方案）</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install git<br>yum install zsh<br><br><span class="hljs-comment">#方案一：</span><br>sh -c <span class="hljs-string">"<span class="hljs-variable">$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --no-check-certificate -O -)</span>"</span><br><span class="hljs-comment">#方案二：（官方方案）</span><br>sh -c <span class="hljs-string">"<span class="hljs-variable">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2 更换主题"></a>2 更换主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/themes &amp;&amp; ls</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment">#ZSH_THEME="agnoster"</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2 更换主题"></a>2 更换主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/.oh-my-zsh/themes &amp;&amp; ls<br>vim ~/.zshrc<br><span class="hljs-comment">#ZSH_THEME="agnoster"</span><br><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-安装插件（zsh-autosuggestions）"><a href="#3-安装插件（zsh-autosuggestions）" class="headerlink" title="3 安装插件（zsh-autosuggestions）"></a>3 安装插件（zsh-autosuggestions）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment">#将zsh-autosuggestions添加到plugins中</span></span><br><span class="line"><span class="comment">#plugins=(git zsh-autosuggestions)</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装插件（zsh-autosuggestions）"><a href="#3-安装插件（zsh-autosuggestions）" class="headerlink" title="3 安装插件（zsh-autosuggestions）"></a>3 安装插件（zsh-autosuggestions）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="hljs-variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions<br>vim ~/.zshrc<br><span class="hljs-comment">#将zsh-autosuggestions添加到plugins中</span><br><span class="hljs-comment">#plugins=(git zsh-autosuggestions)</span><br><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure>
 
 
         </div>
@@ -220,7 +235,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -236,6 +251,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&title=《oh-my-zsh安装及主题更换》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&title=《oh-my-zsh安装及主题更换》 — 何小智の博客&source=
+折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《oh-my-zsh安装及主题更换》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -350,9 +412,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&title=《oh-my-zsh安装及主题更换》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&title=《oh-my-zsh安装及主题更换》 — 何小智の博客&source=
+折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《oh-my-zsh安装及主题更换》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/09/14/%E5%AE%89%E8%A3%85ohmyzsh/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

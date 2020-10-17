@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java刷题笔记">
-<meta property="og:url" content="http://yoursite.com/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="想把自己刷题过程中一些，使用经典方法、思想的题记录下来。">
 <meta property="og:locale" content="zh_CN">
@@ -126,6 +137,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -187,102 +202,102 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="一、集合"><a href="#一、集合" class="headerlink" title="一、集合"></a>一、集合</h2><h3 id="1-数组"><a href="#1-数组" class="headerlink" title="1 数组"></a>1 数组</h3><h4 id="1-1-新建数组"><a href="#1-1-新建数组" class="headerlink" title="1.1 新建数组"></a>1.1 新建数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="一、集合"><a href="#一、集合" class="headerlink" title="一、集合"></a>一、集合</h2><h3 id="1-数组"><a href="#1-数组" class="headerlink" title="1 数组"></a>1 数组</h3><h4 id="1-1-新建数组"><a href="#1-1-新建数组" class="headerlink" title="1.1 新建数组"></a>1.1 新建数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
 
-<h4 id="1-2-数组大小"><a href="#1-2-数组大小" class="headerlink" title="1.2 数组大小"></a>1.2 数组大小</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.length</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-数组大小"><a href="#1-2-数组大小" class="headerlink" title="1.2 数组大小"></a>1.2 数组大小</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">a.length<br></code></pre></td></tr></table></figure>
 
-<h3 id="2-List"><a href="#2-List" class="headerlink" title="2 List"></a>2 List</h3><h4 id="2-1-新建List"><a href="#2-1-新建List" class="headerlink" title="2.1 新建List"></a>2.1 新建List</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; nums = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="2-List"><a href="#2-List" class="headerlink" title="2 List"></a>2 List</h3><h4 id="2-1-新建List"><a href="#2-1-新建List" class="headerlink" title="2.1 新建List"></a>2.1 新建List</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-2-添加元素"><a href="#2-2-添加元素" class="headerlink" title="2.2 添加元素"></a>2.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.add(<span class="number">3</span>);<span class="comment">//尾部添加3</span></span><br><span class="line">nums.add(<span class="number">0</span>,<span class="number">3</span>);<span class="comment">//index=0处，添加3</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-添加元素"><a href="#2-2-添加元素" class="headerlink" title="2.2 添加元素"></a>2.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.add(<span class="hljs-number">3</span>);<span class="hljs-comment">//尾部添加3</span><br>nums.add(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>);<span class="hljs-comment">//index=0处，添加3</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-3-获取元素"><a href="#2-3-获取元素" class="headerlink" title="2.3 获取元素"></a>2.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = nums.get(<span class="number">0</span>);<span class="comment">//index</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-3-获取元素"><a href="#2-3-获取元素" class="headerlink" title="2.3 获取元素"></a>2.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> n = nums.get(<span class="hljs-number">0</span>);<span class="hljs-comment">//index</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-4-删除元素"><a href="#2-4-删除元素" class="headerlink" title="2.4 删除元素"></a>2.4 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.remove(<span class="number">0</span>);<span class="comment">//删除第一个元素</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-4-删除元素"><a href="#2-4-删除元素" class="headerlink" title="2.4 删除元素"></a>2.4 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.remove(<span class="hljs-number">0</span>);<span class="hljs-comment">//删除第一个元素</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-5-是否为空"><a href="#2-5-是否为空" class="headerlink" title="2.5 是否为空"></a>2.5 是否为空</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.isEmpty()</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-是否为空"><a href="#2-5-是否为空" class="headerlink" title="2.5 是否为空"></a>2.5 是否为空</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.isEmpty()<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-6-是否包含元素"><a href="#2-6-是否包含元素" class="headerlink" title="2.6 是否包含元素"></a>2.6 是否包含元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.contains(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-是否包含元素"><a href="#2-6-是否包含元素" class="headerlink" title="2.6 是否包含元素"></a>2.6 是否包含元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.contains(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-7-列表长度"><a href="#2-7-列表长度" class="headerlink" title="2.7 列表长度"></a>2.7 列表长度</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.size()</span><br></pre></td></tr></table></figure>
+<h4 id="2-7-列表长度"><a href="#2-7-列表长度" class="headerlink" title="2.7 列表长度"></a>2.7 列表长度</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.size()<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-8-清空列表"><a href="#2-8-清空列表" class="headerlink" title="2.8 清空列表"></a>2.8 清空列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.clear()</span><br></pre></td></tr></table></figure>
+<h4 id="2-8-清空列表"><a href="#2-8-清空列表" class="headerlink" title="2.8 清空列表"></a>2.8 清空列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">nums.clear()<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-Set"><a href="#3-Set" class="headerlink" title="3 Set"></a>3 Set</h3><h4 id="3-1-新建集合"><a href="#3-1-新建集合" class="headerlink" title="3.1 新建集合"></a>3.1 新建集合</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="3-Set"><a href="#3-Set" class="headerlink" title="3 Set"></a>3 Set</h3><h4 id="3-1-新建集合"><a href="#3-1-新建集合" class="headerlink" title="3.1 新建集合"></a>3.1 新建集合</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-1-添加元素"><a href="#3-1-添加元素" class="headerlink" title="3.1 添加元素"></a>3.1 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set.add(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-添加元素"><a href="#3-1-添加元素" class="headerlink" title="3.1 添加元素"></a>3.1 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">set.add(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-2-删除元素"><a href="#3-2-删除元素" class="headerlink" title="3.2 删除元素"></a>3.2 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set.remove(<span class="number">2</span>);<span class="comment">//这里只能删除元素，无index</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-2-删除元素"><a href="#3-2-删除元素" class="headerlink" title="3.2 删除元素"></a>3.2 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">set.remove(<span class="hljs-number">2</span>);<span class="hljs-comment">//这里只能删除元素，无index</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-3-是否包含"><a href="#3-3-是否包含" class="headerlink" title="3.3 是否包含"></a>3.3 是否包含</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set.contains(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-是否包含"><a href="#3-3-是否包含" class="headerlink" title="3.3 是否包含"></a>3.3 是否包含</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">set.contains(<span class="hljs-number">5</span>);<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-HashMap"><a href="#3-HashMap" class="headerlink" title="3 HashMap"></a>3 HashMap</h3><h4 id="3-1-新建HashMap"><a href="#3-1-新建HashMap" class="headerlink" title="3.1 新建HashMap"></a>3.1 新建HashMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="3-HashMap"><a href="#3-HashMap" class="headerlink" title="3 HashMap"></a>3 HashMap</h3><h4 id="3-1-新建HashMap"><a href="#3-1-新建HashMap" class="headerlink" title="3.1 新建HashMap"></a>3.1 新建HashMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">HashMap&lt;String, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-2-添加键值对"><a href="#3-2-添加键值对" class="headerlink" title="3.2 添加键值对"></a>3.2 添加键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.put(<span class="string">"zhang"</span>, <span class="string">"31"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-添加键值对"><a href="#3-2-添加键值对" class="headerlink" title="3.2 添加键值对"></a>3.2 添加键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">map.put(<span class="hljs-string">"zhang"</span>, <span class="hljs-string">"31"</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-3-获取键值对"><a href="#3-3-获取键值对" class="headerlink" title="3.3 获取键值对"></a>3.3 获取键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.get(<span class="string">"zhang"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-获取键值对"><a href="#3-3-获取键值对" class="headerlink" title="3.3 获取键值对"></a>3.3 获取键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">map.get(<span class="hljs-string">"zhang"</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-4-是否包含"><a href="#3-4-是否包含" class="headerlink" title="3.4 是否包含"></a>3.4 是否包含</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.containsKey(<span class="string">"zhang"</span>);</span><br><span class="line">map.containsValue(<span class="string">"31"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-是否包含"><a href="#3-4-是否包含" class="headerlink" title="3.4 是否包含"></a>3.4 是否包含</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">map.containsKey(<span class="hljs-string">"zhang"</span>);<br>map.containsValue(<span class="hljs-string">"31"</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-5-删除键值对"><a href="#3-5-删除键值对" class="headerlink" title="3.5 删除键值对"></a>3.5 删除键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.remove(<span class="string">"zhang"</span>);</span><br><span class="line">map.remove(<span class="string">"zhang"</span>,<span class="string">"31"</span>);<span class="comment">//Removes the entry for the specified key only if it is currently mapped to the specified value.</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-5-删除键值对"><a href="#3-5-删除键值对" class="headerlink" title="3.5 删除键值对"></a>3.5 删除键值对</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">map.remove(<span class="hljs-string">"zhang"</span>);<br>map.remove(<span class="hljs-string">"zhang"</span>,<span class="hljs-string">"31"</span>);<span class="hljs-comment">//Removes the entry for the specified key only if it is currently mapped to the specified value.</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-6-返回key-Set"><a href="#3-6-返回key-Set" class="headerlink" title="3.6 返回key Set"></a>3.6 返回key Set</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.keySet();</span><br></pre></td></tr></table></figure>
+<h4 id="3-6-返回key-Set"><a href="#3-6-返回key-Set" class="headerlink" title="3.6 返回key Set"></a>3.6 返回key Set</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">map.keySet();<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-7-返回value-Colleciton"><a href="#3-7-返回value-Colleciton" class="headerlink" title="3.7 返回value Colleciton"></a>3.7 返回value Colleciton</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.values();</span><br></pre></td></tr></table></figure>
+<h4 id="3-7-返回value-Colleciton"><a href="#3-7-返回value-Colleciton" class="headerlink" title="3.7 返回value Colleciton"></a>3.7 返回value Colleciton</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">map.values();<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-8-遍历HashMap"><a href="#3-8-遍历HashMap" class="headerlink" title="3.8 遍历HashMap"></a>3.8 遍历HashMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">	map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-8-遍历HashMap"><a href="#3-8-遍历HashMap" class="headerlink" title="3.8 遍历HashMap"></a>3.8 遍历HashMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Map&lt;String, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String, String&gt;();<br><span class="hljs-keyword">for</span> (String key : map.keySet()) &#123;<br>	map.get(key);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="4-Stack"><a href="#4-Stack" class="headerlink" title="4 Stack"></a>4 Stack</h3><p>官方不推荐使用Stack类，推荐使用<code>Deque</code>。</p>
-<h4 id="4-1-新建栈"><a href="#4-1-新建栈" class="headerlink" title="4.1 新建栈"></a>4.1 新建栈</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h4 id="4-1-新建栈"><a href="#4-1-新建栈" class="headerlink" title="4.1 新建栈"></a>4.1 新建栈</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="4-2-添加元素"><a href="#4-2-添加元素" class="headerlink" title="4.2 添加元素"></a>4.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack.push(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-添加元素"><a href="#4-2-添加元素" class="headerlink" title="4.2 添加元素"></a>4.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">stack.push(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="4-3-弹出元素"><a href="#4-3-弹出元素" class="headerlink" title="4.3 弹出元素"></a>4.3 弹出元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack.pop();</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-弹出元素"><a href="#4-3-弹出元素" class="headerlink" title="4.3 弹出元素"></a>4.3 弹出元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">stack.pop();<br></code></pre></td></tr></table></figure>
 
-<h4 id="4-4-获取栈顶元素"><a href="#4-4-获取栈顶元素" class="headerlink" title="4.4 获取栈顶元素"></a>4.4 获取栈顶元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack.peek();</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-获取栈顶元素"><a href="#4-4-获取栈顶元素" class="headerlink" title="4.4 获取栈顶元素"></a>4.4 获取栈顶元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">stack.peek();<br></code></pre></td></tr></table></figure>
 
-<h3 id="5-queue"><a href="#5-queue" class="headerlink" title="5 queue"></a>5 queue</h3><h4 id="5-1-新建队列"><a href="#5-1-新建队列" class="headerlink" title="5.1 新建队列"></a>5.1 新建队列</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayDeque&lt;Integer&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="5-queue"><a href="#5-queue" class="headerlink" title="5 queue"></a>5 queue</h3><h4 id="5-1-新建队列"><a href="#5-1-新建队列" class="headerlink" title="5.1 新建队列"></a>5.1 新建队列</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">ArrayDeque&lt;Integer&gt; deque = <span class="hljs-keyword">new</span> ArrayDeque&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="5-2-添加元素"><a href="#5-2-添加元素" class="headerlink" title="5.2 添加元素"></a>5.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deque.add(<span class="number">3</span>);<span class="comment">//尾部添加3</span></span><br><span class="line">deque.addFirst(<span class="number">3</span>);<span class="comment">//头部添加3</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-添加元素"><a href="#5-2-添加元素" class="headerlink" title="5.2 添加元素"></a>5.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">deque.add(<span class="hljs-number">3</span>);<span class="hljs-comment">//尾部添加3</span><br>deque.addFirst(<span class="hljs-number">3</span>);<span class="hljs-comment">//头部添加3</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="5-3-获取元素"><a href="#5-3-获取元素" class="headerlink" title="5.3 获取元素"></a>5.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">duque.getFirst();</span><br><span class="line">deque.getLast();</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-获取元素"><a href="#5-3-获取元素" class="headerlink" title="5.3 获取元素"></a>5.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">duque.getFirst();<br>deque.getLast();<br></code></pre></td></tr></table></figure>
 
-<h4 id="5-4-获取并删除"><a href="#5-4-获取并删除" class="headerlink" title="5.4 获取并删除"></a>5.4 获取并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deque.pollFirst();<span class="comment">//出队</span></span><br><span class="line">deque.pollLast();<span class="comment">//弹栈</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-4-获取并删除"><a href="#5-4-获取并删除" class="headerlink" title="5.4 获取并删除"></a>5.4 获取并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">deque.pollFirst();<span class="hljs-comment">//出队</span><br>deque.pollLast();<span class="hljs-comment">//弹栈</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="6-PriorityQueue"><a href="#6-PriorityQueue" class="headerlink" title="6 PriorityQueue"></a>6 PriorityQueue</h3><h4 id="6-1-新建堆"><a href="#6-1-新建堆" class="headerlink" title="6.1 新建堆"></a>6.1 新建堆</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="6-PriorityQueue"><a href="#6-PriorityQueue" class="headerlink" title="6 PriorityQueue"></a>6 PriorityQueue</h3><h4 id="6-1-新建堆"><a href="#6-1-新建堆" class="headerlink" title="6.1 新建堆"></a>6.1 新建堆</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">PriorityQueue&lt;Integer&gt; pq = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="6-2-添加元素"><a href="#6-2-添加元素" class="headerlink" title="6.2 添加元素"></a>6.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pq.add(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-添加元素"><a href="#6-2-添加元素" class="headerlink" title="6.2 添加元素"></a>6.2 添加元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">pq.add(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="6-3-获取元素"><a href="#6-3-获取元素" class="headerlink" title="6.3 获取元素"></a>6.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pq.peek();<span class="comment">//不删除元素</span></span><br><span class="line">pq.poll();<span class="comment">//删除元素</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-3-获取元素"><a href="#6-3-获取元素" class="headerlink" title="6.3 获取元素"></a>6.3 获取元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">pq.peek();<span class="hljs-comment">//不删除元素</span><br>pq.poll();<span class="hljs-comment">//删除元素</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="6-4-删除元素"><a href="#6-4-删除元素" class="headerlink" title="6.4 删除元素"></a>6.4 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pq.remove(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="6-4-删除元素"><a href="#6-4-删除元素" class="headerlink" title="6.4 删除元素"></a>6.4 删除元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">pq.remove(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
 
-<h4 id="6-5-转为数组"><a href="#6-5-转为数组" class="headerlink" title="6.5 转为数组"></a>6.5 转为数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pq.toArray();</span><br></pre></td></tr></table></figure>
+<h4 id="6-5-转为数组"><a href="#6-5-转为数组" class="headerlink" title="6.5 转为数组"></a>6.5 转为数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">pq.toArray();<br></code></pre></td></tr></table></figure>
 
 <h3 id="7-Deque"><a href="#7-Deque" class="headerlink" title="7 Deque"></a>7 Deque</h3><p>双端队列，控制每一端元素的进出，可以实现栈或者队列。</p>
-<h4 id="7-1-实例化"><a href="#7-1-实例化" class="headerlink" title="7.1 实例化"></a>7.1 实例化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Deque&lt;Integer&gt; deque = mew ArrayDeque&lt;&gt;();</span><br><span class="line">Deque&lt;Integer&gt; deque = enw LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h4 id="7-1-实例化"><a href="#7-1-实例化" class="headerlink" title="7.1 实例化"></a>7.1 实例化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Deque&lt;Integer&gt; deque = mew ArrayDeque&lt;&gt;();<br>Deque&lt;Integer&gt; deque = enw LinkedList&lt;&gt;();<br></code></pre></td></tr></table></figure>
 
-<h4 id="7-2-添加元素到队尾"><a href="#7-2-添加元素到队尾" class="headerlink" title="7.2 添加元素到队尾"></a>7.2 添加元素到队尾</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addLast(E e) </span><br><span class="line">offerLast(E e)</span><br></pre></td></tr></table></figure>
+<h4 id="7-2-添加元素到队尾"><a href="#7-2-添加元素到队尾" class="headerlink" title="7.2 添加元素到队尾"></a>7.2 添加元素到队尾</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">addLast(E e) <br>offerLast(E e)<br></code></pre></td></tr></table></figure>
 
-<h4 id="7-3-取队尾元素并删除"><a href="#7-3-取队尾元素并删除" class="headerlink" title="7.3 取队尾元素并删除"></a>7.3 取队尾元素并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">removeLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">E <span class="title">pollLast</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="7-3-取队尾元素并删除"><a href="#7-3-取队尾元素并删除" class="headerlink" title="7.3 取队尾元素并删除"></a>7.3 取队尾元素并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">E <span class="hljs-title">removeLast</span><span class="hljs-params">()</span><br>E <span class="hljs-title">pollLast</span><span class="hljs-params">()</span></span><br></code></pre></td></tr></table></figure>
 
-<h4 id="7-4-取队尾元素并不删除"><a href="#7-4-取队尾元素并不删除" class="headerlink" title="7.4 取队尾元素并不删除"></a>7.4 取队尾元素并不删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">getLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">E <span class="title">peekLast</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="7-4-取队尾元素并不删除"><a href="#7-4-取队尾元素并不删除" class="headerlink" title="7.4 取队尾元素并不删除"></a>7.4 取队尾元素并不删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">E <span class="hljs-title">getLast</span><span class="hljs-params">()</span><br>E <span class="hljs-title">peekLast</span><span class="hljs-params">()</span></span><br></code></pre></td></tr></table></figure>
 
-<h4 id="7-5-添加元素到队首"><a href="#7-5-添加元素到队首" class="headerlink" title="7.5 添加元素到队首"></a>7.5 添加元素到队首</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addFirst(E e)</span><br><span class="line">offerFirst(E e)</span><br></pre></td></tr></table></figure>
+<h4 id="7-5-添加元素到队首"><a href="#7-5-添加元素到队首" class="headerlink" title="7.5 添加元素到队首"></a>7.5 添加元素到队首</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">addFirst(E e)<br>offerFirst(E e)<br></code></pre></td></tr></table></figure>
 
-<h4 id="7-6-取队首元素并删除"><a href="#7-6-取队首元素并删除" class="headerlink" title="7.6 取队首元素并删除"></a>7.6 取队首元素并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">removeFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function">E <span class="title">pollFirst</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="7-6-取队首元素并删除"><a href="#7-6-取队首元素并删除" class="headerlink" title="7.6 取队首元素并删除"></a>7.6 取队首元素并删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">E <span class="hljs-title">removeFirst</span><span class="hljs-params">()</span><br>E <span class="hljs-title">pollFirst</span><span class="hljs-params">()</span></span><br></code></pre></td></tr></table></figure>
 
-<h4 id="7-7-取队首元素并不删除"><a href="#7-7-取队首元素并不删除" class="headerlink" title="7.7 取队首元素并不删除"></a>7.7 取队首元素并不删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">getFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function">E <span class="title">peekFirst</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="7-7-取队首元素并不删除"><a href="#7-7-取队首元素并不删除" class="headerlink" title="7.7 取队首元素并不删除"></a>7.7 取队首元素并不删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">E <span class="hljs-title">getFirst</span><span class="hljs-params">()</span><br>E <span class="hljs-title">peekFirst</span><span class="hljs-params">()</span></span><br></code></pre></td></tr></table></figure>
 
-<h2 id="二、杂项"><a href="#二、杂项" class="headerlink" title="二、杂项"></a>二、杂项</h2><h3 id="1-三元运算符"><a href="#1-三元运算符" class="headerlink" title="1 三元运算符"></a>1 三元运算符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = node==<span class="keyword">null</span> ? <span class="number">0</span> : node.val;</span><br></pre></td></tr></table></figure>
+<h2 id="二、杂项"><a href="#二、杂项" class="headerlink" title="二、杂项"></a>二、杂项</h2><h3 id="1-三元运算符"><a href="#1-三元运算符" class="headerlink" title="1 三元运算符"></a>1 三元运算符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> a = node==<span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : node.val;<br></code></pre></td></tr></table></figure>
 
-<h3 id="2-Math"><a href="#2-Math" class="headerlink" title="2 Math"></a>2 Math</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = Math.max(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="keyword">int</span> a = Math.sqrt(<span class="number">4</span>);<span class="comment">//开根号</span></span><br><span class="line"><span class="keyword">int</span> a = Math.abs(-<span class="number">1</span>);<span class="comment">//取绝对值</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-Math"><a href="#2-Math" class="headerlink" title="2 Math"></a>2 Math</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> a = Math.max(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-keyword">int</span> a = Math.sqrt(<span class="hljs-number">4</span>);<span class="hljs-comment">//开根号</span><br><span class="hljs-keyword">int</span> a = Math.abs(-<span class="hljs-number">1</span>);<span class="hljs-comment">//取绝对值</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="3-最大值、最小值表示"><a href="#3-最大值、最小值表示" class="headerlink" title="3 最大值、最小值表示"></a>3 最大值、最小值表示</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = Integer.MAX_VALUE</span><br><span class="line"><span class="keyword">int</span> b = Integer.MIN_VALUE</span><br></pre></td></tr></table></figure>
+<h3 id="3-最大值、最小值表示"><a href="#3-最大值、最小值表示" class="headerlink" title="3 最大值、最小值表示"></a>3 最大值、最小值表示</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> a = Integer.MAX_VALUE<br><span class="hljs-keyword">int</span> b = Integer.MIN_VALUE<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-Arrays"><a href="#4-Arrays" class="headerlink" title="4 Arrays"></a>4 Arrays</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(a);<span class="comment">//排序int[] a</span></span><br><span class="line">Arrays.fill(a,Integer.MAX_VALUE);<span class="comment">//快速向a中填充最大值</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-Arrays"><a href="#4-Arrays" class="headerlink" title="4 Arrays"></a>4 Arrays</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Arrays.sort(a);<span class="hljs-comment">//排序int[] a</span><br>Arrays.fill(a,Integer.MAX_VALUE);<span class="hljs-comment">//快速向a中填充最大值</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="5-位运算"><a href="#5-位运算" class="headerlink" title="5 位运算"></a>5 位运算</h3><p><strong>位运算后，需要重新赋值</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = a &amp; <span class="number">1</span>;<span class="comment">//判断a是不是基数</span></span><br><span class="line">a = a | <span class="number">1</span>;</span><br><span class="line">a = ~a;</span><br><span class="line">a = a ^ <span class="number">1</span>;<span class="comment">//异或运算</span></span><br><span class="line">a = a &lt;&lt; <span class="number">1</span>;<span class="comment">//左移一位</span></span><br><span class="line">a = a &gt;&gt; <span class="number">1</span>;<span class="comment">//右移一位</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">a = a &amp; <span class="hljs-number">1</span>;<span class="hljs-comment">//判断a是不是基数</span><br>a = a | <span class="hljs-number">1</span>;<br>a = ~a;<br>a = a ^ <span class="hljs-number">1</span>;<span class="hljs-comment">//异或运算</span><br>a = a &lt;&lt; <span class="hljs-number">1</span>;<span class="hljs-comment">//左移一位</span><br>a = a &gt;&gt; <span class="hljs-number">1</span>;<span class="hljs-comment">//右移一位</span><br></code></pre></td></tr></table></figure>
 
 
         </div>
@@ -300,7 +315,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -316,6 +331,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&title=《Java刷题笔记》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&title=《Java刷题笔记》 — 何小智の博客&source=
+想把自己刷题过程中一些，使用经典方法、思想的题记录下来。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java刷题笔记》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -430,9 +492,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&title=《Java刷题笔记》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&title=《Java刷题笔记》 — 何小智の博客&source=
+想把自己刷题过程中一些，使用经典方法、思想的题记录下来。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java刷题笔记》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/09/24/java%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

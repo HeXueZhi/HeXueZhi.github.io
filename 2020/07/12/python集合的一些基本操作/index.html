@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python集合的一些基本操作">
-<meta property="og:url" content="http://yoursite.com/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。">
 <meta property="og:locale" content="zh_CN">
@@ -127,6 +138,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -190,39 +205,39 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="一、list"><a href="#一、list" class="headerlink" title="一、list"></a>一、list</h3><h4 id="1、列表的创建"><a href="#1、列表的创建" class="headerlink" title="1、列表的创建"></a>1、列表的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="comment">#快速创建队列并赋值</span></span><br><span class="line">nums = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line"><span class="comment">#快速创建二维数组，并赋值</span></span><br><span class="line">nums = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(m)]</span><br></pre></td></tr></table></figure>
+<h3 id="一、list"><a href="#一、list" class="headerlink" title="一、list"></a>一、list</h3><h4 id="1、列表的创建"><a href="#1、列表的创建" class="headerlink" title="1、列表的创建"></a>1、列表的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">nums = []<br><span class="hljs-comment">#快速创建队列并赋值</span><br>nums = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(n)]<br><span class="hljs-comment">#快速创建二维数组，并赋值</span><br>nums = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(n)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(m)]<br></code></pre></td></tr></table></figure>
 
-<h4 id="2、列表的压入"><a href="#2、列表的压入" class="headerlink" title="2、列表的压入"></a>2、列表的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.append(x)</span><br><span class="line">nums.insert(index,x)<span class="comment">#在index插入x</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、列表的压入"><a href="#2、列表的压入" class="headerlink" title="2、列表的压入"></a>2、列表的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.append(x)<br>nums.insert(index,x)<span class="hljs-comment">#在index插入x</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3、列表的删除"><a href="#3、列表的删除" class="headerlink" title="3、列表的删除"></a>3、列表的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = nums.pop(<span class="number">1</span>)<span class="comment">#删除index为1的元素</span></span><br><span class="line">list.remove(<span class="number">2</span>)<span class="comment">#删除元素2的第一个匹配项</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、列表的删除"><a href="#3、列表的删除" class="headerlink" title="3、列表的删除"></a>3、列表的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = nums.pop(<span class="hljs-number">1</span>)<span class="hljs-comment">#删除index为1的元素</span><br>list.remove(<span class="hljs-number">2</span>)<span class="hljs-comment">#删除元素2的第一个匹配项</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="4、列表排序"><a href="#4、列表排序" class="headerlink" title="4、列表排序"></a>4、列表排序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line">nums.sort(key=<span class="literal">None</span>,reverse=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="4、列表排序"><a href="#4、列表排序" class="headerlink" title="4、列表排序"></a>4、列表排序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.sort()<br>nums.sort(key=<span class="hljs-literal">None</span>,reverse=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
 
-<h4 id="5、反转列表"><a href="#5、反转列表" class="headerlink" title="5、反转列表"></a>5、反转列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.reverse()</span><br></pre></td></tr></table></figure>
+<h4 id="5、反转列表"><a href="#5、反转列表" class="headerlink" title="5、反转列表"></a>5、反转列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.reverse()<br></code></pre></td></tr></table></figure>
 
-<h4 id="6、复制列表"><a href="#6、复制列表" class="headerlink" title="6、复制列表"></a>6、复制列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.copy()</span><br></pre></td></tr></table></figure>
+<h4 id="6、复制列表"><a href="#6、复制列表" class="headerlink" title="6、复制列表"></a>6、复制列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.copy()<br></code></pre></td></tr></table></figure>
 
-<h4 id="7、列表中某个元素出现的个数"><a href="#7、列表中某个元素出现的个数" class="headerlink" title="7、列表中某个元素出现的个数"></a>7、列表中某个元素出现的个数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.count(x)<span class="comment">#x出现的次数</span></span><br></pre></td></tr></table></figure>
+<h4 id="7、列表中某个元素出现的个数"><a href="#7、列表中某个元素出现的个数" class="headerlink" title="7、列表中某个元素出现的个数"></a>7、列表中某个元素出现的个数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.count(x)<span class="hljs-comment">#x出现的次数</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="8、某个值的第一个匹配项的index"><a href="#8、某个值的第一个匹配项的index" class="headerlink" title="8、某个值的第一个匹配项的index"></a>8、某个值的第一个匹配项的index</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums.index(x)</span><br></pre></td></tr></table></figure>
+<h4 id="8、某个值的第一个匹配项的index"><a href="#8、某个值的第一个匹配项的index" class="headerlink" title="8、某个值的第一个匹配项的index"></a>8、某个值的第一个匹配项的index</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.index(x)<br></code></pre></td></tr></table></figure>
 
-<h3 id="二、set"><a href="#二、set" class="headerlink" title="二、set"></a>二、set</h3><h4 id="1、集合的创建"><a href="#1、集合的创建" class="headerlink" title="1、集合的创建"></a>1、集合的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、set"><a href="#二、set" class="headerlink" title="二、set"></a>二、set</h3><h4 id="1、集合的创建"><a href="#1、集合的创建" class="headerlink" title="1、集合的创建"></a>1、集合的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums = &#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="2、集合的压入"><a href="#2、集合的压入" class="headerlink" title="2、集合的压入"></a>2、集合的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nums.add(x)</span><br><span class="line"><span class="comment">#高级方法</span></span><br><span class="line">nums.update(x)<span class="comment">#x可以是列表、元组、字典，且x可以又多个，用逗号隔开</span></span><br><span class="line">nums.update([<span class="number">1</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line"><span class="comment">#&#123;1, 3, 4, 5, 6&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、集合的压入"><a href="#2、集合的压入" class="headerlink" title="2、集合的压入"></a>2、集合的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.add(x)<br><span class="hljs-comment">#高级方法</span><br>nums.update(x)<span class="hljs-comment">#x可以是列表、元组、字典，且x可以又多个，用逗号隔开</span><br>nums.update([<span class="hljs-number">1</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])<br><span class="hljs-comment">#&#123;1, 3, 4, 5, 6&#125;</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3、集合的删除"><a href="#3、集合的删除" class="headerlink" title="3、集合的删除"></a>3、集合的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.remove(x)<span class="comment">#如果元素不存在会发生错误</span></span><br><span class="line">nums.discard(x)<span class="comment">#如果元素不存在不会发生错误</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、集合的删除"><a href="#3、集合的删除" class="headerlink" title="3、集合的删除"></a>3、集合的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">nums.remove(x)<span class="hljs-comment">#如果元素不存在会发生错误</span><br>nums.discard(x)<span class="hljs-comment">#如果元素不存在不会发生错误</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="三、dict"><a href="#三、dict" class="headerlink" title="三、dict"></a>三、dict</h3><h4 id="1、字典的创建"><a href="#1、字典的创建" class="headerlink" title="1、字典的创建"></a>1、字典的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、dict"><a href="#三、dict" class="headerlink" title="三、dict"></a>三、dict</h3><h4 id="1、字典的创建"><a href="#1、字典的创建" class="headerlink" title="1、字典的创建"></a>1、字典的创建</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums = &#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="2、字典的压入"><a href="#2、字典的压入" class="headerlink" title="2、字典的压入"></a>2、字典的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums[x] = y</span><br></pre></td></tr></table></figure>
+<h4 id="2、字典的压入"><a href="#2、字典的压入" class="headerlink" title="2、字典的压入"></a>2、字典的压入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">nums[x] = y<br></code></pre></td></tr></table></figure>
 
-<h4 id="3、字典的删除"><a href="#3、字典的删除" class="headerlink" title="3、字典的删除"></a>3、字典的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> nums[x]</span><br></pre></td></tr></table></figure>
+<h4 id="3、字典的删除"><a href="#3、字典的删除" class="headerlink" title="3、字典的删除"></a>3、字典的删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">del</span> nums[x]<br></code></pre></td></tr></table></figure>
 
-<h4 id="4、字典的遍历"><a href="#4、字典的遍历" class="headerlink" title="4、字典的遍历"></a>4、字典的遍历</h4><h5 id="4-1、遍历键"><a href="#4-1、遍历键" class="headerlink" title="4.1、遍历键"></a>4.1、遍历键</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> nums:</span><br><span class="line">    print(nums[key])</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> nums.keys():</span><br></pre></td></tr></table></figure>
+<h4 id="4、字典的遍历"><a href="#4、字典的遍历" class="headerlink" title="4、字典的遍历"></a>4、字典的遍历</h4><h5 id="4-1、遍历键"><a href="#4-1、遍历键" class="headerlink" title="4.1、遍历键"></a>4.1、遍历键</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> nums:<br>    print(nums[key])<br><span class="hljs-comment">#或者</span><br><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> nums.keys():<br></code></pre></td></tr></table></figure>
 
-<h5 id="4-2、遍历值"><a href="#4-2、遍历值" class="headerlink" title="4.2、遍历值"></a>4.2、遍历值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> nums.values():</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+<h5 id="4-2、遍历值"><a href="#4-2、遍历值" class="headerlink" title="4.2、遍历值"></a>4.2、遍历值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> nums.values():<br>    print(value)<br></code></pre></td></tr></table></figure>
 
-<h5 id="4-3、遍历键和值"><a href="#4-3、遍历键和值" class="headerlink" title="4.3、遍历键和值"></a>4.3、遍历键和值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> nums.items():</span><br></pre></td></tr></table></figure>
+<h5 id="4-3、遍历键和值"><a href="#4-3、遍历键和值" class="headerlink" title="4.3、遍历键和值"></a>4.3、遍历键和值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> nums.items():<br></code></pre></td></tr></table></figure>
 
 
 
@@ -242,7 +257,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -258,6 +273,55 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&title=《python集合的一些基本操作》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&title=《python集合的一些基本操作》 — 何小智の博客&source=
+
+
+刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python集合的一些基本操作》 — 何小智の博客&url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -372,9 +436,59 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&title=《python集合的一些基本操作》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&title=《python集合的一些基本操作》 — 何小智の博客&source=
+
+
+刷题过程中有时需要用到集合相关的数据结构，主要是list、set和dict。记录一下如何在刷题过程中应用这些结构。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python集合的一些基本操作》 — 何小智の博客&url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/07/12/python%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

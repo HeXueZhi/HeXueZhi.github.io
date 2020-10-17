@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,18 +35,17 @@
     <meta name="description" content="以docker方式启动以太坊私链，并部署Dapp。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker启动以太坊私链">
-<meta property="og:url" content="http://yoursite.com/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="以docker方式启动以太坊私链，并部署Dapp。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/09/01/wJPvbiOChzE9VGx.png">
 <meta property="og:image" content="https://i.loli.net/2020/09/01/t9w182CRcK7DGpI.png">
 <meta property="article:published_time" content="2020-09-01T12:27:08.059Z">
 <meta property="article:modified_time" content="2020-10-08T16:26:39.888Z">
 <meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/09/01/wJPvbiOChzE9VGx.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/01/t9w182CRcK7DGpI.png">
     
         <link rel="alternate" type="application/atom+xml" title="何小智の博客" href="/atom.xml">
     
@@ -129,6 +139,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -192,18 +206,12 @@
 
 <h3 id="一、查看防火墙状态"><a href="#一、查看防火墙状态" class="headerlink" title="一、查看防火墙状态"></a>一、查看防火墙状态</h3><p>首先查看主机防火墙是否开启，如果已开启，需要开放<code>8545</code>端口，用于外界通过rpc方式访问私链。</p>
 <p>查看防火墙状态：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl status firewalld.service<br></code></pre></td></tr></table></figure>
 
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i.loli.net/2020/09/01/wJPvbiOChzE9VGx.png" alt="防火墙状态" title="">
-                </div>
-                <div class="image-caption">防火墙状态</div>
-            </figure>
+{% image https://i.loli.net/2020/09/01/wJPvbiOChzE9VGx.png '防火墙状态' '' %}
 
 <p>开放方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8545/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">firewall-cmd --zone=public --add-port=8545/tcp --permanent<br>firewall-cmd --reload<br></code></pre></td></tr></table></figure>
 
 <h3 id="二、创建链码"><a href="#二、创建链码" class="headerlink" title="二、创建链码"></a>二、创建链码</h3><p>在workspace下，新建<code>/code/chain/mychain</code>文件夹，创建<code>genesis.json</code>。</p>
 <figure class="image-bubble">
@@ -216,11 +224,11 @@
 
 <p><strong>chainId：</strong>以太坊的链的id，可以自己随便取值，但是需要注意搭建私链时，这个值<strong>不能与以太坊主网或者是测试网的chainId相同</strong>。<a href="https://chainid.network/" target="_blank" rel="noopener">以太坊chainId查询</a></p>
 <p>genesis.json：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;config&quot;: &#123;</span><br><span class="line">    &quot;chainId&quot;: 666,</span><br><span class="line">    &quot;homesteadBlock&quot;: 0,</span><br><span class="line">    &quot;eip150Block&quot;: 0,</span><br><span class="line">    &quot;eip150Hash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">    &quot;eip155Block&quot;: 0,</span><br><span class="line">    &quot;eip158Block&quot;: 0,</span><br><span class="line">    &quot;byzantiumBlock&quot;: 0,</span><br><span class="line">    &quot;constantinopleBlock&quot;: 0,</span><br><span class="line">    &quot;petersburgBlock&quot;: 0,</span><br><span class="line">    &quot;istanbulBlock&quot;: 0,</span><br><span class="line">    &quot;ethash&quot;: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;nonce&quot;: &quot;0x0&quot;,</span><br><span class="line">  &quot;timestamp&quot;: &quot;0x5ddf8f3e&quot;,</span><br><span class="line">  &quot;extraData&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">  &quot;gasLimit&quot;: &quot;0x47b760&quot;,</span><br><span class="line">  &quot;difficulty&quot;: &quot;0x00002&quot;,</span><br><span class="line">  &quot;mixHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">  &quot;coinbase&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,</span><br><span class="line">  &quot;alloc&quot;: &#123; &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;number&quot;: &quot;0x0&quot;,</span><br><span class="line">  &quot;gasUsed&quot;: &quot;0x0&quot;,</span><br><span class="line">  &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#123;<br>  &quot;config&quot;: &#123;<br>    &quot;chainId&quot;: 666,<br>    &quot;homesteadBlock&quot;: 0,<br>    &quot;eip150Block&quot;: 0,<br>    &quot;eip150Hash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,<br>    &quot;eip155Block&quot;: 0,<br>    &quot;eip158Block&quot;: 0,<br>    &quot;byzantiumBlock&quot;: 0,<br>    &quot;constantinopleBlock&quot;: 0,<br>    &quot;petersburgBlock&quot;: 0,<br>    &quot;istanbulBlock&quot;: 0,<br>    &quot;ethash&quot;: &#123;&#125;<br>  &#125;,<br>  &quot;nonce&quot;: &quot;0x0&quot;,<br>  &quot;timestamp&quot;: &quot;0x5ddf8f3e&quot;,<br>  &quot;extraData&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,<br>  &quot;gasLimit&quot;: &quot;0x47b760&quot;,<br>  &quot;difficulty&quot;: &quot;0x00002&quot;,<br>  &quot;mixHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,<br>  &quot;coinbase&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,<br>  &quot;alloc&quot;: &#123; &#125;<br>  &#125;,<br>  &quot;number&quot;: &quot;0x0&quot;,<br>  &quot;gasUsed&quot;: &quot;0x0&quot;,<br>  &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="三、拉取image"><a href="#三、拉取image" class="headerlink" title="三、拉取image"></a>三、拉取image</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ethereum/client-go</span><br></pre></td></tr></table></figure>
+<h3 id="三、拉取image"><a href="#三、拉取image" class="headerlink" title="三、拉取image"></a>三、拉取image</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull ethereum/client-go<br></code></pre></td></tr></table></figure>
 
-<h3 id="四、创建容器"><a href="#四、创建容器" class="headerlink" title="四、创建容器"></a>四、创建容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network=host --name mychain -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">docker run -it --name mychain -p 8545:8545 -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go</span><br></pre></td></tr></table></figure>
+<h3 id="四、创建容器"><a href="#四、创建容器" class="headerlink" title="四、创建容器"></a>四、创建容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -it --network=host --name mychain -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go<br><span class="hljs-comment">#或者</span><br>docker run -it --name mychain -p 8545:8545 -v /workspace:/workspace --entrypoint /bin/sh ethereum/client-go<br></code></pre></td></tr></table></figure>
 
 <p><strong>参数说明：</strong></p>
 <ul>
@@ -233,13 +241,13 @@
 <li><code>--entrypoint</code>：覆盖image的入口点，ubuntu环境下docker默认入口点其实是/bin/bash，修改默认入口点是为了不让节点自动运行，稍后会对节点进行自定义配置使其成为私有链节点</li>
 </ul>
 <p>此后启动容器就可以，直接通过</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -i mychain</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker start -i mychain<br></code></pre></td></tr></table></figure>
 
 <h3 id="五、启动私链"><a href="#五、启动私链" class="headerlink" title="五、启动私链"></a>五、启动私链</h3><p>经过上面的命令，此时命令行提示符已经转变。进入之前创建的<code>/workspace/code/chain/mychain</code>文件夹下，初始化链json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . init genesis.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">geth --datadir . init genesis.json<br></code></pre></td></tr></table></figure>
 
 <p>启动私链，<code>networkid</code>和<code>rpcaddr</code>的设置方法同开发者模式。查看输出日志<code>output.log</code>同上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --nodiscover --networkid 1234 --rpc --rpccorsdomain &quot;*&quot; --rpcaddr 0.0.0.0 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">geth --datadir . --nodiscover --networkid 1234 --rpc --rpccorsdomain &quot;*&quot; --rpcaddr 0.0.0.0 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log<br></code></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>搭建私链后一定要进行以下测试，看是否能够正常发起交易。</p>
 
@@ -258,7 +266,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -274,6 +282,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&title=《docker启动以太坊私链》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&title=《docker启动以太坊私链》 — 何小智の博客&source=
+以docker方式启动以太坊私链，并部署Dapp。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker启动以太坊私链》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -388,9 +443,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&title=《docker启动以太坊私链》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&title=《docker启动以太坊私链》 — 何小智の博客&source=
+以docker方式启动以太坊私链，并部署Dapp。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker启动以太坊私链》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/09/01/docker%E5%90%AF%E5%8A%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

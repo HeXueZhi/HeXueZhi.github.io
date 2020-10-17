@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="以太坊每笔交易中都有InputData，本项目主要是识别合约交易中的InputData。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以太坊合约交易inputData解码">
-<meta property="og:url" content="http://yoursite.com/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="以太坊每笔交易中都有InputData，本项目主要是识别合约交易中的InputData。">
 <meta property="og:locale" content="zh_CN">
@@ -130,6 +141,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -211,17 +226,17 @@
 <h3 id="三、具体实现"><a href="#三、具体实现" class="headerlink" title="三、具体实现"></a>三、具体实现</h3><p>项目地址：<a href="https://github.com/HeXueZhi/DecodeInputData" target="_blank" rel="noopener">https://github.com/HeXueZhi/DecodeInputData</a></p>
 <p>整体通过webpack框架。<br>应用的包：<code>package.json</code>文件中的<code>dependencies</code></p>
 <h4 id="3-1-实例化web3"><a href="#3-1-实例化web3" class="headerlink" title="3.1 实例化web3"></a>3.1 实例化web3</h4><p>在infura注册一个key，替换代码中的key。（<em>Infura</em>提供免费的以太坊节点RPC API服务）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> web3 !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        <span class="built_in">window</span>.web3 = <span class="keyword">new</span> Web3(web3.currentProvider);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> web3Provider;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.ethereum) &#123;</span><br><span class="line">            web3Provider = <span class="built_in">window</span>.ethereum;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// 请求用户授权</span></span><br><span class="line">                <span class="built_in">window</span>.ethereum.enable();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">                <span class="comment">// 用户不授权时</span></span><br><span class="line">                <span class="built_in">console</span>.error(<span class="string">"User denied account access"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.web3) &#123;   <span class="comment">// 老版 MetaMask Legacy dapp browsers...</span></span><br><span class="line">            web3Provider = <span class="built_in">window</span>.web3.currentProvider;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            web3Provider = <span class="keyword">new</span> Web3.providers.HttpProvider(<span class="string">'https://mainnet.infura.io/v3/填入infura个人的key'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        web3 = <span class="keyword">new</span> Web3(web3Provider);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// App.start();</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'load'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> web3 !== <span class="hljs-string">'undefined'</span>) &#123;<br>        <span class="hljs-built_in">window</span>.web3 = <span class="hljs-keyword">new</span> Web3(web3.currentProvider);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">var</span> web3Provider;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.ethereum) &#123;<br>            web3Provider = <span class="hljs-built_in">window</span>.ethereum;<br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-comment">// 请求用户授权</span><br>                <span class="hljs-built_in">window</span>.ethereum.enable();<br>            &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>                <span class="hljs-comment">// 用户不授权时</span><br>                <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"User denied account access"</span>)<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.web3) &#123;   <span class="hljs-comment">// 老版 MetaMask Legacy dapp browsers...</span><br>            web3Provider = <span class="hljs-built_in">window</span>.web3.currentProvider;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            web3Provider = <span class="hljs-keyword">new</span> Web3.providers.HttpProvider(<span class="hljs-string">'https://mainnet.infura.io/v3/填入infura个人的key'</span>);<br>        &#125;<br>        web3 = <span class="hljs-keyword">new</span> Web3(web3Provider);<br>    &#125;<br>    <span class="hljs-comment">// App.start();</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h3 id="3-2-解析inputdata"><a href="#3-2-解析inputdata" class="headerlink" title="3.2 解析inputdata"></a>3.2 解析inputdata</h3><p>在etherscan注册apikey，替换代码中的。</p>
 <p>如果不想注册删掉代码中的<code>&amp;apikey=填入etherscan的个人key</code>也可以，不过etherscan会添加每秒限制访问5次的限制。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./app.css"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> Web3&#125; <span class="keyword">from</span> <span class="string">'web3'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> web3;</span><br><span class="line"><span class="keyword">var</span> ABI;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fetch = <span class="built_in">require</span>(<span class="string">'node-fetch'</span>);</span><br><span class="line"><span class="comment">//通过fetch获取abi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> abiDecoder = <span class="built_in">require</span>(<span class="string">'abi-decoder'</span>); </span><br><span class="line"><span class="comment">// 通过abi解析inputdata</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.App = &#123;</span><br><span class="line">    getInputData: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"textArea"</span>).value = <span class="string">""</span>;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"textArea2"</span>).value = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">var</span> TXHash = <span class="built_in">document</span>.getElementById(<span class="string">"TXHash"</span>).value;</span><br><span class="line">        <span class="keyword">if</span> (TXHash != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(TXHash);</span><br><span class="line">            <span class="keyword">var</span> inputData;</span><br><span class="line">            web3.eth.getTransaction(TXHash,<span class="function"><span class="keyword">function</span>(<span class="params">err, accs</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (err != <span class="literal">null</span>) &#123;</span><br><span class="line">                    alert(<span class="string">"There was an error fetching your TX."</span>);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (accs.length == <span class="number">0</span>) &#123;</span><br><span class="line">                    alert(<span class="string">"Couldn't get any accounts! Make sure your Ethereum client is configured correctly."</span>);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">console</span>.log(accs.input);<span class="comment">//输出inputdata</span></span><br><span class="line">                <span class="comment">//验证to地址是否是合约地址，合约地址的Code不为空</span></span><br><span class="line">                web3.eth.getCode(accs.to, <span class="function"><span class="keyword">function</span>(<span class="params">err, accs</span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(accs === <span class="string">'0x'</span>) &#123;</span><br><span class="line">                        alert(<span class="string">'普通转账交易'</span>);</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">var</span> contractAddress = accs.to;</span><br><span class="line">                <span class="keyword">if</span> (contractAddress != <span class="literal">null</span>)&#123;</span><br><span class="line">                    <span class="keyword">var</span> url = <span class="string">'https://api-cn.etherscan.com/api?module=contract&amp;action=getabi&amp;address='</span> + contractAddress + <span class="string">'&amp;apikey=填入etherscan的个人key'</span>;</span><br><span class="line">                    fetch(url, &#123;<span class="attr">method</span>: <span class="string">'get'</span>,&#125;).then(<span class="function"><span class="params">response</span> =&gt;</span> response.json().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">                        ABI = <span class="built_in">JSON</span>.parse(data.result);<span class="comment">//获取合约abi'</span></span><br><span class="line">                        <span class="comment">// console.log(ABI);</span></span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">"textArea"</span>).value = <span class="built_in">JSON</span>.stringify(<span class="built_in">JSON</span>.parse(data.result),<span class="literal">null</span>, <span class="string">' '</span>);</span><br><span class="line">                        abiDecoder.addABI(ABI);<span class="comment">//解析abi</span></span><br><span class="line">                        <span class="keyword">var</span> decodedData = abiDecoder.decodeMethod(accs.input);<span class="comment">//获得解析数据</span></span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">"textArea2"</span>).value = <span class="built_in">JSON</span>.stringify(decodedData,<span class="literal">null</span>,<span class="string">' '</span>);</span><br><span class="line">                    &#125;));</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    alert(<span class="string">"error: ContractAddress为null!!!"</span>);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            alert(<span class="string">"error: TXHash为null!!!"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-string">"./app.css"</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> Web3&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'web3'</span>;<br><br><span class="hljs-keyword">var</span> web3;<br><span class="hljs-keyword">var</span> ABI;<br><br><br><span class="hljs-keyword">const</span> fetch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);<br><span class="hljs-comment">//通过fetch获取abi</span><br><br><span class="hljs-keyword">const</span> abiDecoder = <span class="hljs-built_in">require</span>(<span class="hljs-string">'abi-decoder'</span>); <br><span class="hljs-comment">// 通过abi解析inputdata</span><br><br><br><span class="hljs-built_in">window</span>.App = &#123;<br>    <span class="hljs-attr">getInputData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"textArea"</span>).value = <span class="hljs-string">""</span>;<br>        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"textArea2"</span>).value = <span class="hljs-string">""</span>;<br>        <span class="hljs-keyword">var</span> TXHash = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"TXHash"</span>).value;<br>        <span class="hljs-keyword">if</span> (TXHash != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-built_in">console</span>.log(TXHash);<br>            <span class="hljs-keyword">var</span> inputData;<br>            web3.eth.getTransaction(TXHash,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, accs</span>) </span>&#123;<br>                <span class="hljs-keyword">if</span> (err != <span class="hljs-literal">null</span>) &#123;<br>                    alert(<span class="hljs-string">"There was an error fetching your TX."</span>);<br>                    <span class="hljs-keyword">return</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (accs.length == <span class="hljs-number">0</span>) &#123;<br>                    alert(<span class="hljs-string">"Couldn't get any accounts! Make sure your Ethereum client is configured correctly."</span>);<br>                    <span class="hljs-keyword">return</span>;<br>                &#125;<br>                <span class="hljs-built_in">console</span>.log(accs.input);<span class="hljs-comment">//输出inputdata</span><br>                <span class="hljs-comment">//验证to地址是否是合约地址，合约地址的Code不为空</span><br>                web3.eth.getCode(accs.to, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, accs</span>)</span>&#123;<br>                    <span class="hljs-keyword">if</span>(accs === <span class="hljs-string">'0x'</span>) &#123;<br>                        alert(<span class="hljs-string">'普通转账交易'</span>);<br>                        <span class="hljs-keyword">return</span>;<br>                    &#125;<br>                &#125;);<br>                <br>                <span class="hljs-keyword">var</span> contractAddress = accs.to;<br>                <span class="hljs-keyword">if</span> (contractAddress != <span class="hljs-literal">null</span>)&#123;<br>                    <span class="hljs-keyword">var</span> url = <span class="hljs-string">'https://api-cn.etherscan.com/api?module=contract&amp;action=getabi&amp;address='</span> + contractAddress + <span class="hljs-string">'&amp;apikey=填入etherscan的个人key'</span>;<br>                    fetch(url, &#123;<span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>                        ABI = <span class="hljs-built_in">JSON</span>.parse(data.result);<span class="hljs-comment">//获取合约abi'</span><br>                        <span class="hljs-comment">// console.log(ABI);</span><br>                        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"textArea"</span>).value = <span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-built_in">JSON</span>.parse(data.result),<span class="hljs-literal">null</span>, <span class="hljs-string">' '</span>);<br>                        abiDecoder.addABI(ABI);<span class="hljs-comment">//解析abi</span><br>                        <span class="hljs-keyword">var</span> decodedData = abiDecoder.decodeMethod(accs.input);<span class="hljs-comment">//获得解析数据</span><br>                        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"textArea2"</span>).value = <span class="hljs-built_in">JSON</span>.stringify(decodedData,<span class="hljs-literal">null</span>,<span class="hljs-string">' '</span>);<br>                    &#125;));<br>                &#125;<span class="hljs-keyword">else</span>&#123;<br>                    alert(<span class="hljs-string">"error: ContractAddress为null!!!"</span>);<br>                    <span class="hljs-keyword">return</span>;<br>                &#125;<br>            &#125;);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            alert(<span class="hljs-string">"error: TXHash为null!!!"</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 <h3 id="3-3-build项目"><a href="#3-3-build项目" class="headerlink" title="3.3 build项目"></a>3.3 build项目</h3><p>在文件夹下执行:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm run build<br></code></pre></td></tr></table></figure>
 
 <h3 id="3-4-启动项目"><a href="#3-4-启动项目" class="headerlink" title="3.4 启动项目"></a>3.4 启动项目</h3><p>在文件夹下执行:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm run dev<br></code></pre></td></tr></table></figure>
 
 <p>访问<code>http://localhost:8080</code>即可。</p>
 <figure class="image-bubble">
@@ -246,7 +261,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -262,6 +277,55 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&title=《以太坊合约交易inputData解码》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&title=《以太坊合约交易inputData解码》 — 何小智の博客&source=
+
+
+以太坊每笔交易中都有InputData，本项目主要是识别合约交易中的InputData。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以太坊合约交易inputData解码》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -376,9 +440,59 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&title=《以太坊合约交易inputData解码》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&title=《以太坊合约交易inputData解码》 — 何小智の博客&source=
+
+
+以太坊每笔交易中都有InputData，本项目主要是识别合约交易中的InputData。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以太坊合约交易inputData解码》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/09/01/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%90%88%E7%BA%A6%E4%BA%A4%E6%98%93inputData%E8%A7%A3%E7%A0%81/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

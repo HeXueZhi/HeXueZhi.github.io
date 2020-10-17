@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="将项目部署到CentOS上，简单记忆一下部署的方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jar包部署">
-<meta property="og:url" content="http://yoursite.com/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="将项目部署到CentOS上，简单记忆一下部署的方法。">
 <meta property="og:locale" content="zh_CN">
@@ -126,6 +137,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -187,15 +202,15 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="前台运行项目（不能关掉shell）"><a href="#前台运行项目（不能关掉shell）" class="headerlink" title="前台运行项目（不能关掉shell）"></a>前台运行项目（不能关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java -jar xxxxx.jar</span><br></pre></td></tr></table></figure>
+<h3 id="前台运行项目（不能关掉shell）"><a href="#前台运行项目（不能关掉shell）" class="headerlink" title="前台运行项目（不能关掉shell）"></a>前台运行项目（不能关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shel">Java -jar xxxxx.jar<br></code></pre></td></tr></table></figure>
 
-<h3 id="后台运行项目（可以关掉shell）"><a href="#后台运行项目（可以关掉shell）" class="headerlink" title="后台运行项目（可以关掉shell）"></a>后台运行项目（可以关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="后台运行项目（可以关掉shell）"><a href="#后台运行项目（可以关掉shell）" class="headerlink" title="后台运行项目（可以关掉shell）"></a>后台运行项目（可以关掉shell）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shel">nohup java -jar xxxxx.jar &amp;<br></code></pre></td></tr></table></figure>
 
-<h3 id="后台运行项目不输出-out文件"><a href="#后台运行项目不输出-out文件" class="headerlink" title="后台运行项目不输出.out文件"></a>后台运行项目不输出.out文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="后台运行项目不输出-out文件"><a href="#后台运行项目不输出-out文件" class="headerlink" title="后台运行项目不输出.out文件"></a>后台运行项目不输出.out文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
 
-<h3 id="后台运行项目只输出错误信息到文件"><a href="#后台运行项目只输出错误信息到文件" class="headerlink" title="后台运行项目只输出错误信息到文件"></a>后台运行项目只输出错误信息到文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;error &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="后台运行项目只输出错误信息到文件"><a href="#后台运行项目只输出错误信息到文件" class="headerlink" title="后台运行项目只输出错误信息到文件"></a>后台运行项目只输出错误信息到文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java -jar xxxxx.jar &gt;/dev/null 2&gt;error &amp;<br></code></pre></td></tr></table></figure>
 
-<h3 id="停止项目"><a href="#停止项目" class="headerlink" title="停止项目"></a>停止项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br><span class="line">kill sid xxxx</span><br></pre></td></tr></table></figure>
+<h3 id="停止项目"><a href="#停止项目" class="headerlink" title="停止项目"></a>停止项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">netstat -anp | grep 8080<br>kill sid xxxx<br></code></pre></td></tr></table></figure>
 
         </div>
 
@@ -212,7 +227,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -228,6 +243,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&title=《jar包部署》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&title=《jar包部署》 — 何小智の博客&source=
+将项目部署到CentOS上，简单记忆一下部署的方法。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jar包部署》 — 何小智の博客&url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -342,9 +404,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&title=《jar包部署》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&title=《jar包部署》 — 何小智の博客&source=
+将项目部署到CentOS上，简单记忆一下部署的方法。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jar包部署》 — 何小智の博客&url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/06/15/jar%E5%8C%85%E9%83%A8%E7%BD%B2/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

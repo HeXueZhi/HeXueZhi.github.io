@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="公司人员报告了获取任务列表为500的bug，但是我们测试数据却能正常返回。玄学？NO!NO!NO!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取用户任务列表报500BUG">
-<meta property="og:url" content="http://yoursite.com/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="公司人员报告了获取任务列表为500的bug，但是我们测试数据却能正常返回。玄学？NO!NO!NO!">
 <meta property="og:locale" content="zh_CN">
@@ -128,6 +139,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -194,7 +209,7 @@
 <h3 id="BUG情况"><a href="#BUG情况" class="headerlink" title="BUG情况"></a>BUG情况</h3><p>公司人员报告了一个bug，获取我们用户任务列表的接口数据时会出现500的异常。但是经过我们自己测试没有发现问题。</p>
 <p>几天后，公司人员又发来了截图，表示获取任务列表又出现了500异常。并且测试过后发现只有<code>userid</code>是6的才会出现500异常，其他<code>userid</code>不会出现，并且<code>userid</code>为6的用户调用这个接口，时而能够正常返回数据，时而又出现500bug。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>经过查看项目log发现程序运行过程中出现了空指针异常。并且定位到相关的代码行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> sl = user.getFinishTime().getTime() - user.getCreateTime().getTime();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">long</span> sl = user.getFinishTime().getTime() - user.getCreateTime().getTime();<br></code></pre></td></tr></table></figure>
 
 <p>（不要问为什么任务的变量名是<code>user</code>，我也不知道。。。）小伙伴写这段代码时是通过获取到任务的<code>finishTime</code>，再拿<code>finishTime</code>减去<code>createTime</code>。</p>
 <p>初步猜想可能是新创建的任务没有finish，导致获取到的<code>finishTime</code>为<code>null</code>。因此引发空指针异常。</p>
@@ -231,7 +246,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -247,6 +262,55 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&title=《获取用户任务列表报500BUG》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&title=《获取用户任务列表报500BUG》 — 何小智の博客&source=
+
+
+公司人员报告了获取任务列表为500的bug，但是我们测试数据却能正常返回。玄学？NO!NO!NO!
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《获取用户任务列表报500BUG》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -361,9 +425,59 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&title=《获取用户任务列表报500BUG》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&title=《获取用户任务列表报500BUG》 — 何小智の博客&source=
+
+
+公司人员报告了获取任务列表为500的bug，但是我们测试数据却能正常返回。玄学？NO!NO!NO!
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《获取用户任务列表报500BUG》 — 何小智の博客&url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/09/04/%E7%94%A8%E6%88%B7%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E6%8A%A5500BUG/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

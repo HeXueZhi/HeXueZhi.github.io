@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="为公司服务器安装MySQL，记录一下过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7安装MySQL5.7">
-<meta property="og:url" content="http://yoursite.com/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="为公司服务器安装MySQL，记录一下过程">
 <meta property="og:locale" content="zh_CN">
@@ -127,6 +138,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -189,72 +204,72 @@
 <a id="more"></a>
 
 <p><strong>注意：</strong>在CentOS中默认是装有MariaDB的，但为了需要，还是要在系统中安装MySQL，而且安装完成之后可以直接覆盖掉MariaDB。</p>
-<h3 id="第一步：-下载并安装MySQL官方的Yum-Repository"><a href="#第一步：-下载并安装MySQL官方的Yum-Repository" class="headerlink" title="第一步： 下载并安装MySQL官方的Yum Repository"></a>第一步： 下载并安装MySQL官方的Yum Repository</h3><h4 id="1、下载安装文件"><a href="#1、下载安装文件" class="headerlink" title="1、下载安装文件"></a>1、下载安装文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="第一步：-下载并安装MySQL官方的Yum-Repository"><a href="#第一步：-下载并安装MySQL官方的Yum-Repository" class="headerlink" title="第一步： 下载并安装MySQL官方的Yum Repository"></a>第一步： 下载并安装MySQL官方的Yum Repository</h3><h4 id="1、下载安装文件"><a href="#1、下载安装文件" class="headerlink" title="1、下载安装文件"></a>1、下载安装文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm<br></code></pre></td></tr></table></figure>
 
 <p>使用上面的命令就直接下载了安装用的Yum Repository，大概25KB的样子，然后就可以直接yum安装了。</p>
-<h4 id="2、执行安装"><a href="#2、执行安装" class="headerlink" title="2、执行安装"></a>2、执行安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql57-community-release-el7-10.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h4 id="2、执行安装"><a href="#2、执行安装" class="headerlink" title="2、执行安装"></a>2、执行安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install mysql57-community-release-el7-10.noarch.rpm<br></code></pre></td></tr></table></figure>
 
 <p>之后就开始安装MySQL服务器。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install mysql-community-server<br></code></pre></td></tr></table></figure>
 
 <p>安装完成，会出现<code>Complete!</code>的提示。</p>
-<h3 id="第二步：-MySQL数据库设置"><a href="#第二步：-MySQL数据库设置" class="headerlink" title="第二步： MySQL数据库设置"></a>第二步： MySQL数据库设置</h3><h4 id="1、启动MySQL"><a href="#1、启动MySQL" class="headerlink" title="1、启动MySQL"></a>1、启动MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+<h3 id="第二步：-MySQL数据库设置"><a href="#第二步：-MySQL数据库设置" class="headerlink" title="第二步： MySQL数据库设置"></a>第二步： MySQL数据库设置</h3><h4 id="1、启动MySQL"><a href="#1、启动MySQL" class="headerlink" title="1、启动MySQL"></a>1、启动MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start mysqld.service<br></code></pre></td></tr></table></figure>
 
 <p>查看MySQL运行状态，运行状态如图：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl status mysqld.service<br></code></pre></td></tr></table></figure>
 
 <h4 id="2、查找临时密码"><a href="#2、查找临时密码" class="headerlink" title="2、查找临时密码"></a>2、查找临时密码</h4><p>通过如下命令可以在日志文件中找出密码：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep "password" /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep "password" /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>如果这里在日志文件中查找不到密码，很可能是之前安装过MySQL没有卸载干净。</p>
 <p><strong>处理方法：</strong></p>
 <ol>
 <li><p>删除原来安装过的mysql残留的数据（这一步非常重要，问题就出在这）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm -rf /var/lib/mysql<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>重启mysqld服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart mysqld<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>这时候再去找临时密码就能找到了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'temporary password' /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep 'temporary password' /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h4 id="3、进入数据库并修改密码"><a href="#3、进入数据库并修改密码" class="headerlink" title="3、进入数据库并修改密码"></a>3、进入数据库并修改密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<h4 id="3、进入数据库并修改密码"><a href="#3、进入数据库并修改密码" class="headerlink" title="3、进入数据库并修改密码"></a>3、进入数据库并修改密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mysql -uroot -p<br></code></pre></td></tr></table></figure>
 
 <p>输入查找到的临时密码，此时不能做任何事情，因为MySQL默认必须修改密码之后才能操作数据库：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';<br></code></pre></td></tr></table></figure>
 
 <p>其中‘new password’替换成你要设置的密码，注意:密码设置必须要大小写字母数字和特殊符号（,/‘;:等）,不然不能配置成功</p>
 <p>如果要修改为root这样的弱密码，需要进行以下配置：</p>
 <p>查看密码策略</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like '%password%';</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">show variables like '%password%';<br></code></pre></td></tr></table></figure>
 
 <p>修改密码策略</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/my.cnf<br></code></pre></td></tr></table></figure>
 
 <p>在文件中添加一下配置。</p>
 <p>选择0（LOW），1（MEDIUM），2（STRONG）其中一种，选择2需要提供密码字典文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">添加validate_password_policy配置</span></span><br><span class="line">validate_password_policy=0</span><br><span class="line"><span class="meta">#</span><span class="bash">关闭密码策略</span></span><br><span class="line">validate_password = off</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">添加validate_password_policy配置</span><br>validate_password_policy=0<br><span class="hljs-meta">#</span><span class="bash">关闭密码策略</span><br>validate_password = off<br></code></pre></td></tr></table></figure>
 
 <p>重启mysql服务使配置生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart mysqld<br></code></pre></td></tr></table></figure>
 
 <p>然后就可以修改为弱密码了。</p>
 <h3 id="第三步：-开启MySQL远程访问"><a href="#第三步：-开启MySQL远程访问" class="headerlink" title="第三步： 开启MySQL远程访问"></a>第三步： 开启MySQL远程访问</h3><h4 id="1、开启MySQL的远程访问"><a href="#1、开启MySQL的远程访问" class="headerlink" title="1、开启MySQL的远程访问"></a>1、开启MySQL的远程访问</h4><p>执行以下命令开启远程访问限制</p>
 <p><strong>注意：</strong></p>
 <p>1、下面命令开启的可访问数据库的IP： 192.168.0.1，如要开启所有的，用%代替IP</p>
 <p>2、需要用自己的密码代替下面的<code>password</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to 'root'@'192.168.0.1' identified by 'password' with grant option;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grant all privileges on *.* to 'root'@'192.168.0.1' identified by 'password' with grant option;<br></code></pre></td></tr></table></figure>
 
 <p>然后再输入下面两行命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flush privileges; </span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">flush privileges; <br>exit;<br></code></pre></td></tr></table></figure>
 
 <h4 id="2、为firewall添加开放端口"><a href="#2、为firewall添加开放端口" class="headerlink" title="2、为firewall添加开放端口"></a>2、为firewall添加开放端口</h4><p>添加mysql端口3306</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">firewall-cmd --zone=public --add-port=3306/tcp --permanent<br></code></pre></td></tr></table></figure>
 
 <p>然后再重新载入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">firewall-cmd --reload<br></code></pre></td></tr></table></figure>
 
 
         </div>
@@ -272,7 +287,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -288,6 +303,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&title=《CentOS7安装MySQL5.7》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&title=《CentOS7安装MySQL5.7》 — 何小智の博客&source=
+为公司服务器安装MySQL，记录一下过程
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7安装MySQL5.7》 — 何小智の博客&url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -402,9 +464,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&title=《CentOS7安装MySQL5.7》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&title=《CentOS7安装MySQL5.7》 — 何小智の博客&source=
+为公司服务器安装MySQL，记录一下过程
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7安装MySQL5.7》 — 何小智の博客&url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/05/16/CentOS7%E5%AE%89%E8%A3%85MySQL/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

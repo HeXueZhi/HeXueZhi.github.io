@@ -2,6 +2,15 @@
 <html>
 <head>
     
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 
     
 
@@ -10,6 +19,8 @@
 
 
     <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
     
     
     
@@ -24,7 +35,7 @@
     <meta name="description" content="创建Dapp的第一步，搭建私链。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以太坊搭建私链">
-<meta property="og:url" content="http://yoursite.com/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
+<meta property="og:url" content="https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
 <meta property="og:site_name" content="何小智の博客">
 <meta property="og:description" content="创建Dapp的第一步，搭建私链。">
 <meta property="og:locale" content="zh_CN">
@@ -126,6 +137,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -190,60 +205,60 @@
 <h3 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h3><p><a href="https://pan.baidu.com/s/1D3XUY_WCfw_FqXeu-E-haA" target="_blank" rel="noopener">go、cmake以及geth资源下载</a>，提取码：qfe2</p>
 <h4 id="1-1-安装go"><a href="#1-1-安装go" class="headerlink" title="1.1 安装go"></a>1.1 安装go</h4><ol>
 <li><p>下载源码，上传至<code>opt/module</code>，解压。以下所有的文件解压后的文件夹，全部修改文件夹名为：<strong>包名+版本号</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf go1.14.6.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xvf go1.14.6.linux-amd64.tar.gz<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT&#x3D;&#x2F;opt&#x2F;module&#x2F;go1.14.6</span><br><span class="line">#GOPATH需要自己新建一个文件夹</span><br><span class="line">export GOPATH&#x3D;&#x2F;root&#x2F;Code&#x2F;go</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go1.14.6&#x2F;bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">export GOROOT&#x3D;&#x2F;opt&#x2F;module&#x2F;go1.14.6<br>#GOPATH需要自己新建一个文件夹<br>export GOPATH&#x3D;&#x2F;root&#x2F;Code&#x2F;go<br>export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go1.14.6&#x2F;bin<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
 </li>
 <li><p>验证安装:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">go version<br></code></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h4 id="1-2-安装cmake"><a href="#1-2-安装cmake" class="headerlink" title="1.2 安装cmake"></a>1.2 安装cmake</h4><ol>
 <li><p>下载源码，上传至<code>opt/module</code>，解压</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf cmake-3.15.2.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xvf cmake-3.15.2.tar.gz<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;cmake3.15.2&#x2F;bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;cmake3.15.2&#x2F;bin<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
 </li>
 <li><p>安装gcc程序包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make automake</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install -y gcc gcc-c++ make automake<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>进入cmke目录执行以下下命令，完成编译。这几步时间有些长，耐心等待。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cmake3.15.2</span><br><span class="line">./bootstrap</span><br><span class="line">gmake</span><br><span class="line">gmake install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> cmake3.15.2<br>./bootstrap<br>gmake<br>gmake install<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>验证安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cmake --version<br></code></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h3 id="二、安装geth"><a href="#二、安装geth" class="headerlink" title="二、安装geth"></a>二、安装geth</h3><ol>
 <li><p><a href="https://github.com/ethereum/go-ethereum/releases" target="_blank" rel="noopener">下载源码</a>，上传至<code>opt/module</code>，解压。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf go-ethereum-1.9.19.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar zxvf go-ethereum-1.9.19.tar.gz<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>设置环境变量，<code>vim /etc/profile</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go-ethereum1.9.19&#x2F;build&#x2F;bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">export PATH&#x3D;$PATH:&#x2F;opt&#x2F;module&#x2F;go-ethereum1.9.19&#x2F;build&#x2F;bin<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>执行<code>source /etc/profile</code>更新环境变量配置。</p>
 </li>
 <li><p>执行以下命令来编译源码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go env -w GOPROXY=https://goproxy.cn</span><br><span class="line"><span class="built_in">cd</span> go-ethereum1.9.19</span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">go env -w GOPROXY=https://goproxy.cn<br><span class="hljs-built_in">cd</span> go-ethereum1.9.19<br>make all<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>验证安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth version</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">geth version<br></code></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h3 id="三、geth操作"><a href="#三、geth操作" class="headerlink" title="三、geth操作"></a>三、geth操作</h3><h4 id="1、启动节点同步，（搭建私链不需要）"><a href="#1、启动节点同步，（搭建私链不需要）" class="headerlink" title="1、启动节点同步，（搭建私链不需要）"></a>1、启动节点同步，（搭建私链不需要）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --syncmode fast</span><br><span class="line">//一快速模式同步区块，只会下载每个区块同和区块体，不会执行验证所有的交易。</span><br><span class="line"></span><br><span class="line">geth --testnet --datadit . --syncmode fast</span><br></pre></td></tr></table></figure>
+<h3 id="三、geth操作"><a href="#三、geth操作" class="headerlink" title="三、geth操作"></a>三、geth操作</h3><h4 id="1、启动节点同步，（搭建私链不需要）"><a href="#1、启动节点同步，（搭建私链不需要）" class="headerlink" title="1、启动节点同步，（搭建私链不需要）"></a>1、启动节点同步，（搭建私链不需要）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">geth --datadir . --syncmode fast<br>//一快速模式同步区块，只会下载每个区块同和区块体，不会执行验证所有的交易。<br><br>geth --testnet --datadit . --syncmode fast<br></code></pre></td></tr></table></figure>
 
 <h4 id="2、开发者模式"><a href="#2、开发者模式" class="headerlink" title="2、开发者模式"></a>2、开发者模式</h4><p>开发者模式：是为方便以太坊开发者在以太坊平台上开发测试所建立的一种模式。开发者模式相比自己搭建私链有很多好处，比如不需要链码，会预留一个拥有巨额ETH的账户，账户之间转账不需要先解锁，采用POA证明方式，自动进行挖矿且有交易才挖矿（不会一直挖矿消耗资源）。总体是类似与ganache的模拟链。</p>
 <p><strong>开发者模式的开启方法：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir devChain</span><br><span class="line"><span class="built_in">cd</span> devChain</span><br><span class="line">geth --datadir . --dev --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir devChain<br><span class="hljs-built_in">cd</span> devChain<br>geth --datadir . --dev --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="hljs-string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log<br></code></pre></td></tr></table></figure>
 
 <p>参数说明：</p>
 <ul>
@@ -252,24 +267,24 @@
 <li>–nodiscover：不发现同一个networkid其他节点。</li>
 <li>–networkid：以太坊的网路id，可以自己任意取值。</li>
 <li>–rpc：开启rpc接口，Dapp就是通过rpc方式来与以太坊进行交互。</li>
-<li>–rpcaddr：rpc的ip，默认是localhost，这里填写的是CentOS本机的IP。如在本地运行虚拟机，网络IP最好不要用DHCP模式获取，<a href="https://hexuezhi.github.io/2020/05/20/CentOS7设置网络/" target="_blank" rel="noopener">固定IP的设置方法</a>。如是远程服务器，填服务器的ip即可。</li>
-<li>–rpcport：rpc端口，需要将防火墙中的8545端口开放，开放方法：<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/" target="_blank" rel="noopener">防火墙设置</a></li>
+<li>–rpcaddr：rpc的ip，默认是localhost，这里填写的是CentOS本机的IP。如在本地运行虚拟机，网络IP最好不要用DHCP模式获取，<a href="https://hexuezhi.github.io/2020/05/20/CentOS7设置网络/">固定IP的设置方法</a>。如是远程服务器，填服务器的ip即可。</li>
+<li>–rpcport：rpc端口，需要将防火墙中的8545端口开放，开放方法：<a href="https://hexuezhi.github.io/2020/06/26/CentOS7防火墙设置/">防火墙设置</a></li>
 <li>console：开启console，能够和geth交互。</li>
 <li>–allow-insecure-unlock：没有这个参数,无法解锁账户。</li>
 <li>2&gt;output.log：将输出重定向到文件中。</li>
 </ul>
 <p>output.log中会包括私链开启以及挖矿的详细信息，执行以下命令可以查看私链运行状态：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f output.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tail -f output.log<br></code></pre></td></tr></table></figure>
 
 <h4 id="3、搭建私链"><a href="#3、搭建私链" class="headerlink" title="3、搭建私链"></a>3、搭建私链</h4><p>新建mychain文件夹，创建genesis.json</p>
 <p><strong>chainId：</strong>以太坊的链的id，可以自己随便取值，但是需要注意搭建私链时，这个值<strong>不能与以太坊主网或者是测试网的chainId相同</strong>。<a href="https://chainid.network/" target="_blank" rel="noopener">以太坊chainId查询</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">    <span class="attr">"chainId"</span>: <span class="number">666</span>,</span><br><span class="line">    <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip150Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip150Hash"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">    <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"eip158Block"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"byzantiumBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"constantinopleBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"petersburgBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"istanbulBlock"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"ethash"</span>: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"nonce"</span>: <span class="string">"0x0"</span>,</span><br><span class="line">  <span class="attr">"timestamp"</span>: <span class="string">"0x5ddf8f3e"</span>,</span><br><span class="line">  <span class="attr">"extraData"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"gasLimit"</span>: <span class="string">"0x47b760"</span>,</span><br><span class="line">  <span class="attr">"difficulty"</span>: <span class="string">"0x00002"</span>,</span><br><span class="line">  <span class="attr">"mixHash"</span>: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"coinbase"</span>: <span class="string">"0x0000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"alloc"</span>: &#123; &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  "number": "0x0",</span><br><span class="line">  "gasUsed": "0x0",</span><br><span class="line">  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  "config": &#123;<br>    "chainId": 666,<br>    "homesteadBlock": 0,<br>    "eip150Block": 0,<br>    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",<br>    "eip155Block": 0,<br>    "eip158Block": 0,<br>    "byzantiumBlock": 0,<br>    "constantinopleBlock": 0,<br>    "petersburgBlock": 0,<br>    "istanbulBlock": 0,<br>    "ethash": &#123;&#125;<br>  &#125;,<br>  "nonce": "0x0",<br>  "timestamp": "0x5ddf8f3e",<br>  "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",<br>  "gasLimit": "0x47b760",<br>  "difficulty": "0x00002",<br>  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",<br>  "coinbase": "0x0000000000000000000000000000000000000000",<br>  "alloc": &#123; &#125;<br>  &#125;,<br>  "number": "0x0",<br>  "gasUsed": "0x0",<br>  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>在mychain文件夹下，初始化链json</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . init genesis.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">geth --datadir . init genesis.json<br></code></pre></td></tr></table></figure>
 
 <p>启动私链，<code>networkid</code>和<code>rpcaddr</code>的设置方法同开发者模式。查看输出日志<code>output.log</code>同上。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir . --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">geth --datadir . --nodiscover --networkid 1234 --rpc --rpccorsdomain <span class="hljs-string">"*"</span> --rpcaddr 192.168.2.151 --rpcport 8545 console --allow-insecure-unlock 2&gt;output.log<br></code></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>搭建私链后一定要进行以下测试，看是否能够正常发起交易。</p>
 <h4 id="4、私链console"><a href="#4、私链console" class="headerlink" title="4、私链console"></a>4、私链console</h4><p>验证交易的步骤是：</p>
@@ -280,35 +295,35 @@
 <li>查看recipient余额</li>
 </ol>
 <p>查看块数量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.blockNumber<br></code></pre></td></tr></table></figure>
 
 <p>创建账户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">personal.newAccount(<span class="string">"password"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">personal.newAccount(<span class="hljs-string">"password"</span>)<br></code></pre></td></tr></table></figure>
 
 <p>执行挖矿：(这一步会生成DAG，花费时间会很长，需要耐心等待到100%)</p>
 <p>如果出块速度很慢，可以设置链码的<code>difficulty</code>参数，或者提高虚拟机的内存和核心数量，然后执行<code>miner.start(2)</code>来执行多线程挖矿。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.start(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">miner.start(1)<br></code></pre></td></tr></table></figure>
 
 <p>获取账户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my=eth.accounts[0]</span><br><span class="line">other=eth.accounts[1]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">my=eth.accounts[0]<br>other=eth.accounts[1]<br></code></pre></td></tr></table></figure>
 
 <p>解锁账户（发起交易前需要对sender解锁）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">personal.unlockAccount(my)</span><br><span class="line">//随后输入密码：1234</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">personal.unlockAccount(my)<br>//随后输入密码：1234<br></code></pre></td></tr></table></figure>
 
 <p>查看余额：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.getBalance(other)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.getBalance(other)<br></code></pre></td></tr></table></figure>
 
 <p>发起转账：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.sendTransaction(&#123;from:my, to:other, value:10000&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.sendTransaction(&#123;from:my, to:other, value:10000&#125;)<br></code></pre></td></tr></table></figure>
 
 <p>如果没有挖矿</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">txpool.status//查看本地交易池中有没有待确认的交易</span><br><span class="line">eth.getBlock(<span class="string">"pending"</span>,<span class="literal">true</span>).transactions//查看当前待确认的交易</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">txpool.status//查看本地交易池中有没有待确认的交易<br>eth.getBlock(<span class="hljs-string">"pending"</span>,<span class="hljs-literal">true</span>).transactions//查看当前待确认的交易<br></code></pre></td></tr></table></figure>
 
 <p>查看交易信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.getTransaction(<span class="string">"交易哈希"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.getTransaction(<span class="hljs-string">"交易哈希"</span>)<br></code></pre></td></tr></table></figure>
 
 <p>通过区块号查看区块信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.getBlock(0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.getBlock(0)<br></code></pre></td></tr></table></figure>
 
 
         </div>
@@ -326,7 +341,7 @@
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://hexuezhi.github.io">
             <img src="https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" alt="RenKeXZ">
             RenKeXZ
         </a>
@@ -342,6 +357,53 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&title=《以太坊搭建私链》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&title=《以太坊搭建私链》 — 何小智の博客&source=
+创建Dapp的第一步，搭建私链。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以太坊搭建私链》 — 何小智の博客&url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -456,9 +518,57 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&title=《以太坊搭建私链》 — 何小智の博客&pic=https://i.loli.net/2020/09/05/AfQq4SoTmZtK3Rg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&title=《以太坊搭建私链》 — 何小智の博客&source=
+创建Dapp的第一步，搭建私链。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《以太坊搭建私链》 — 何小智の博客&url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/&via=https://hexuezhi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://hexuezhi.github.io/2020/04/30/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
