@@ -32,15 +32,15 @@ ga('send', 'pageview');
     
     
     <meta name="keywords" content="文件">
-    <meta name="description" content="折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。   python文件操作。">
+    <meta name="description" content="python文件操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python文件操作">
 <meta property="og:url" content="https://hexuezhi.github.io/2020/12/03/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
 <meta property="og:site_name" content="何小智の博客">
-<meta property="og:description" content="折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。   python文件操作。">
+<meta property="og:description" content="python文件操作。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-03T12:41:33.650Z">
-<meta property="article:modified_time" content="2020-12-03T12:43:56.750Z">
+<meta property="article:modified_time" content="2020-12-26T06:57:51.250Z">
 <meta property="article:author" content="RenKeXZ">
 <meta property="article:tag" content="文件">
 <meta name="twitter:card" content="summary">
@@ -171,7 +171,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#with-open-as-f-用法"><span class="post-toc-text">with open() as f:用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-常见用法："><span class="post-toc-text">1. 常见用法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-先关参数："><span class="post-toc-text">2. 先关参数：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-f的方法属性："><span class="post-toc-text">3. f的方法属性：</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、普通文本文件"><span class="post-toc-text">一、普通文本文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#with-open-as-f-用法"><span class="post-toc-text">with open() as f:用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-常见用法："><span class="post-toc-text">1. 常见用法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-先关参数："><span class="post-toc-text">2. 先关参数：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-f的方法属性："><span class="post-toc-text">3. f的方法属性：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、json文件"><span class="post-toc-text">二、json文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-写入"><span class="post-toc-text">1. 写入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-读取"><span class="post-toc-text">2. 读取</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、csv文件"><span class="post-toc-text">三、csv文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-写入-1"><span class="post-toc-text">1. 写入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-读取-1"><span class="post-toc-text">2. 读取</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -198,14 +198,11 @@ ga('send', 'pageview');
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。</p>
-</blockquote>
-<blockquote>
 <p>python文件操作。</p>
 </blockquote>
 <a id="more"></a>
 
-<h3 id="with-open-as-f-用法"><a href="#with-open-as-f-用法" class="headerlink" title="with open() as f:用法"></a>with open() as f:用法</h3><h4 id="1-常见用法："><a href="#1-常见用法：" class="headerlink" title="1. 常见用法："></a>1. 常见用法：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">r'filename.txt'</span>) <span class="hljs-keyword">as</span> f:<br>    <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> f:<br>        l = json.loads(l)  <span class="hljs-comment">#文件的读操作</span><br><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">'Hello.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:<br>   f.write(<span class="hljs-string">'hello world'</span>)  <span class="hljs-comment">#文件的写操作</span><br></code></pre></td></tr></table></figure>
+<h2 id="一、普通文本文件"><a href="#一、普通文本文件" class="headerlink" title="一、普通文本文件"></a>一、普通文本文件</h2><h3 id="with-open-as-f-用法"><a href="#with-open-as-f-用法" class="headerlink" title="with open() as f:用法"></a>with open() as f:用法</h3><h4 id="1-常见用法："><a href="#1-常见用法：" class="headerlink" title="1. 常见用法："></a>1. 常见用法：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">r'filename.txt'</span>) <span class="hljs-keyword">as</span> f:<br>    <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> f:<br>        l = json.loads(l)  <span class="hljs-comment">#文件的读操作</span><br><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">'Hello.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:<br>   f.write(<span class="hljs-string">'hello world'</span>)  <span class="hljs-comment">#文件的写操作</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="2-先关参数："><a href="#2-先关参数：" class="headerlink" title="2. 先关参数："></a>2. 先关参数：</h4><ul>
 <li>r:    以只读方式打开文件。文件的指针将会放在文件的开头。这是<strong>默认模式</strong>。</li>
@@ -222,6 +219,16 @@ ga('send', 'pageview');
 <li>ab+:以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</li>
 </ul>
 <h4 id="3-f的方法属性："><a href="#3-f的方法属性：" class="headerlink" title="3. f的方法属性："></a>3. f的方法属性：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">file.read([size])   <span class="hljs-comment">#将文件数据作为字符串返回，可选参数size控制读取的字节数</span><br>file.readlines([size])   <span class="hljs-comment">#返回文件中行内容的列表，size参数可选</span><br>file.write(str)   <span class="hljs-comment">#将字符串写入文件</span><br>file.writelines(strings)   <span class="hljs-comment">#将字符串序列写入文件</span><br>file.close()   <span class="hljs-comment">#关闭文件</span><br>file.closed	  <span class="hljs-comment">#表示文件已经被关闭，否则为False</span><br><br>file.mode	<span class="hljs-comment">#Access文件打开时使用的访问模式</span><br>file.encoding	<span class="hljs-comment">#文件所使用的编码</span><br>file.name	<span class="hljs-comment">#文件名</span><br>file.newlines	<span class="hljs-comment">#未读取到行分隔符时为None，只有一种行分隔符时为一个字符串，当文件有多种类型的行结束符时，则为一个包含所有当前所遇到的行结束的列表</span><br>file.softspace	<span class="hljs-comment">#为0表示在输出一数据后，要加上一个空格符，1表示不加。这个属性一般程序员用不着，由程序内部使用</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二、json文件"><a href="#二、json文件" class="headerlink" title="二、json文件"></a>二、json文件</h2><h3 id="1-写入"><a href="#1-写入" class="headerlink" title="1. 写入"></a>1. 写入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">'jsonfile.json'</span>,<span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:<br>    json.dump(data, f, indent=<span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-读取"><a href="#2-读取" class="headerlink" title="2. 读取"></a>2. 读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">'jsonfile.json'</span>,<span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:<br>    data = json.load(f)<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、csv文件"><a href="#三、csv文件" class="headerlink" title="三、csv文件"></a>三、csv文件</h2><h3 id="1-写入-1"><a href="#1-写入-1" class="headerlink" title="1. 写入"></a>1. 写入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> codecs<br><span class="hljs-keyword">import</span> csv<br><br><span class="hljs-keyword">with</span> codecs.open(<span class="hljs-string">'accountFeature.csv'</span>,<span class="hljs-string">'w'</span>,<span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:<br>    writer = csv.writer(csvfile)<br>    <span class="hljs-comment">#写入csv的字段，需要的继续后面添加</span><br>    writer.writerow([<span class="hljs-string">'addr'</span>, <br>                     <span class="hljs-string">'bal'</span>, <br>                     <span class="hljs-string">'totalGet'</span>, <br>                     <span class="hljs-string">'totalSend'</span>, <br>                     <span class="hljs-string">'pr'</span>, <br>                     <span class="hljs-string">'maxSend'</span>, <br>                     <span class="hljs-string">'avgFee'</span><br>                    ])<br>    <span class="hljs-comment">#writer.writerow(['userId','group','batch','testId'])</span><br>    <span class="hljs-keyword">for</span> addr <span class="hljs-keyword">in</span> orderAddr:<br>        writer.writerows([[addr,<br>                           feature[addr][<span class="hljs-string">'bal'</span>],<br>                           feature[addr][<span class="hljs-string">'totalGet'</span>],<br>                           feature[addr][<span class="hljs-string">'totalSend'</span>],<br>                           feature[addr][<span class="hljs-string">'pr'</span>],<br>                           feature[addr][<span class="hljs-string">'maxSend'</span>],<br>                           feature[addr][<span class="hljs-string">'avgFee'</span>]<br>                          ]])<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-读取-1"><a href="#2-读取-1" class="headerlink" title="2. 读取"></a>2. 读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> codecs<br><span class="hljs-keyword">import</span> csv<br><br><span class="hljs-keyword">with</span> codecs.open(file_name+<span class="hljs-string">'.csv'</span>,<span class="hljs-string">'r'</span>,<span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:<br>    reader = csv.reader(csvfile)<br>    result = list(reader)<br></code></pre></td></tr></table></figure>
+
+
         </div>
 
         <blockquote class="post-copyright">
@@ -229,7 +236,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-03T12:43:56.750Z" itemprop="dateUpdated">2020-12-03 20:43:56</time>
+    最后更新时间：<time datetime="2020-12-26T06:57:51.250Z" itemprop="dateUpdated">2020-12-26 14:57:51</time>
 </span><br>
 
 
@@ -274,9 +281,6 @@ ga('send', 'pageview');
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/12/03/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/&title=《python文件操作》 — 何小智の博客&source=
-折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。
-
-
 python文件操作。
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
@@ -462,9 +466,6 @@ python文件操作。
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexuezhi.github.io/2020/12/03/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/&title=《python文件操作》 — 何小智の博客&source=
-折腾了一下自己的linux的shell，更换为oh-my-zsh，并更换主题,安装提示插件。
-
-
 python文件操作。
 " data-title=" QQ">
           <i class="icon icon-qq"></i>
